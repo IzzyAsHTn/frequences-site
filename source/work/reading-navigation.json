@@ -1,0 +1,80 @@
+[
+  {
+    "number": 1,
+    "name": "Audio",
+    "anchor": "lectures",
+    "notes": [
+      {
+        "file": "buffer-audio.html",
+        "title": "Le buffer audio, en clair"
+      },
+      {
+        "file": "echantillonnage-audio.html",
+        "title": "Le son devient une suite de nombres"
+      },
+      {
+        "file": "modulaire-sans-mur.html",
+        "title": "Le modulaire sans le mur de câbles"
+      },
+      {
+        "file": "controleur-devient-instrument.html",
+        "title": "Quand le contrôleur devient instrument"
+      },
+      {
+        "file": "familles-de-filtres.html",
+        "title": "Un filtre, quatre façons d’écouter"
+      },
+      {
+        "file": "enveloppe-adsr.html",
+        "title": "La note a son temps"
+      },
+      {
+        "file": "modulations.html",
+        "title": "Le son en mouvement"
+      },
+      {
+        "file": "oscillateur.html",
+        "title": "La matière du son"
+      },
+      {
+        "file": "effets-audio.html",
+        "title": "Le son prend sa place"
+      }
+    ]
+  },
+  {
+    "number": 2,
+    "name": "MIDI",
+    "anchor": "cahier-02",
+    "notes": [
+      {
+        "file": "midi-ne-transporte-pas-le-son.html",
+        "title": "Le MIDI ne transporte pas le son"
+      },
+      {
+        "file": "midi-note-evenement.html",
+        "title": "Une note est un événement"
+      },
+      {
+        "file": "midi-routage.html",
+        "title": "Faire arriver le message au bon endroit"
+      },
+      {
+        "file": "midi-controleur.html",
+        "title": "Un geste, une valeur"
+      },
+      {
+        "file": "midi-automation.html",
+        "title": "Le geste peut se répéter"
+      },
+      {
+        "file": "midi-dynamique.html",
+        "title": "Frapper, doser, exprimer"
+      },
+      {
+        "file": "midi-gestes-expressifs.html",
+        "title": "Le geste continue après l’attaque"
+      }
+    ]
+  }
+]
