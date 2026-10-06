@@ -149,4 +149,1192 @@
       .lab-mark { padding: 7px 9px; border: 1px solid rgba(184,198,107,.32); white-space: nowrap; }
       .gesture-readout { display: grid; grid-template-columns: 64px minmax(125px,1fr) minmax(150px,1.3fr); align-items: center; gap: 18px; padding: 24px 0; }
       .gesture-dial { --dial-angle: 0deg; width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid rgba(243,241,235,.32); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #263448, #111920 72%); box-shadow: inset 0 1px 6px rgba(255,255,255,.08), 0 8px 18px rgba(0,0,0,.22); }
-      .gesture-dial span { width: 2px; height: 21px; border-radius: 2px; background: var(--yellow); transform: rotate(var(--d
+      .gesture-dial span { width: 2px; height: 21px; border-radius: 2px; background: var(--yellow); transform: rotate(var(--dial-angle)) translateY(-8px); transform-origin: 50% 100%; transition: transform 120ms ease; }
+      .readout-label { display: block; margin-bottom: 5px; }
+      .gesture-readout output { color: var(--teal); font: 500 20px var(--mono); }
+      .spectrum { width: 100%; overflow: hidden; }
+      .spectrum-grid { fill: none; stroke: rgba(243,241,235,.12); stroke-dasharray: 2 5; stroke-width: 1; }
+      .spectrum-line { fill: none; stroke: var(--yellow); stroke-linecap: round; stroke-width: 3; transition: d 140ms ease; }
+      .control-label { display: flex; justify-content: space-between; gap: 10px; margin: 3px 0 8px; color: var(--muted); font-size: 9px; }
+      .gesture-slider { --progress: 48%; width: 100%; height: 8px; margin: 0 0 19px; appearance: none; border-radius: 99px; background: linear-gradient(90deg, var(--red) 0 var(--progress), rgba(243,241,235,.16) var(--progress) 100%); cursor: ew-resize; }
+      .gesture-slider::-webkit-slider-thumb { width: 18px; height: 18px; appearance: none; border: 3px solid var(--paper); border-radius: 50%; background: var(--yellow); box-shadow: 0 0 0 1px var(--yellow); }
+      .gesture-slider::-moz-range-thumb { width: 13px; height: 13px; border: 3px solid var(--paper); border-radius: 50%; background: var(--yellow); box-shadow: 0 0 0 1px var(--yellow); }
+      .lab-footer { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 14px; border-top: 1px solid var(--rule); }
+      .lab-footer p { max-width: 370px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+      .sound-button { min-height: 46px; padding: 0 18px; border: 1px solid var(--yellow); border-radius: 999px; background: var(--yellow); color: var(--paper); font: 700 12px var(--sans); cursor: pointer; transition: transform 160ms ease, box-shadow 160ms ease; }
+      .sound-button:hover { transform: translateY(-2px); box-shadow: 0 7px 20px rgba(217,168,59,.22); }
+      .sound-button span { margin-right: 7px; font-size: 10px; }
+      .sound-button[aria-pressed="true"] { background: transparent; color: var(--yellow); }
+      .sound-status { min-height: 18px; margin: 10px 0 0; color: var(--teal); font: 10px var(--mono); }
+      .exercise-list { padding-left: 20px; }
+      .exercise-list li { margin: 10px 0; padding-left: 4px; color: var(--muted); }
+      .exercise-list strong { color: var(--ink); }
+      @media (max-width: 600px) { .gesture-readout { grid-template-columns: 54px 1fr; gap: 13px; } .gesture-dial { width: 50px; height: 50px; } .spectrum { grid-column: 1 / -1; } .lab-heading { display: block; } .lab-mark { display: inline-block; margin-top: 10px; } .lab-footer { align-items: stretch; flex-direction: column; } .sound-button { align-self: flex-start; } }
+      @media (max-width: 800px) { .article-grid { grid-template-columns: 1fr; gap: 20px; } .side { position: static; grid-row: 1; } .toc { display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 12px 0 16px; border-left: 0; border-bottom: 1px solid var(--rule); } .toc-label { width: 100%; margin-bottom: 0; } .toc a { padding: 4px 0; } .side-card { display: none; } .route-list { grid-template-columns: repeat(2, minmax(0,1fr)); } .route-list li:nth-child(2)::after { display: none; } }
+      @media (max-width: 600px) { .page { width: calc(100% - 36px); } .masthead-inner { min-height: 68px; } .wordmark { gap: 8px; font-size: 20px; } .wordmark-symbol { width: 32px; height: 32px; } .wordmark-symbol svg { width: 20px; height: 20px; } .nav { gap: 10px; } .nav a { font-size: 11px; } .issue-tag { display: none; } .crumb { margin: 20px 0 19px; font-size: 10px; } .hero { padding: 19px 0 35px; } h1 { font-size: clamp(50px, 14vw, 76px); } .deck { font-size: 18px; } .route { margin-bottom: 45px; padding: 22px; } .route::before { inset: 8px; } .route-head { display: block; } .route-head span { display: inline-block; margin-top: 8px; } .route-list { gap: 7px; } .route-list li { min-height: 105px; padding: 12px 10px; } .route-list strong { font-size: 14px; } .route-list li::after { display: none; } .article-section { padding-bottom: 31px; margin-bottom: 31px; } h2 { font-size: 39px; } .lab { padding: 17px; } .lab-top { display: block; } .lab-mark { display: inline-block; margin-top: 8px; } .buffer-options { gap: 5px; } .buffer-option { font-size: 11px; } .patch-board { padding: 15px; } .patch-audio-path { grid-template-columns: 1fr; gap: 5px; } .patch-node { min-height: 78px; } .patch-arrow { transform: rotate(90deg); line-height: 1; } .patch-connections { grid-template-columns: 1fr; } .patch-connection { min-height: 0; } .result-grid { gap: 7px; } .result { min-height: 80px; padding: 11px 9px; } .result strong { font-size: 21px; } .footer-inner { min-height: 66px; align-items: start; flex-direction: column; justify-content: center; padding: 13px 0; } }
+      @media (max-width: 370px) { .page { width: calc(100% - 28px); } .wordmark { font-size: 17px; } .nav { gap: 7px; } .nav a { font-size: 10px; } .route { padding: 18px; } .route-list span { font-size: 11px; } .buffer-options { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: .01ms !important; } .buffer-option:hover, .patch-mode:hover { transform: none; } }
+    </style>
+  <style id="frequences-design-system" data-version="2026-10-06.13">
+/*
+ * Fréquences — direction industrielle rouge, version 2026-10-06.3.
+ * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
+ * Les couleurs des données des graphiques restent définies par chaque page.
+ */
+:root {
+  /* Color roles */
+  --ds-bg: #0e1012;
+  --ds-surface: #101214;
+  --ds-surface-raised: #1a1d20;
+  --ds-text: #f3f1eb;
+  --ds-text-muted: #aab1b2;
+  --ds-line: #42494c;
+  --ds-line-strong: #596165;
+  --ds-red: #ff321f;
+  --ds-red-soft: #ff6254;
+  --ds-headline: #f3f1eb;
+
+  /* Typography, 4px spacing scale, and shape */
+  --ds-display: Arial, Helvetica, sans-serif;
+  --ds-body: var(--sans, "DM Sans", "Arial Nova", sans-serif);
+  --ds-mono: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-6: 24px;
+  --ds-space-8: 32px;
+  --ds-breakpoint-tablet: 768px;
+  --ds-breakpoint-desktop: 1024px;
+  --ds-radius-panel: 0;
+  --ds-radius-control: 0;
+
+  /* Interaction timing */
+  --ds-duration-fast: 150ms;
+  --ds-duration-standard: 230ms;
+  --ds-ease-standard: cubic-bezier(.2, .7, .2, 1);
+  --ds-focus-ring: 0 0 0 3px rgba(255, 98, 84, .3);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+body[data-design-system="red-industrial"] {
+  background-color: var(--ds-bg);
+  color: var(--ds-text);
+  font-family: var(--ds-body);
+}
+
+/* Une portée explicite donne la priorité au système sur les styles locaux. */
+body[data-design-system] :is(h1, h2, h3) {
+  font-family: var(--ds-display);
+  color: var(--ds-headline);
+}
+
+body[data-design-system] :is(h1, .article-section > h2, .dossier h2, .reading-head h2, .atelier h2) {
+  color: var(--ds-headline);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -.055em;
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] h1 {
+  line-height: .94;
+}
+
+body[data-design-system] .masthead {
+  border-bottom-color: var(--ds-line);
+  background: var(--ds-bg);
+}
+
+body[data-design-system] .wordmark {
+  font-family: var(--ds-display);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .wordmark-symbol {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ds-text);
+  box-shadow: none;
+}
+
+body[data-design-system] .wordmark-symbol::after {
+  display: none;
+}
+
+body[data-design-system] .wordmark-symbol svg {
+  width: 28px;
+  height: 28px;
+  overflow: visible;
+}
+
+body[data-design-system] .wordmark-symbol .logo-rail {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+body[data-design-system] .wordmark-symbol .logo-slider {
+  fill: none;
+  stroke: var(--ds-red);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
+@media (max-width: 600px) {
+  body[data-design-system] .wordmark-symbol {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  body[data-design-system] .wordmark-symbol svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+body[data-design-system] .wordmark em {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .nav a {
+  color: var(--ds-text);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .nav a:hover {
+  color: var(--ds-red-soft);
+}
+
+/* L'accueil possède ses propres classes : elles sont couvertes explicitement. */
+body[data-design-system] .cover {
+  row-gap: 24px;
+}
+
+body[data-design-system] .cover h1 {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin-bottom: 0;
+  font-family: "Arial Black", "Arial Nova", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: clamp(66px, 9.2vw, 132px);
+  -webkit-text-stroke: .35px currentColor;
+  line-height: .92;
+  container-type: inline-size;
+}
+
+body[data-design-system] .cover-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-design-system] .cover-title-line {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  white-space: nowrap;
+  font-size: inherit;
+  font-size: min(1em, calc((100cqw - 44px) / 7));
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+body[data-design-system] .cover-title-word {
+  flex: 0 0 auto;
+}
+
+body[data-design-system] .cover-title-line::before,
+body[data-design-system] .cover-title-line::after {
+  content: "";
+  flex: 1 1 0;
+  min-width: 8px;
+  height: 2px;
+  background: currentColor;
+  opacity: .8;
+  transform: scaleX(.8);
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), opacity 280ms ease;
+}
+
+body[data-design-system] .cover-title-line::before {
+  transform-origin: right center;
+}
+
+body[data-design-system] .cover-title-line::after {
+  transform-origin: left center;
+}
+
+body[data-design-system] .cover-title-line:first-child::before,
+body[data-design-system] .cover-title-line:last-child::after {
+  flex: 0 0 clamp(12px, 2vw, 28px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] .cover-title-line:hover::before,
+  body[data-design-system] .cover-title-line:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-design-system] .cover-title-line::before,
+  body[data-design-system] .cover-title-line::after {
+    transform: none;
+    transition: none;
+  }
+}
+
+body[data-design-system] .cover-deck {
+  margin-top: 0;
+}
+
+@media (min-width: 981px) {
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1.15fr) minmax(370px, .85fr);
+    column-gap: clamp(28px, 4vw, 60px);
+  }
+
+  body[data-design-system] .cover-copy {
+    max-width: none;
+  }
+}
+
+body[data-design-system] .cover-figure {
+  border: 1px solid var(--ds-line-strong);
+  border-top: 3px solid var(--ds-red);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .cover-figure::before {
+  border: 0;
+}
+
+body[data-design-system] .reference-reset {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reference-reset:hover {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+}
+
+/* Les deux cahiers : objectif, notions et entrée dans le parcours. */
+body[data-design-system] .cover-start {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  margin-bottom: 14px;
+  color: var(--ds-red-soft);
+  font: 600 12px/1.4 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-intro {
+  padding-block: clamp(36px, 5vw, 64px);
+  border-bottom: 1px solid var(--ds-line);
+  scroll-margin-top: 24px;
+}
+
+body[data-design-system] .cahier-kicker {
+  margin: 0 0 12px;
+  color: var(--ds-red-soft);
+  font: 11px/1.5 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-intro > h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-lead {
+  max-width: 72ch;
+  margin: 0 0 28px;
+  color: var(--ds-text-muted);
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body[data-design-system] .cahier-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--ds-line);
+  border-top: 3px solid var(--ds-red);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .cahier-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 18px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .cahier-card-meta span:first-child {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-card h3 {
+  margin: 0 0 14px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+body[data-design-system] .cahier-objective {
+  margin: 0 0 22px;
+  color: var(--ds-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions-title {
+  margin: 0 0 10px;
+  color: var(--ds-text);
+  font: 11px/1.5 var(--ds-mono);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-notions {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  color: var(--ds-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions li + li {
+  margin-top: 9px;
+}
+
+body[data-design-system] .cahier-notions strong {
+  color: var(--ds-text);
+  font-weight: 600;
+}
+
+body[data-design-system] .cahier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ds-line);
+}
+
+body[data-design-system] .cahier-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-text-muted);
+  font: 600 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin {
+  padding: 10px 14px;
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  text-decoration: none;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin:hover {
+  background: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-practice {
+  margin: 20px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  body[data-design-system] .cahier-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Navigation de lecture : ordre des notes, sommaire et passage au cahier suivant. */
+body[data-design-system] .reading-path {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-position {
+  margin: 0 0 15px;
+  color: var(--ds-text-muted);
+  font: 11px/1.6 var(--ds-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reading-path-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+body[data-design-system] .reading-path-link {
+  min-width: 0;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  text-decoration: none;
+}
+
+body[data-design-system] .reading-path-link span {
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .reading-path-link strong {
+  color: var(--ds-text);
+  font: 600 15px/1.4 var(--ds-body);
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] .reading-path-link:hover {
+  border-color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-next {
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-next span {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-index {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  color: var(--ds-text-muted);
+  font: 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .reading-path-reference {
+  margin: 12px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .reading-path-reference a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-red-soft);
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 520px) {
+  body[data-design-system] .reading-path-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body[data-design-system] .signal-chain {
+  border-color: var(--ds-line-strong);
+}
+
+body[data-design-system] .signal-chain::before {
+  background: #111a24;
+}
+
+body[data-design-system] .signal-step {
+  border-right-color: var(--ds-line);
+}
+
+body[data-design-system] .signal-step-label {
+  font-weight: 500;
+}
+
+body[data-design-system] .signal-step b {
+  border-color: var(--ds-line-strong);
+  color: var(--ds-text-muted);
+}
+
+body[data-design-system] .signal-step::after,
+body[data-design-system] .signal-step[aria-current="step"]::after {
+  background: var(--ds-red);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible, [aria-current="step"]) b {
+  border-color: var(--ds-red);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible) .signal-step-arrow {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .story-columns section.is-active {
+  border-left-color: var(--ds-red);
+  background: rgba(255, 50, 31, .045);
+}
+
+body[data-design-system] :is(.story-columns h3, .article-row h3) {
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+
+body[data-design-system] .article-row {
+  border-color: var(--ds-line);
+  background: rgba(16, 18, 20, .8);
+}
+
+body[data-design-system] .article-row:hover {
+  background: var(--ds-surface-raised);
+}
+
+body[data-design-system] .article-topic {
+  border-color: var(--ds-red-soft);
+  background: transparent;
+  color: var(--ds-red-soft);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+}
+
+body[data-design-system] .article-topic::before {
+  background: var(--ds-red);
+}
+
+body[data-design-system] :is(.article-link, details summary) {
+  text-decoration-color: var(--ds-red);
+}
+
+body[data-design-system] :is(.toc, .side-card) {
+  padding: 16px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .toc-label {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .toc a {
+  border-top: 1px solid var(--ds-line);
+}
+
+::selection {
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] :focus-visible {
+  outline: 2px solid var(--ds-red-soft);
+  outline-offset: var(--ds-space-1);
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* One consistent dark instrument-console surface across every interactive lab. */
+body[data-design-system] :is(
+  .route,
+  .lab,
+  .controller-lab,
+  .gesture-lab,
+  .effect-lab,
+  .envelope-lab,
+  .filter-lab,
+  .modulation-lab,
+  .oscillator-lab
+) {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .route::before {
+  border: 0;
+}
+
+body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
+  font-family: var(--ds-display);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+/* Red is reserved for the primary action and selected controls. */
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
+  min-height: 44px;
+  border: 1px solid var(--ds-red);
+  border-radius: var(--ds-radius-control);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  font-family: var(--ds-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  background: var(--ds-red-soft);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
+  transform: translateY(0);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
+  border-color: var(--ds-red);
+  background: transparent;
+  color: var(--ds-red-soft);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+/* Le bouton d'écoute arrondi de l'accueil conserve la forme demandée. */
+body[data-design-system] .listen:not(.secondary) {
+  border-radius: 999px;
+}
+
+body[data-design-system] .action-button.secondary {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+}
+
+body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+  box-shadow: none;
+}
+
+/* Instrument choices keep their own chart colors; only selection chrome is unified. */
+body[data-design-system] :is(
+  .buffer-option,
+  .wave-option,
+  .filter-type,
+  .effect-pick,
+  .patch-mode,
+  .destination-pick
+)[aria-pressed="true"] {
+  border-color: var(--ds-red);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+body[data-design-system] .lab-mark {
+  border-color: var(--ds-red);
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] :is(.route-note, .control-explain, .routing-readout, .takeaway) {
+  border-left-color: var(--ds-red);
+}
+
+/* Keep all range controls keyboard and touch friendly; retain each page's value encoding. */
+body[data-design-system] input[type="range"] {
+  accent-color: var(--ds-red);
+  touch-action: pan-y;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  body[data-design-system] .masthead-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  body[data-design-system] .wordmark {
+    font-size: 22px;
+  }
+
+  body[data-design-system] .nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--ds-line);
+  }
+
+  body[data-design-system] .nav a {
+    font-size: 10px;
+    min-height: 44px;
+  }
+
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-design-system] .cover h1 {
+    font-size: clamp(46px, 13vw, 82px);
+  }
+
+  body[data-design-system] .cover-figure {
+    padding: 22px;
+  }
+
+  body[data-design-system] .dossier h2 {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+
+  body[data-design-system] .figure-foot {
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  body[data-design-system] .toc {
+    padding: 12px;
+  }
+}
+
+/* Une même hiérarchie pour les courbes, les repères et les schémas pédagogiques. */
+body[data-design-system] {
+  --chart-line: #e76524;
+  --chart-selected: #b8c66b;
+  --chart-grid: rgba(243, 241, 235, .13);
+}
+
+body[data-design-system] :is(.filter-graph-wrap, .envelope-display, .lfo-display,
+  .automation-chart, .cutoff-panel, .osc-wave-wrap, .harmonic-figure,
+  .spectrum-wrap, .level-meter, .timeline, .effect-display) {
+  min-width: 0;
+  border: 1px solid var(--ds-line);
+  border-radius: 0;
+  background: var(--ds-surface-raised);
+  box-shadow: none;
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) output {
+  color: var(--chart-selected);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] .chart-unit {
+  margin: 8px 0;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] svg[data-renderer="d3-line"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) text {
+  fill: var(--ds-text-muted);
+  font: 11px var(--ds-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) :is(.domain, .tick line) {
+  stroke: var(--ds-line-strong);
+  stroke-width: .75px;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] .chart-axes .domain {
+  display: none;
+}
+
+body[data-design-system] :is(.chart-grid line, .spectrum-d3-horizontal,
+  .spectrum-d3-vertical, .osc-wave-grid, .spectrum-grid, .lfo-grid,
+  .envelope-grid, .graph-grid, .automation-grid, .waveform .axis) {
+  stroke: var(--chart-grid);
+  stroke-width: .75px;
+  stroke-dasharray: 2 5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
+  .automation-path, .osc-wave-line, .spectrum-line, .spectrum-filtered,
+  .waveform .trace) {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: none;
+}
+
+body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
+  display: none;
+}
+
+body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {
+  stroke: var(--chart-selected);
+  stroke-width: 1px;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] :is(.envelope-point, .lfo-dot, .automation-point,
+  .spectrum-dot, .waveform .point) {
+  fill: var(--chart-selected);
+  stroke: var(--ds-bg);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] .waveform .wave-legend {
+  display: none;
+}
+
+body[data-design-system] .waveform-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .waveform .spectrum-bar {
+  fill: var(--chart-line);
+}
+
+body[data-design-system] :is(.stage-labels, .lfo-endpoints, .meter-scale, .time-axis) {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .level-fill {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-webkit-progress-value {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-moz-progress-bar {
+  background: var(--chart-selected);
+}
+
+/* Une piste fine et une zone de manipulation assez haute pour le toucher. */
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] .cc-slider::-webkit-slider-runnable-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] .cc-slider::-moz-range-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):hover {
+    transform: none;
+  }
+}
+</style>
+</head>
+  <body data-design-system="red-industrial">
+    <header class="masthead">
+      <div class="page masthead-inner">
+        <a class="wordmark" href="index.html#accueil" aria-label="Fréquences, accueil"><span class="wordmark-symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="logo-rail" d="M6 4v16M12 4v16M18 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="logo-slider" d="M3 8h6M9 16h6M15 11h6" fill="none" stroke="var(--ds-red)" stroke-width="3.2" stroke-linecap="round"/></svg></span><span>fréquences <em>.</em></span></a>
+        <nav class="nav" aria-label="Navigation principale"><a href="index.html#dossier">Dossier</a><a href="reperes.html">Repères</a><a href="index.html#lectures">Sommaire</a></nav>
+        <span class="issue-tag">cahier 01 / 2026</span>
+      </div>
+    </header>
+    <main class="page">
+      <nav class="crumb" aria-label="Fil d’Ariane"><a href="index.html#accueil">Accueil</a><span aria-hidden="true">/</span><a href="index.html#lectures">Cahier 01 · Audio</a><span aria-hidden="true">/</span><span aria-current="page">Note 04 sur 09</span></nav>
+      <header class="hero">
+        <p class="kicker">03 / GESTE · 5 MIN DE LECTURE</p>
+        <h1>Quand le contrôleur devient instrument.</h1>
+        <p class="deck">Un bouton ne devient musical ni par sa forme ni par sa technologie. Il le devient quand le mouvement de la main trouve une réponse sonore qu’on a envie de jouer.</p>
+        <div class="meta"><span>Donner une intention au geste</span><span>mapping · plage · réponse · expression</span></div>
+      </header>
+
+      <figure class="route" aria-labelledby="route-title">
+        <div class="route-head"><h2 id="route-title">Le geste traverse plusieurs étapes.</h2><span>DU DOIGT AU SON</span></div>
+        <ol class="route-list">
+          <li><b>01 / ACTION</b><strong>La main</strong><span>Tourne, glisse, presse ou frappe.</span></li>
+          <li><b>02 / MESSAGE</b><strong>Le contrôleur</strong><span>Traduit le geste en valeur MIDI ou en donnée.</span></li>
+          <li><b>03 / CIBLE</b><strong>Le paramètre</strong><span>Reçoit une variation : filtre, volume, hauteur…</span></li>
+          <li><b>04 / RÉPONSE</b><strong>Le son</strong><span>Change et donne un retour au geste.</span></li>
+        </ol>
+        <figcaption class="route-note">Le contrôleur envoie une commande ; le logiciel ou le synthétiseur décide de son effet sonore. Le lien entre les deux se construit et se règle.</figcaption>
+      </figure>
+
+      <div class="article-grid">
+        <article>
+          <section class="article-section" id="intention">
+            <p class="section-index">01 / INTENTION</p>
+            <h2>Une commande devient musicale par sa réponse.</h2>
+            <p>Un fader, une molette, un pad ou un ruban tactile ne produit pas nécessairement de son à lui seul. Il fournit une action que l’on peut associer à un paramètre d’un instrument ou d’un logiciel. Quand la relation est claire — tourner pour ouvrir le filtre, presser pour augmenter la pression, déplacer le doigt pour faire varier la hauteur — le geste prend une fonction musicale.</p>
+            <p>La forme du contrôle compte parce qu’elle prépare la main. Un fader invite à parcourir une course rectiligne ; une molette permet de doser un changement continu ; un bouton convient à une action ponctuelle. Mais la sensation dépend aussi de la réponse : un réglage trop brusque ou trop large peut rendre le mouvement difficile à jouer.</p>
+            <aside class="pullquote"><strong>La bonne question :</strong> quel mouvement veux-tu faire, et quelle transformation sonore devrait lui répondre ?</aside>
+          </section>
+
+          <section class="article-section" id="laboratoire">
+            <p class="section-index">02 / PETIT LABORATOIRE</p>
+            <h2>Fais correspondre la course et l’oreille.</h2>
+            <p>Essaie ici une commande virtuelle de coupure de filtre. Elle ne pilote pas un appareil MIDI connecté : elle illustre localement le lien entre une position, une valeur affichée et le son synthétisé par cette page. Lance l’écoute, puis déplace doucement le curseur.</p>
+            <div class="gesture-lab" id="gesture-lab">
+              <div class="lab-heading"><div><span class="lab-index">COMMANDE 01</span><h3>Ouverture du filtre</h3></div><span class="lab-mark">GESTE → TIMBRE</span></div>
+              <div class="gesture-readout"><div class="gesture-dial" id="gesture-dial" aria-hidden="true"><span></span></div><div><span class="readout-label">FRÉQUENCE DE COUPURE</span><output id="cutoff-value" for="cutoff-control">1 200 Hz</output></div><svg class="spectrum" viewBox="0 0 300 90" role="img" aria-label="Visualisation indicative du filtre passe-bas"><path class="spectrum-grid" d="M0 20H300M0 45H300M0 70H300M50 0V90M100 0V90M150 0V90M200 0V90M250 0V90"/><path id="spectrum-line" class="spectrum-line" d="M0 16 C30 18 35 22 55 27 S90 38 115 42 S150 44 180 45 H300"/></svg></div>
+              <label class="control-label" for="cutoff-control"><span>FERMÉ</span><span>POSITION DU GESTE</span><span>OUVERT</span></label>
+              <input id="cutoff-control" class="gesture-slider" type="range" min="0" max="100" value="48" aria-describedby="gesture-help">
+              <div class="lab-footer"><p id="gesture-help">La plage est resserrée autour des fréquences utiles : le curseur devient plus facile à doser.</p><button type="button" class="sound-button" id="sound-toggle" aria-pressed="false"><span aria-hidden="true">▶</span> Écouter</button></div>
+              <p class="sound-status" id="sound-status" aria-live="polite">Écoute inactive. Le son ne démarre qu’à ta demande.</p>
+            </div>
+            <p>Dans un logiciel de musique, l’assignation MIDI suit souvent trois gestes simples : choisir le paramètre, activer le mode d’assignation, puis bouger le contrôle physique. La procédure précise varie selon le logiciel, mais le principe reste lisible : une commande est reliée à une cible.</p>
+          </section>
+
+          <section class="article-section" id="plage">
+            <p class="section-index">03 / PLAGE ET RÉPONSE</p>
+            <h2>Le réglage de la course change le jeu.</h2>
+            <p>Un contrôle peut couvrir toute la valeur du paramètre ou seulement une zone. Pour un filtre, balayer de presque fermé à très ouvert peut être spectaculaire, mais difficile à répéter. Réduire la plage à une zone musicale rend le geste plus précis. Le bon réglage dépend du son, du morceau et de la façon de jouer.</p>
+            <p>La réponse n’est pas toujours linéaire. Pour une fréquence, une même distance parcourue sur le curseur ne devrait pas forcément ajouter le même nombre de hertz à chaque étape : l’oreille perçoit les rapports de fréquence plus que les écarts arithmétiques. Une courbe adaptée peut donc rendre le début de course plus utile et le balayage plus naturel.</p>
+            <p>La correspondance entre la position physique et la valeur logicielle compte également. Sur un potentiomètre absolu, bouger peut provoquer un saut si le paramètre était resté à une autre valeur. Certains appareils proposent une reprise progressive (« soft takeover ») : la commande n’agit qu’après avoir rejoint la valeur existante. Les encodeurs relatifs, eux, envoient plutôt des indications d’augmentation ou de diminution.</p>
+            <aside class="pullquote"><strong>À régler à l’oreille :</strong> plage minimale, plage maximale, vitesse de réponse et éventuel lissage du mouvement.</aside>
+          </section>
+
+          <section class="article-section" id="expression">
+            <p class="section-index">04 / EXPRESSION</p>
+            <h2>Du contrôle global au geste par note.</h2>
+            <p>Une molette de modulation agit souvent sur une partie ou sur l’ensemble du son. Les contrôles expressifs peuvent aller plus loin : certains claviers et surfaces transmettent plusieurs dimensions de jeu, comme la pression ou le déplacement du doigt. Avec MIDI Polyphonic Expression (MPE), l’expression peut être transmise séparément pour les notes d’un accord, sous réserve que le contrôleur, le logiciel et l’instrument prennent en charge cette fonction.</p>
+            <p>Cette précision n’est pas une obligation. Un seul fader bien choisi peut être plus parlant qu’une surface riche en gestes si le morceau n’a besoin que d’un mouvement clair. Commence par une relation simple, écoute-la dans le contexte, puis ajoute une autre dimension seulement si elle apporte quelque chose.</p>
+          </section>
+
+          <section class="article-section" id="exercice">
+            <p class="section-index">05 / EXERCICE</p>
+            <h2>Enregistre un geste, pas une démonstration.</h2>
+            <ol class="exercise-list">
+              <li><strong>Choisis une cible.</strong> Le filtre est un bon départ : son mouvement s’entend facilement.</li>
+              <li><strong>Réduis la plage.</strong> Trouve une zone où le son varie sans devenir agressif ni disparaître.</li>
+              <li><strong>Joue une phrase.</strong> Lance l’écoute et déplace la commande en suivant une intention musicale, pas seulement la valeur affichée.</li>
+              <li><strong>Recommence.</strong> Si le mouvement est difficile à retrouver, ajuste sa course ou sa réponse avant d’ajouter d’autres contrôles.</li>
+            </ol>
+            <p>Le but n’est pas de remplir tous les contrôles disponibles. Il est de trouver le geste qui fait respirer la phrase et que tu auras envie de rejouer.</p>
+          </section>
+
+          <section class="article-section references" id="sources">
+            <p class="section-index">POUR ALLER PLUS LOIN</p>
+            <h2>Assignation et expression.</h2>
+            <ul>
+              <li><a href="https://help.ableton.com/hc/en-us/articles/360000038859-Making-custom-MIDI-Mappings" target="_blank" rel="noreferrer">Making custom MIDI Mappings — Ableton</a>, pour le principe d’assignation d’un contrôle à un paramètre dans Live.</li>
+              <li><a href="https://midi.org/midi-polyphonic-expression-mpe-specification-adopted" target="_blank" rel="noreferrer">MIDI Polyphonic Expression (MPE) — MIDI Association</a>, présentation de l’expression par note.</li>
+            </ul>
+          </section>
+          <nav class="reading-path" aria-label="Parcours de lecture : Cahier 01 · Audio"><p class="reading-path-position">Cahier 01 · Audio · Note 04 sur 09</p><div class="reading-path-links"><a class="reading-path-link " href="modulaire-sans-mur.html"><span>← Précédente · Note 03</span><strong>Le modulaire sans le mur de câbles</strong></a><a class="reading-path-link reading-path-next" href="familles-de-filtres.html"><span>Suivante · Note 05 →</span><strong>Un filtre, quatre façons d’écouter</strong></a><a class="reading-path-index" href="index.html#lectures"><span>Sommaire du Cahier 01 · Audio</span><span>9 notes <span aria-hidden="true">↑</span></span></a></div></nav>
+        </article>
+
+        <aside class="side">
+          <nav class="toc" aria-label="Dans cette note"><p class="toc-label">Dans cette note</p><a href="#intention">L’intention</a><a href="#laboratoire">Petit laboratoire</a><a href="#plage">Plage et réponse</a><a href="#expression">Expression</a><a href="#exercice">Exercice</a><a href="#sources">Sources</a></nav>
+          <div class="side-card"><h3>À garder en tête</h3><p>Associe un mouvement à une intention claire, puis règle la course pour que le geste soit agréable à refaire.</p></div>
+        </aside>
+      </div>
+    </main>
+    <footer><div class="page footer-inner"><p>© 2026 Fréquences · Cahier 01</p><a href="index.html#accueil">Retour au début ↑</a></div></footer>
+    <script>
+      const range = document.querySelector("#cutoff-control");
+      const value = document.querySelector("#cutoff-value");
+      const dial = document.querySelector("#gesture-dial");
+      const spectrum = document.querySelector("#spectrum-line");
+      const toggle = document.querySelector("#sound-toggle");
+      const status = document.querySelector("#sound-status");
+      let audioContext = null;
+      let oscillator = null;
+      let filter = null;
+      let gain = null;
+      const minHz = 180;
+      const maxHz = 8000;
+
+      function frequencyFor(position) {
+        return minHz * Math.pow(maxHz / minHz, Number(position) / 100);
+      }
+      function updateGesture() {
+        const position = Number(range.value);
+        const hz = frequencyFor(position);
+        value.value = `${Math.round(hz).toLocaleString("fr-FR")} Hz`;
+        value.textContent = value.value;
+        range.setAttribute("aria-valuetext", value.value);
+        range.style.setProperty("--progress", `${position}%`);
+        dial.style.setProperty("--dial-angle", `${-135 + position * 2.7}deg`);
+        const cutoffX = 52 + position * 1.88;
+        spectrum.setAttribute("d", `M2 14 C${cutoffX * .55} 14 ${cutoffX * .72} 18 ${cutoffX * .86} 30 S${cutoffX * .97} 43 ${cutoffX} 45 C${cutoffX + 14} 47 ${cutoffX + 28} 47 296 47`);
+        if (filter && audioContext) filter.frequency.setTargetAtTime(hz, audioContext.currentTime, 0.035);
+      }
+      async function startSound() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) { status.textContent = "La synthèse audio n’est pas disponible dans ce navigateur."; return; }
+        try {
+          audioContext = new AudioContextClass();
+          await audioContext.resume();
+          oscillator = audioContext.createOscillator();
+          filter = audioContext.createBiquadFilter();
+          gain = audioContext.createGain();
+          oscillator.type = "sawtooth";
+          oscillator.frequency.value = 110;
+          filter.type = "lowpass";
+          filter.Q.value = 1.2;
+          gain.gain.value = 0.0001;
+          oscillator.connect(filter); filter.connect(gain); gain.connect(audioContext.destination);
+          oscillator.start();
+          gain.gain.setTargetAtTime(0.075, audioContext.currentTime, 0.04);
+          updateGesture();
+          toggle.setAttribute("aria-pressed", "true");
+          toggle.innerHTML = "<span aria-hidden=\"true\">■</span> Arrêter";
+          status.textContent = "Écoute active : déplace le curseur pour ouvrir ou refermer le filtre.";
+        } catch (error) {
+          status.textContent = "Impossible de démarrer l’écoute. Vérifie les réglages audio de ton navigateur.";
+          if (audioContext) await audioContext.close().catch(() => {});
+          audioContext = null; oscillator = null; filter = null; gain = null;
+        }
+      }
+      async function stopSound() {
+        if (audioContext && gain && oscillator) {
+          const context = audioContext;
+          gain.gain.cancelScheduledValues(context.currentTime);
+          gain.gain.setTargetAtTime(0.0001, context.currentTime, 0.025);
+          oscillator.stop(context.currentTime + 0.16);
+          oscillator.onended = () => context.close().catch(() => {});
+        }
+        audioContext = null; oscillator = null; filter = null; gain = null;
+        toggle.setAttribute("aria-pressed", "false");
+        toggle.innerHTML = "<span aria-hidden=\"true\">▶</span> Écouter";
+        status.textContent = "Écoute inactive.";
+      }
+      range.addEventListener("input", updateGesture);
+      toggle.addEventListener("click", () => toggle.getAttribute("aria-pressed") === "true" ? stopSound() : startSound());
+      window.addEventListener("pagehide", () => { if (audioContext) audioContext.close().catch(() => {}); });
+      updateGesture();
+    </script>
+  </body>
+</html>

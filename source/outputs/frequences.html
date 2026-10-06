@@ -134,4 +134,1858 @@
       .signal-step:hover::after, .signal-step:focus-visible::after { opacity: 1; transform: scaleX(1); }
       .signal-step:hover b, .signal-step:focus-visible b { border-color: var(--teal); background: var(--teal); color: var(--paper); transform: scale(1.08); }
       .signal-step:hover .signal-step-arrow, .signal-step:focus-visible .signal-step-arrow { color: var(--yellow); transform: translateX(5px); }
-      .sign
+      .signal-step[aria-current="step"]::before { background: rgba(255,255,255,.075); opacity: 1; transform: scaleY(1); }
+      .signal-step[aria-current="step"]::after { background: var(--yellow); opacity: 1; transform: scaleX(1); }
+      .signal-step[aria-current="step"] b { border-color: var(--yellow); background: var(--yellow); color: var(--paper); }
+      .signal-status { margin: 0; padding: 9px 12px 2px; color: var(--muted); font: 11px/1.5 var(--mono); }
+      .story-columns section { padding: 8px 12px 8px 14px; border-left: 2px solid transparent; transition: background-color 240ms ease, border-color 240ms ease; }
+      .story-columns section.is-active { border-left-color: var(--yellow); background: rgba(244,201,93,.07); }
+      .stage-insight { margin-top: 18px; padding: 15px 16px 16px; border: 1px solid rgba(243,241,235,.16); background: rgba(14,16,18,.56); }
+      .stage-insight-kicker { margin: 0 0 7px !important; color: var(--teal) !important; font: 10px/1.4 var(--mono) !important; letter-spacing: .07em; }
+      .stage-insight h4 { margin: 0 0 7px; color: var(--teal); font: 500 19px/1.15 var(--display); letter-spacing: -.035em; }
+      .stage-insight > p:last-child { margin-bottom: 0; }
+      .stage-insight p:not(.stage-insight-kicker) { font-size: 14px; line-height: 1.55; }
+      .stage-facts, .filter-family, .envelope-targets, .modulation-family { display: grid; gap: 8px; margin-top: 13px; }
+      .stage-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .filter-family, .envelope-targets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .modulation-family { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .stage-fact, .filter-kind, .envelope-target, .modulation-kind { min-width: 0; padding: 9px 10px; border-top: 1px solid rgba(243,241,235,.22); background: rgba(255,255,255,.025); }
+      .stage-fact strong, .filter-kind strong, .envelope-target strong, .modulation-kind strong { display: block; margin-bottom: 4px; color: var(--yellow); font: 11px/1.4 var(--mono); }
+      .stage-fact span, .filter-kind span, .envelope-target span, .modulation-kind span { display: block; color: var(--muted); font-size: 12px; line-height: 1.45; }
+      .story-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(35px, 8vw, 110px); row-gap: 35px; margin-top: 39px; }
+      .story-columns section { max-width: 62ch; }
+      .story-number { width: fit-content; display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid rgba(231,101,36,.48); background: rgba(231,101,36,.11); color: var(--wave-flame); font: 11px var(--mono); letter-spacing: .06em; }
+      .story-number::before { width: 5px; height: 5px; flex: 0 0 auto; border-radius: 50%; background: var(--wave-flame); box-shadow: 0 0 9px rgba(231,101,36,.55); content: ""; }
+      .source-links span { color: var(--violet-dark); font: 12px var(--mono); letter-spacing: .035em; }
+      .story-columns h3 { margin: 10px 0 12px; color: var(--yellow); font: 500 clamp(26px, 2.8vw, 35px)/1.08 var(--display); letter-spacing: -.055em; }
+      .story-columns p, .article-body p { margin: 0 0 13px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+      .story-takeaway { max-width: 850px; margin: 37px 0 18px; padding: 17px 21px; border-left: 3px solid var(--yellow); background: var(--paper-shadow); color: var(--ink); font-size: 16px; line-height: 1.6; }
+      .story-takeaway strong { color: var(--violet-dark); }
+      .source-links { margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+      .source-links span { margin-right: 8px; }
+      .source-links a { color: var(--violet-dark); text-underline-offset: 3px; }
+      .article-body { max-width: 790px; margin-top: 13px; }
+      .article-body strong { color: var(--ink); }
+      .article-body p.source-links { margin-top: 16px; font-size: 13px; line-height: 1.7; }
+      details summary { width: fit-content; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 0; color: var(--violet-dark); font-size: 14px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 3px; text-underline-offset: 5px; cursor: pointer; transition: color 150ms ease; }
+      .article-link { width: fit-content; min-height: 44px; display: inline-flex; grid-column: 3 / 5; align-items: center; gap: 8px; margin-top: 12px; color: var(--violet-dark); font-size: 14px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--yellow); text-decoration-thickness: 3px; text-underline-offset: 5px; transition: color 150ms ease; }
+      .article-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.5; transition: transform 170ms ease; }
+      details summary::-webkit-details-marker { display: none; }
+      .disclosure-icon { width: 13px; height: 13px; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-linecap: round; stroke-width: 1.5; }
+      .disclosure-icon .vertical { transform-origin: center; transition: transform 170ms cubic-bezier(.16,1,.3,1); }
+      details[open] .disclosure-icon .vertical { transform: scaleY(0); }
+      details summary:active .disclosure-icon { transform: scale(.88); }
+      .dossier-detail details p { max-width: 650px; margin: 15px 0 0; color: var(--muted); font: 16px/1.65 var(--sans); }
+      .reading { padding: 53px 0 70px; }
+      .reading-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 17px; }
+      .reading-head h2 { margin: 0; font: 500 clamp(36px, 4.3vw, 52px)/1.02 var(--display); letter-spacing: -.06em; }
+      .reading-head p { margin: 0 0 5px; color: var(--muted); font: 13px var(--mono); }
+      .article-list { border-top: 1px solid var(--ink); }
+      .article-row { position: relative; display: grid; grid-template-columns: 66px minmax(155px, .65fr) minmax(0, 1.35fr) minmax(170px, .9fr); align-items: start; column-gap: 22px; padding: 24px 10px 25px; border-bottom: 1px solid var(--rule); transition: background-color 170ms ease, transform 170ms cubic-bezier(.16,1,.3,1); }
+      .article-wave { width: 50px; height: 25px; margin-top: 7px; color: var(--violet); transform-origin: left center; transition: transform 190ms cubic-bezier(.16,1,.3,1), color 150ms ease; }
+      .article-wave path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke-width 150ms ease; }
+      .article-topic { width: fit-content; display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border: 1px solid rgba(184,198,107,.38); background: rgba(184,198,107,.045); color: var(--teal); font: 11px var(--mono); letter-spacing: .045em; line-height: 1.2; transition: transform 180ms cubic-bezier(.16,1,.3,1), color 160ms ease, border-color 160ms ease, background-color 160ms ease; }
+      .article-topic::before { width: 5px; height: 5px; flex: 0 0 auto; background: var(--teal); content: ""; transform: rotate(45deg); transition: background-color 160ms ease, transform 180ms cubic-bezier(.16,1,.3,1); }
+      .article-row h3 { margin: 0; color: var(--yellow); font: 500 clamp(24px, 2.8vw, 34px)/1.08 var(--display); letter-spacing: -.05em; }
+      .article-row .summary { margin: 3px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
+      .article-row details { grid-column: 3 / 5; margin-top: 12px; }
+      .article-row details p { max-width: 660px; margin: 13px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+      .article-row:focus-within { background: var(--paper-shadow); }
+      @media (hover: hover) and (pointer: fine) {
+        .wordmark:hover .wordmark-symbol { transform: translateY(-2px) scale(1.04); }
+        .wordmark:hover .wordmark-symbol .logo-slider { stroke-width: 4; filter: drop-shadow(0 0 2px currentColor); }
+        .wordmark:hover em { transform: translateY(-2px) scale(1.18); }
+        .nav a:hover { color: var(--violet); }
+        .nav a:hover::after { transform: scaleX(1); }
+        .listen:hover { background: var(--ink); color: var(--paper); transform: translateY(-2px); }
+        .listen:hover svg { transform: rotate(-9deg) scale(1.13); }
+        .reference-reset:hover { border-color: var(--teal); background: rgba(184,198,107,.08); color: var(--ink); }
+        .reference-reset:hover svg { transform: rotate(-45deg); }
+      .cover-figure:hover .trace { stroke-width: 4.5; filter: drop-shadow(0 2px 5px rgba(231,101,36,.58)); }
+        .article-row:hover { background: var(--paper-shadow); transform: translateX(4px); }
+        .article-row:hover .article-wave { color: var(--violet-dark); transform: translateY(-2px) scaleX(1.12); }
+        .article-row:hover .article-wave path { stroke-width: 2.6; }
+        .article-row:hover .article-topic { border-color: rgba(255,98,84,.7); background: rgba(255,98,84,.08); color: var(--violet-dark); transform: translateY(-1px); }
+        .article-row:hover .article-topic::before { background: var(--violet-dark); transform: rotate(135deg) scale(1.15); }
+        details summary:hover { color: var(--violet); }
+        details summary:hover .disclosure-icon { transform: translateY(-1px) rotate(45deg); }
+        .article-link:hover { color: var(--violet); }
+        .article-link:hover svg { transform: translateX(3px); }
+      }
+      .atelier { display: grid; grid-template-columns: 1fr 190px; gap: 26px; align-items: center; padding: 27px 0 34px; border-top: 1px solid var(--ink); }
+      .atelier h2 { margin-bottom: 8px; font: 500 33px/1.05 var(--display); letter-spacing: -.055em; }
+      .atelier p { max-width: 600px; margin: 0; color: var(--muted); font-size: 15px; }
+      .signature { justify-self: end; color: var(--violet-dark); font: 13px var(--mono); }
+      footer { border-top: 1px solid var(--rule); }
+      .footer-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+      .footer-inner p { margin: 0; color: var(--muted); font-size: 13px; }
+      .footer-links { display: flex; gap: 23px; }
+      .footer-links a { color: var(--muted); font-size: 13px; text-decoration: none; }
+      .footer-links a:hover { color: var(--violet); }
+      @media (max-width: 820px) {
+        .cover { grid-template-columns: 1fr 0.88fr; gap: 30px; }
+        .cover-figure { min-height: 480px; }
+        .dossier-grid { grid-template-columns: minmax(0, 1fr) 210px; gap: 35px; }
+        .article-row { grid-template-columns: 46px minmax(115px, .55fr) minmax(0, 1.4fr); column-gap: 16px; }
+        .article-row .summary { grid-column: 3; margin-top: 8px; }
+        .article-row details { grid-column: 3; }
+        .article-row .article-link { grid-column: 3; }
+      }
+      @media (max-width: 980px) {
+        .signal-chain { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .signal-step:nth-child(2) { border-right: 0; }
+        .signal-step:nth-child(-n+2) { border-bottom: 1px solid rgba(243,241,235,.1); }
+      }
+      @media (max-width: 620px) {
+        .page { width: calc(100% - 36px); }
+        .masthead-inner { min-height: 68px; }
+        .wordmark { gap: 9px; font-size: 22px; }
+        .wordmark-symbol { width: 34px; height: 34px; }
+        .wordmark-symbol svg { width: 21px; height: 21px; }
+        .nav { gap: 16px; }
+        .nav a { font-size: 13px; }
+        .issue-tag { display: none; }
+        .cover { grid-template-columns: 1fr; gap: 29px; padding: 43px 0 47px; }
+        .kicker { margin-bottom: 19px; }
+        h1 { max-width: 530px; font-size: clamp(62px, 16.5vw, 90px); }
+        .cover-deck { margin: 20px 0 21px; font-size: 17px; }
+        .cover-figure { min-height: 500px; padding: 26px; }
+        .dossier { padding: 42px 0; }
+        .dossier-grid { grid-template-columns: 1fr; gap: 27px; }
+        .dossier h2 { font-size: 50px; }
+        .dossier-detail { max-width: 450px; }
+        .story-columns { grid-template-columns: 1fr; row-gap: 24px; margin-top: 29px; }
+        .story-columns h3 { font-size: 31px; }
+        .modulation-family { grid-template-columns: 1fr; }
+        .signal-chain { padding: 9px 12px; font-size: 12px; }
+        .signal-step { min-height: 55px; gap: 8px; padding: 10px 9px; }
+        .signal-step:nth-child(2) { border-right: 0; }
+        .signal-step:nth-child(-n+2) { border-bottom: 1px solid rgba(243,241,235,.1); }
+        .story-takeaway { margin-top: 27px; padding: 14px 16px; }
+        .story-columns p, .article-body p { font-size: 15px; }
+        .reading { padding: 40px 0 52px; }
+        .reading-head { display: block; }
+        .reading-head p { margin-top: 8px; }
+        .article-row { grid-template-columns: 36px 1fr; gap: 6px 13px; padding: 19px 0 21px; }
+        .article-wave { width: 33px; height: 22px; grid-row: 1 / 4; }
+        .article-topic { grid-column: 2; padding: 6px 9px; }
+        .article-row h3 { grid-column: 2; font-size: 31px; }
+        .article-row .summary, .article-row details, .article-row .article-link { grid-column: 2; margin-top: 4px; }
+        .atelier { grid-template-columns: 1fr; gap: 17px; padding: 22px 0 28px; }
+        .atelier h2 { font-size: 31px; }
+        .signature { justify-self: start; }
+        .footer-inner { align-items: start; flex-direction: column; justify-content: center; padding: 19px 0; }
+      }
+      @media (max-width: 390px) {
+        .page { width: calc(100% - 28px); }
+        .masthead-inner { gap: 8px; }
+        .wordmark { gap: 7px; font-size: 17px; }
+        .wordmark-symbol { width: 30px; height: 30px; }
+        .wordmark-symbol svg { width: 19px; height: 19px; }
+        .nav { gap: 8px; }
+        .nav a { font-size: 11px; }
+        .signal-step { gap: 5px; padding-inline: 5px; font-size: 11px; }
+        .signal-step b { font-size: 10px; }
+        .figure-foot p { max-width: 175px; }
+        .listen { min-width: 106px; padding: 0 9px; }
+        .synth-controls { gap: 11px 12px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: .01ms !important; }
+        .wordmark:hover .wordmark-symbol, .wordmark:focus-visible .wordmark-symbol, .wordmark:hover .wordmark-symbol::after, .wordmark:hover em, .listen:hover, .listen:active, .reference-reset:hover svg, .article-link:hover svg, .article-row:hover, .article-row:hover .article-wave, .article-row:hover .article-topic, .article-row:hover .article-topic::before, .signal-step:hover, .signal-step:focus-visible, .signal-step:hover b, .signal-step:focus-visible b, .signal-step:hover .signal-step-arrow, .signal-step:focus-visible .signal-step-arrow, details summary:hover .disclosure-icon, details summary:active .disclosure-icon { transform: none !important; }
+        .cover-figure:hover .trace { filter: none; }
+      }
+    </style>
+  <style id="frequences-design-system" data-version="2026-10-06.13">
+/*
+ * Fréquences — direction industrielle rouge, version 2026-10-06.3.
+ * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
+ * Les couleurs des données des graphiques restent définies par chaque page.
+ */
+:root {
+  /* Color roles */
+  --ds-bg: #0e1012;
+  --ds-surface: #101214;
+  --ds-surface-raised: #1a1d20;
+  --ds-text: #f3f1eb;
+  --ds-text-muted: #aab1b2;
+  --ds-line: #42494c;
+  --ds-line-strong: #596165;
+  --ds-red: #ff321f;
+  --ds-red-soft: #ff6254;
+  --ds-headline: #f3f1eb;
+
+  /* Typography, 4px spacing scale, and shape */
+  --ds-display: Arial, Helvetica, sans-serif;
+  --ds-body: var(--sans, "DM Sans", "Arial Nova", sans-serif);
+  --ds-mono: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-6: 24px;
+  --ds-space-8: 32px;
+  --ds-breakpoint-tablet: 768px;
+  --ds-breakpoint-desktop: 1024px;
+  --ds-radius-panel: 0;
+  --ds-radius-control: 0;
+
+  /* Interaction timing */
+  --ds-duration-fast: 150ms;
+  --ds-duration-standard: 230ms;
+  --ds-ease-standard: cubic-bezier(.2, .7, .2, 1);
+  --ds-focus-ring: 0 0 0 3px rgba(255, 98, 84, .3);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+body[data-design-system="red-industrial"] {
+  background-color: var(--ds-bg);
+  color: var(--ds-text);
+  font-family: var(--ds-body);
+}
+
+/* Une portée explicite donne la priorité au système sur les styles locaux. */
+body[data-design-system] :is(h1, h2, h3) {
+  font-family: var(--ds-display);
+  color: var(--ds-headline);
+}
+
+body[data-design-system] :is(h1, .article-section > h2, .dossier h2, .reading-head h2, .atelier h2) {
+  color: var(--ds-headline);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -.055em;
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] h1 {
+  line-height: .94;
+}
+
+body[data-design-system] .masthead {
+  border-bottom-color: var(--ds-line);
+  background: var(--ds-bg);
+}
+
+body[data-design-system] .wordmark {
+  font-family: var(--ds-display);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .wordmark-symbol {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ds-text);
+  box-shadow: none;
+}
+
+body[data-design-system] .wordmark-symbol::after {
+  display: none;
+}
+
+body[data-design-system] .wordmark-symbol svg {
+  width: 28px;
+  height: 28px;
+  overflow: visible;
+}
+
+body[data-design-system] .wordmark-symbol .logo-rail {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+body[data-design-system] .wordmark-symbol .logo-slider {
+  fill: none;
+  stroke: var(--ds-red);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
+@media (max-width: 600px) {
+  body[data-design-system] .wordmark-symbol {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  body[data-design-system] .wordmark-symbol svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+body[data-design-system] .wordmark em {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .nav a {
+  color: var(--ds-text);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .nav a:hover {
+  color: var(--ds-red-soft);
+}
+
+/* L'accueil possède ses propres classes : elles sont couvertes explicitement. */
+body[data-design-system] .cover {
+  row-gap: 24px;
+}
+
+body[data-design-system] .cover h1 {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin-bottom: 0;
+  font-family: "Arial Black", "Arial Nova", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: clamp(66px, 9.2vw, 132px);
+  -webkit-text-stroke: .35px currentColor;
+  line-height: .92;
+  container-type: inline-size;
+}
+
+body[data-design-system] .cover-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-design-system] .cover-title-line {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  white-space: nowrap;
+  font-size: inherit;
+  font-size: min(1em, calc((100cqw - 44px) / 7));
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+body[data-design-system] .cover-title-word {
+  flex: 0 0 auto;
+}
+
+body[data-design-system] .cover-title-line::before,
+body[data-design-system] .cover-title-line::after {
+  content: "";
+  flex: 1 1 0;
+  min-width: 8px;
+  height: 2px;
+  background: currentColor;
+  opacity: .8;
+  transform: scaleX(.8);
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), opacity 280ms ease;
+}
+
+body[data-design-system] .cover-title-line::before {
+  transform-origin: right center;
+}
+
+body[data-design-system] .cover-title-line::after {
+  transform-origin: left center;
+}
+
+body[data-design-system] .cover-title-line:first-child::before,
+body[data-design-system] .cover-title-line:last-child::after {
+  flex: 0 0 clamp(12px, 2vw, 28px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] .cover-title-line:hover::before,
+  body[data-design-system] .cover-title-line:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-design-system] .cover-title-line::before,
+  body[data-design-system] .cover-title-line::after {
+    transform: none;
+    transition: none;
+  }
+}
+
+body[data-design-system] .cover-deck {
+  margin-top: 0;
+}
+
+@media (min-width: 981px) {
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1.15fr) minmax(370px, .85fr);
+    column-gap: clamp(28px, 4vw, 60px);
+  }
+
+  body[data-design-system] .cover-copy {
+    max-width: none;
+  }
+}
+
+body[data-design-system] .cover-figure {
+  border: 1px solid var(--ds-line-strong);
+  border-top: 3px solid var(--ds-red);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .cover-figure::before {
+  border: 0;
+}
+
+body[data-design-system] .reference-reset {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reference-reset:hover {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+}
+
+/* Les deux cahiers : objectif, notions et entrée dans le parcours. */
+body[data-design-system] .cover-start {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  margin-bottom: 14px;
+  color: var(--ds-red-soft);
+  font: 600 12px/1.4 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-intro {
+  padding-block: clamp(36px, 5vw, 64px);
+  border-bottom: 1px solid var(--ds-line);
+  scroll-margin-top: 24px;
+}
+
+body[data-design-system] .cahier-kicker {
+  margin: 0 0 12px;
+  color: var(--ds-red-soft);
+  font: 11px/1.5 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-intro > h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-lead {
+  max-width: 72ch;
+  margin: 0 0 28px;
+  color: var(--ds-text-muted);
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body[data-design-system] .cahier-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--ds-line);
+  border-top: 3px solid var(--ds-red);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .cahier-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 18px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .cahier-card-meta span:first-child {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-card h3 {
+  margin: 0 0 14px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+body[data-design-system] .cahier-objective {
+  margin: 0 0 22px;
+  color: var(--ds-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions-title {
+  margin: 0 0 10px;
+  color: var(--ds-text);
+  font: 11px/1.5 var(--ds-mono);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-notions {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  color: var(--ds-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions li + li {
+  margin-top: 9px;
+}
+
+body[data-design-system] .cahier-notions strong {
+  color: var(--ds-text);
+  font-weight: 600;
+}
+
+body[data-design-system] .cahier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ds-line);
+}
+
+body[data-design-system] .cahier-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-text-muted);
+  font: 600 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin {
+  padding: 10px 14px;
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  text-decoration: none;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin:hover {
+  background: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-practice {
+  margin: 20px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  body[data-design-system] .cahier-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Navigation de lecture : ordre des notes, sommaire et passage au cahier suivant. */
+body[data-design-system] .reading-path {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-position {
+  margin: 0 0 15px;
+  color: var(--ds-text-muted);
+  font: 11px/1.6 var(--ds-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reading-path-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+body[data-design-system] .reading-path-link {
+  min-width: 0;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  text-decoration: none;
+}
+
+body[data-design-system] .reading-path-link span {
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .reading-path-link strong {
+  color: var(--ds-text);
+  font: 600 15px/1.4 var(--ds-body);
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] .reading-path-link:hover {
+  border-color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-next {
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-next span {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-index {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  color: var(--ds-text-muted);
+  font: 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .reading-path-reference {
+  margin: 12px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .reading-path-reference a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-red-soft);
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 520px) {
+  body[data-design-system] .reading-path-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body[data-design-system] .signal-chain {
+  border-color: var(--ds-line-strong);
+}
+
+body[data-design-system] .signal-chain::before {
+  background: #111a24;
+}
+
+body[data-design-system] .signal-step {
+  border-right-color: var(--ds-line);
+}
+
+body[data-design-system] .signal-step-label {
+  font-weight: 500;
+}
+
+body[data-design-system] .signal-step b {
+  border-color: var(--ds-line-strong);
+  color: var(--ds-text-muted);
+}
+
+body[data-design-system] .signal-step::after,
+body[data-design-system] .signal-step[aria-current="step"]::after {
+  background: var(--ds-red);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible, [aria-current="step"]) b {
+  border-color: var(--ds-red);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible) .signal-step-arrow {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .story-columns section.is-active {
+  border-left-color: var(--ds-red);
+  background: rgba(255, 50, 31, .045);
+}
+
+body[data-design-system] :is(.story-columns h3, .article-row h3) {
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+
+body[data-design-system] .article-row {
+  border-color: var(--ds-line);
+  background: rgba(16, 18, 20, .8);
+}
+
+body[data-design-system] .article-row:hover {
+  background: var(--ds-surface-raised);
+}
+
+body[data-design-system] .article-topic {
+  border-color: var(--ds-red-soft);
+  background: transparent;
+  color: var(--ds-red-soft);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+}
+
+body[data-design-system] .article-topic::before {
+  background: var(--ds-red);
+}
+
+body[data-design-system] :is(.article-link, details summary) {
+  text-decoration-color: var(--ds-red);
+}
+
+body[data-design-system] :is(.toc, .side-card) {
+  padding: 16px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .toc-label {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .toc a {
+  border-top: 1px solid var(--ds-line);
+}
+
+::selection {
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] :focus-visible {
+  outline: 2px solid var(--ds-red-soft);
+  outline-offset: var(--ds-space-1);
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* One consistent dark instrument-console surface across every interactive lab. */
+body[data-design-system] :is(
+  .route,
+  .lab,
+  .controller-lab,
+  .gesture-lab,
+  .effect-lab,
+  .envelope-lab,
+  .filter-lab,
+  .modulation-lab,
+  .oscillator-lab
+) {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .route::before {
+  border: 0;
+}
+
+body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
+  font-family: var(--ds-display);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+/* Red is reserved for the primary action and selected controls. */
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
+  min-height: 44px;
+  border: 1px solid var(--ds-red);
+  border-radius: var(--ds-radius-control);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  font-family: var(--ds-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  background: var(--ds-red-soft);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
+  transform: translateY(0);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
+  border-color: var(--ds-red);
+  background: transparent;
+  color: var(--ds-red-soft);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+/* Le bouton d'écoute arrondi de l'accueil conserve la forme demandée. */
+body[data-design-system] .listen:not(.secondary) {
+  border-radius: 999px;
+}
+
+body[data-design-system] .action-button.secondary {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+}
+
+body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+  box-shadow: none;
+}
+
+/* Instrument choices keep their own chart colors; only selection chrome is unified. */
+body[data-design-system] :is(
+  .buffer-option,
+  .wave-option,
+  .filter-type,
+  .effect-pick,
+  .patch-mode,
+  .destination-pick
+)[aria-pressed="true"] {
+  border-color: var(--ds-red);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+body[data-design-system] .lab-mark {
+  border-color: var(--ds-red);
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] :is(.route-note, .control-explain, .routing-readout, .takeaway) {
+  border-left-color: var(--ds-red);
+}
+
+/* Keep all range controls keyboard and touch friendly; retain each page's value encoding. */
+body[data-design-system] input[type="range"] {
+  accent-color: var(--ds-red);
+  touch-action: pan-y;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  body[data-design-system] .masthead-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  body[data-design-system] .wordmark {
+    font-size: 22px;
+  }
+
+  body[data-design-system] .nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--ds-line);
+  }
+
+  body[data-design-system] .nav a {
+    font-size: 10px;
+    min-height: 44px;
+  }
+
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-design-system] .cover h1 {
+    font-size: clamp(46px, 13vw, 82px);
+  }
+
+  body[data-design-system] .cover-figure {
+    padding: 22px;
+  }
+
+  body[data-design-system] .dossier h2 {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+
+  body[data-design-system] .figure-foot {
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  body[data-design-system] .toc {
+    padding: 12px;
+  }
+}
+
+/* Une même hiérarchie pour les courbes, les repères et les schémas pédagogiques. */
+body[data-design-system] {
+  --chart-line: #e76524;
+  --chart-selected: #b8c66b;
+  --chart-grid: rgba(243, 241, 235, .13);
+}
+
+body[data-design-system] :is(.filter-graph-wrap, .envelope-display, .lfo-display,
+  .automation-chart, .cutoff-panel, .osc-wave-wrap, .harmonic-figure,
+  .spectrum-wrap, .level-meter, .timeline, .effect-display) {
+  min-width: 0;
+  border: 1px solid var(--ds-line);
+  border-radius: 0;
+  background: var(--ds-surface-raised);
+  box-shadow: none;
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) output {
+  color: var(--chart-selected);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] .chart-unit {
+  margin: 8px 0;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] svg[data-renderer="d3-line"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) text {
+  fill: var(--ds-text-muted);
+  font: 11px var(--ds-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) :is(.domain, .tick line) {
+  stroke: var(--ds-line-strong);
+  stroke-width: .75px;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] .chart-axes .domain {
+  display: none;
+}
+
+body[data-design-system] :is(.chart-grid line, .spectrum-d3-horizontal,
+  .spectrum-d3-vertical, .osc-wave-grid, .spectrum-grid, .lfo-grid,
+  .envelope-grid, .graph-grid, .automation-grid, .waveform .axis) {
+  stroke: var(--chart-grid);
+  stroke-width: .75px;
+  stroke-dasharray: 2 5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
+  .automation-path, .osc-wave-line, .spectrum-line, .spectrum-filtered,
+  .waveform .trace) {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: none;
+}
+
+body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
+  display: none;
+}
+
+body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {
+  stroke: var(--chart-selected);
+  stroke-width: 1px;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] :is(.envelope-point, .lfo-dot, .automation-point,
+  .spectrum-dot, .waveform .point) {
+  fill: var(--chart-selected);
+  stroke: var(--ds-bg);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] .waveform .wave-legend {
+  display: none;
+}
+
+body[data-design-system] .waveform-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .waveform .spectrum-bar {
+  fill: var(--chart-line);
+}
+
+body[data-design-system] :is(.stage-labels, .lfo-endpoints, .meter-scale, .time-axis) {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .level-fill {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-webkit-progress-value {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-moz-progress-bar {
+  background: var(--chart-selected);
+}
+
+/* Une piste fine et une zone de manipulation assez haute pour le toucher. */
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] .cc-slider::-webkit-slider-runnable-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] .cc-slider::-moz-range-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):hover {
+    transform: none;
+  }
+}
+</style>
+</head>
+  <body data-design-system="red-industrial">
+    <header class="masthead">
+      <div class="page masthead-inner">
+        <a class="wordmark" href="#accueil" aria-label="Fréquences, accueil">
+          <span class="wordmark-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="logo-rail" d="M6 4v16M12 4v16M18 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="logo-slider" d="M3 8h6M9 16h6M15 11h6" fill="none" stroke="var(--ds-red)" stroke-width="3.2" stroke-linecap="round"/></svg></span>
+          fréquences<em>.</em>
+        </a>
+        <nav class="nav" aria-label="Navigation principale"><a href="#cahiers">Cahiers</a><a href="#dossier">Dossier</a><a href="reperes.html">Repères</a><a href="#atelier">La revue</a></nav>
+        <span class="issue-tag">02 cahiers / 2026</span>
+      </div>
+    </header>
+
+    <main id="accueil" class="page">
+      <section class="cover" aria-labelledby="cover-title">
+        <h1 id="cover-title"><span class="cover-title-line"><span class="cover-title-word">La machine</span></span> <span class="cover-title-line"><span class="cover-title-word">peut être</span></span> <span class="cover-title-line"><span class="cover-title-word">musicienne</span></span></h1>
+        <div class="cover-copy">
+          <p class="cover-deck">Une revue pour comprendre comment les outils numériques deviennent des instruments — et comment les gestes humains leur donnent une voix.</p>
+          <a class="cover-start" href="#cahiers">Choisir mon parcours <span aria-hidden="true">→</span></a>
+          <div class="cover-meta"><span>Deux cahiers</span><span>Musique & technologie</span></div>
+        </div>
+        <figure class="cover-figure" id="sound-figure">
+          <div class="figure-head">
+            <button class="reference-reset" id="reset-tone" type="button" aria-label="Revenir aux réglages sonores de référence" aria-controls="waveform-choice frequency-control filter-control">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 6.2A5.2 5.2 0 1 1 3 9.1M3.2 2.9v3.6h3.6"/></svg>
+              <span>Référence</span>
+            </button>
+            <span class="figure-scale" id="frequency-display">220 Hz</span>
+          </div>
+          <svg class="waveform" viewBox="0 0 520 290" role="img" aria-labelledby="wave-title wave-desc">
+            <title id="wave-title">Forme d’onde réglable</title>
+            <desc id="wave-desc">Visualisation animée de la forme d’onde et de ses harmoniques. Les commandes modifient le son et le spectre affiché.</desc>
+            <defs>
+              <linearGradient id="spectrum-gradient" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#ff321f"/><stop offset=".52" stop-color="#d9a83b"/><stop offset="1" stop-color="#b8c66b"/></linearGradient>
+              <filter id="wave-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>
+            </defs>
+            <path class="axis" d="M18 145H502M260 22V268M18 72H502M18 218H502M100 22V268M420 22V268"/>
+            <path class="spectrum-baseline" d="M24 250H496"/>
+            <g id="spectrum-bars" aria-hidden="true"></g>
+            <path class="halo" id="wave-halo" d="M18 145 C65 145 65 54 112 54 S159 236 206 236 253 54 300 54 347 236 394 236 441 54 488 145"/>
+            <path class="trace" id="wave-trace" d="M18 145 C65 145 65 54 112 54 S159 236 206 236 253 54 300 54 347 236 394 236 441 54 488 145"/>
+            <circle class="point" id="wave-point" cx="300" cy="54" r="6"/>
+            <text class="wave-legend" x="24" y="276">ONDE</text><text class="wave-legend" x="496" y="276" text-anchor="end">HARMONIQUES</text>
+          </svg>
+          <div class="waveform-caption"><span>ONDE · FENÊTRE DE 12 ms</span><span>HARMONIQUES · MODÈLE INDICATIF</span></div>
+          <div class="synth-controls" aria-label="Commandes de l’atelier sonore">
+            <label class="control-field wave-choice" for="waveform-choice">
+              <span class="control-label">Forme d’onde</span>
+              <select id="waveform-choice" name="waveform">
+                <option value="sine">Sinusoïde · douce</option>
+                <option value="triangle">Triangle · ronde</option>
+                <option value="sawtooth">Dent de scie · brillante</option>
+                <option value="square">Carrée · creuse</option>
+              </select>
+            </label>
+            <label class="control-field" for="frequency-control">
+              <span class="control-label">Fréquence <output id="frequency-value" for="frequency-control">220 Hz</output></span>
+              <input id="frequency-control" type="range" min="110" max="880" step="1" value="220">
+            </label>
+            <label class="control-field" for="filter-control">
+              <span class="control-label">Filtre passe-bas <output id="filter-value" for="filter-control">2,4 kHz</output></span>
+              <input id="filter-control" type="range" min="200" max="8000" step="50" value="2400">
+            </label>
+          </div>
+          <figcaption class="figure-foot">
+            <p><strong>Écoute les différences</strong>Choisis une forme, règle le filtre, puis lance le son.</p>
+            <button class="listen" id="play-tone" type="button" aria-label="Écouter le son avec les réglages choisis" aria-pressed="false"><svg id="play-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M6 4.5v11l9-5.5-9-5.5Z" fill="currentColor"/></svg><span>Écouter</span></button>
+          </figcaption>
+          <p class="sr-only" id="audio-status" role="status" aria-live="polite"></p>
+        </figure>
+      </section>
+
+      <section class="cahier-intro" id="cahiers" aria-labelledby="cahiers-title">
+        <p class="cahier-kicker">LE PARCOURS · 2 CAHIERS · 16 NOTES</p>
+        <h2 id="cahiers-title">Choisis ton cahier</h2>
+        <p class="cahier-lead">Le premier cahier explore la fabrication du son. Le second explique les messages qui permettent de le jouer et de le contrôler. Si tu débutes, commence par l’audio ; tu peux aussi entrer directement dans le MIDI selon ce que tu veux comprendre.</p>
+        <div class="cahier-grid">
+          <article class="cahier-card" aria-labelledby="cahier-audio-title">
+            <div class="cahier-card-meta"><span>CAHIER 01 · AUDIO</span><span>9 notes · ateliers sonores</span></div>
+            <h3 id="cahier-audio-title">Comprendre et façonner le son</h3>
+            <p class="cahier-objective"><strong>L’objectif :</strong> reconnaître ce qui change la hauteur, le timbre et l’évolution d’une note, puis essayer ces réglages à l’oreille.</p>
+            <p class="cahier-notions-title">Ce que tu découvriras</p>
+            <ul class="cahier-notions">
+              <li><strong>Le studio :</strong> buffer, latence et trajet du signal dans un patch.</li>
+              <li><strong>La matière :</strong> oscillateur, formes d’onde, échantillonnage et harmoniques.</li>
+              <li><strong>Le mouvement :</strong> filtre, enveloppe ADSR, LFO et gestes de contrôle.</li>
+              <li><strong>L’espace :</strong> chorus, délai et réverbération.</li>
+            </ul>
+            <nav class="cahier-actions" aria-label="Entrer dans le cahier audio">
+              <a class="cahier-begin" href="buffer-audio.html">Commencer le cahier audio <span aria-hidden="true">↗</span></a>
+              <a href="#lectures">Voir les 9 notes audio</a>
+            </nav>
+          </article>
+          <article class="cahier-card" aria-labelledby="cahier-midi-title">
+            <div class="cahier-card-meta"><span>CAHIER 02 · MIDI</span><span>7 notes · ateliers interactifs</span></div>
+            <h3 id="cahier-midi-title">Du geste au message</h3>
+            <p class="cahier-objective"><strong>L’objectif :</strong> comprendre comment un message déclenche une note, atteint le bon instrument et fait varier ses paramètres.</p>
+            <p class="cahier-notions-title">Ce que tu découvriras</p>
+            <ul class="cahier-notions">
+              <li><strong>La note :</strong> distinguer le message du son, puis suivre Note On, Note Off et la durée du geste.</li>
+              <li><strong>Le trajet :</strong> canaux, pistes et destinataires du message.</li>
+              <li><strong>Le contrôle :</strong> Control Change, automation, sustain, Pitch Bend et pression.</li>
+              <li><strong>L’expression :</strong> vélocité, volume de canal et expression.</li>
+            </ul>
+            <nav class="cahier-actions" aria-label="Entrer dans le cahier MIDI">
+              <a class="cahier-begin" href="midi-ne-transporte-pas-le-son.html">Commencer le cahier MIDI <span aria-hidden="true">↗</span></a>
+              <a href="#cahier-02">Voir les 7 notes MIDI</a>
+            </nav>
+          </article>
+        </div>
+        <p class="cahier-practice">Lis une explication, essaie l’atelier, puis compare les réglages. Aucun clavier MIDI ni logiciel musical n’est nécessaire pour ces démonstrations : elles fonctionnent dans le navigateur et le son démarre à ta demande.</p>
+      </section>
+
+      <section class="dossier" id="dossier" aria-labelledby="dossier-title">
+        <div class="dossier-grid">
+          <div>
+            <h2 id="dossier-title">Une onde n’est jamais seule.</h2>
+            <p class="dossier-intro">Un son pur est une ligne de départ. Le filtre le colore, l’enveloppe le met en mouvement, la modulation le fait respirer. Le timbre apparaît dans la relation entre ces gestes.</p>
+          </div>
+          <div class="dossier-detail">
+            <p>DOSSIER PRINCIPAL · 3 MIN</p>
+            <p>Un son de synthétiseur n’est pas une forme d’onde isolée : c’est un signal façonné dans le temps, puis relié à un geste.</p>
+            <p>Écoute d’abord l’onde à 220 Hz en haut de page. Garde-la comme point de comparaison pendant la lecture.</p>
+          </div>
+        </div>
+        <article class="dossier-story" aria-label="Dossier : comprendre la synthèse sonore">
+          <nav class="signal-chain" aria-label="Étapes pour façonner le son">
+            <a class="signal-step" href="#stage-oscillator" data-stage="oscillator" aria-current="step"><b>01</b><span class="signal-step-label">Oscillateur</span><span class="signal-step-arrow" aria-hidden="true">→</span></a>
+            <a class="signal-step" href="#stage-filter" data-stage="filter"><b>02</b><span class="signal-step-label">Filtre</span><span class="signal-step-arrow" aria-hidden="true">→</span></a>
+            <a class="signal-step" href="#stage-envelope" data-stage="envelope"><b>03</b><span class="signal-step-label">Enveloppe</span><span class="signal-step-arrow" aria-hidden="true">→</span></a>
+            <a class="signal-step" href="#stage-modulation" data-stage="modulation"><b>04</b><span class="signal-step-label">Modulation</span><span class="signal-step-arrow" aria-hidden="true">↗</span></a>
+          </nav>
+          <p class="signal-status" id="signal-status" aria-live="polite">Clique sur une étape pour lire le passage et écouter sa démonstration.</p>
+          <div class="story-columns">
+            <section id="stage-oscillator" class="is-active">
+              <span class="story-number">01 / SOURCE</span>
+              <h3>Tout commence par une vibration</h3>
+              <p>L’oscillateur produit le signal de départ. Une sinusoïde, comme celle que tu peux écouter en tête de page, contient une seule fréquence : elle sonne douce et presque sans aspérité. Une dent de scie rassemble au contraire beaucoup d’harmoniques ; elle paraît plus brillante et offre davantage de matière à sculpter. Entre les deux, chaque forme d’onde propose une autre répartition du spectre.</p>
+              <p>La hauteur dépend de la fréquence fondamentale : à 220 Hz, le signal effectue 220 cycles par seconde. Mais la hauteur n’explique pas à elle seule la couleur du son. Deux notes peuvent être jouées au même diapason et rester très différentes parce que leurs harmoniques, leur attaque et leur évolution ne se ressemblent pas.</p>
+              <aside class="stage-insight" aria-label="Repère sur la fréquence">
+                <p class="stage-insight-kicker">REPÈRE · HAUTEUR</p>
+                <h4>Une octave, fréquence doublée.</h4>
+                <p>Garde la même forme d’onde et double la fréquence : la note monte d’une octave. Le timbre dépend aussi des harmoniques et du filtre ; fréquence et couleur du son ne sont donc pas la même chose.</p>
+                <div class="stage-facts" aria-label="Trois fréquences de la note la">
+                  <div class="stage-fact"><strong>110 Hz</strong><span>La₂ · grave</span></div>
+                  <div class="stage-fact"><strong>220 Hz</strong><span>La₃ · une octave plus haut</span></div>
+                  <div class="stage-fact"><strong>440 Hz</strong><span>La₄ · encore une octave</span></div>
+                </div>
+              </aside>
+            </section>
+            <section id="stage-filter">
+              <span class="story-number">02 / COULEUR</span>
+              <h3>Le filtre choisit ce qui ressort</h3>
+              <p>Le filtre modifie l’équilibre entre les fréquences. Un passe-bas laisse passer les graves et atténue progressivement les aigus au-dessus de sa fréquence de coupure. En baissant cette coupure sur une dent de scie, on assombrit le son sans changer la note jouée. La résonance accentue les fréquences autour de la coupure : une petite dose rend le mouvement plus lisible ; beaucoup de résonance fait entendre une pointe sifflante.</p>
+              <p>Le filtre n’est pas un simple bouton « sombre / brillant ». Sa pente, sa résonance et la manière dont elles bougent dans le temps participent au caractère de l’instrument. C’est souvent là que le son commence à raconter quelque chose.</p>
+              <aside class="stage-insight" aria-label="Les principaux types de filtres">
+                <p class="stage-insight-kicker">REPÈRE · FAMILLE DE FILTRES</p>
+                <h4>Chaque filtre laisse une zone différente.</h4>
+                <div class="filter-family">
+                  <div class="filter-kind"><strong>Passe-bas</strong><span>Laisse les graves, atténue les aigus. Le balayage sonore de cette étape l’illustre.</span></div>
+                  <div class="filter-kind"><strong>Passe-haut</strong><span>Atténue les graves et laisse davantage de place aux aigus.</span></div>
+                  <div class="filter-kind"><strong>Passe-bande</strong><span>Conserve une zone autour de la coupure et atténue les deux côtés.</span></div>
+                  <div class="filter-kind"><strong>Coupe-bande</strong><span>Creuse une zone précise et laisse passer les fréquences plus basses et plus hautes.</span></div>
+                </div>
+                <p>La coupure indique où le filtre agit ; la résonance souligne cette zone. La pente décrit la rapidité avec laquelle le son est atténué.</p>
+              </aside>
+            </section>
+            <section id="stage-envelope">
+              <span class="story-number">03 / GESTE</span>
+              <h3>L’enveloppe donne une forme à la note</h3>
+              <p>Une enveloppe ADSR décrit quatre moments. <strong>Attack</strong> règle le temps pour atteindre le niveau maximal ; <strong>Decay</strong>, la retombée qui suit ; <strong>Sustain</strong>, le niveau maintenu tant que la touche reste enfoncée ; <strong>Release</strong>, la durée de la fin après son relâchement. C’est une chronologie de la note, pas une décoration ajoutée après coup.</p>
+              <p>Une attaque courte et un relâchement bref donnent un impact net. Une attaque lente fait entrer le son en douceur ; un long release laisse les notes se prolonger et se chevaucher. En envoyant la même enveloppe vers le volume et vers le filtre, on peut faire apparaître le son tout en éclaircissant son attaque.</p>
+              <aside class="stage-insight" aria-label="Les destinations d’une enveloppe">
+                <p class="stage-insight-kicker">REPÈRE · DESTINATION</p>
+                <h4>Une enveloppe peut agir à plusieurs endroits.</h4>
+                <p>ADSR décrit la forme du geste dans le temps. La destination indique ce qui change :</p>
+                <div class="envelope-targets">
+                  <div class="envelope-target"><strong>Volume · VCA</strong><span>La note apparaît, se maintient puis s’éteint. C’est l’enveloppe d’amplitude la plus courante.</span></div>
+                  <div class="envelope-target"><strong>Filtre · coupure</strong><span>Le timbre s’ouvre à l’attaque puis s’assombrit, sans que le volume doive suivre la même courbe.</span></div>
+                </div>
+                <p>Attack, Decay et Release sont des durées ; Sustain est un niveau. Cette différence aide à régler l’enveloppe sans confondre temps et intensité.</p>
+              </aside>
+            </section>
+            <section id="stage-modulation">
+              <span class="story-number">04 / MOUVEMENT</span>
+              <h3>La modulation relie les briques</h3>
+              <p>Un LFO est un oscillateur lent, utilisé comme commande plutôt que comme source audible principale. Dirigé vers la hauteur, il crée un vibrato ; dirigé vers la coupure du filtre, il fait respirer le timbre ; dirigé vers le volume, il produit un trémolo. La vitesse règle le rythme du mouvement, son amplitude la profondeur de l’effet.</p>
+              <p>La synthèse devient intéressante quand on pense en relations : quelle source agit sur quel paramètre, avec quelle intensité, et à quel moment ? Commence avec un seul lien de modulation, écoute, puis ajoute le suivant. Cette méthode permet de comprendre un patch par l’oreille au lieu d’empiler des réglages.</p>
+              <aside class="stage-insight" aria-label="Sources et effets de modulation">
+                <p class="stage-insight-kicker">REPÈRE · TROIS MOUVEMENTS</p>
+                <h4>Une enveloppe ne bouge pas comme un LFO.</h4>
+                <div class="modulation-family">
+                  <div class="modulation-kind"><strong>Enveloppe</strong><span>Un trajet ponctuel, déclenché par la note : attaque, évolution, relâchement.</span></div>
+                  <div class="modulation-kind"><strong>LFO</strong><span>Un cycle qui se répète : vibrato sur la hauteur, trémolo sur le volume.</span></div>
+                  <div class="modulation-kind"><strong>Effets modulés</strong><span>Chorus, flanger et phaser déplacent ou déphasent des copies du son, souvent avec un LFO.</span></div>
+                </div>
+                <p>Enveloppe et LFO sont des sources de commande. Chorus, flanger et phaser sont des effets appliqués au signal : ils peuvent employer une modulation, mais ce ne sont pas des enveloppes.</p>
+              </aside>
+            </section>
+          </div>
+          <p class="story-takeaway"><strong>À retenir</strong> — l’oscillateur fournit la matière, le filtre en sélectionne une partie, l’enveloppe organise le geste et la modulation met les paramètres en mouvement.</p>
+          <p class="source-links"><span>POUR ALLER PLUS LOIN</span> <a href="https://vcvrack.com/manual/GettingStarted" target="_blank" rel="noreferrer">Prise en main et trajet du signal, VCV Rack</a> · <a href="https://vcvrack.com/manual/VoltageStandards" target="_blank" rel="noreferrer">Tensions et signaux de commande, VCV Rack</a></p>
+        </article>
+      </section>
+
+      <section class="reading" id="lectures" aria-labelledby="reading-title">
+        <div class="reading-head"><h2 id="reading-title">Cahier 01 · Audio</h2><p>9 notes · sommaire</p></div>
+        <div class="article-list">
+
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h7l4-8 7 16 6-20 6 18 6-11 5 7h9"/></svg>
+            <span class="article-topic">01 / MAO</span>
+            <h3>Le buffer audio, en clair</h3>
+            <p class="summary">Le réglage discret qui change la sensation de jeu.</p>
+            <a class="article-link" href="buffer-audio.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h7l3-6 5 12 5-12 5 12 5-12 5 12 5-6h7"/></svg>
+            <span class="article-topic">02 / NUMÉRIQUE</span>
+            <h3>Le son devient une suite de nombres</h3>
+            <p class="summary">Échantillons, fréquence et résolution : ce que la machine mesure.</p>
+            <a class="article-link" href="echantillonnage-audio.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h7c4 0 4-8 8-8s4 16 8 16 4-16 8-16 4 16 8 16h11"/></svg>
+            <span class="article-topic">02 / SYNTHÈSE</span>
+            <h3>Le modulaire sans le mur de câbles</h3>
+            <p class="summary">Suivre le trajet du signal pour comprendre le patch.</p>
+            <a class="article-link" href="modulaire-sans-mur.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h7l5-5 5 10 5-5 5-10 5 20 5-10 5 5h8"/></svg>
+            <span class="article-topic">03 / GESTE</span>
+            <h3>Quand le contrôleur devient instrument</h3>
+            <p class="summary">Le mouvement comme première matière du son.</p>
+            <a class="article-link" href="controleur-devient-instrument.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 4h11c6 0 6 18 14 18s8-18 14-18h11"/></svg>
+            <span class="article-topic">04 / FILTRE</span>
+            <h3>Un filtre, quatre façons d’écouter</h3>
+            <p class="summary">Passe-bas, passe-haut, bande et coupe-bande : comprendre ce qui reste.</p>
+            <a class="article-link" href="familles-de-filtres.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 23 15 4 23 14 31 17h10l11 6"/></svg>
+            <span class="article-topic">05 / ENVELOPPE</span>
+            <h3>La note a son temps</h3>
+            <p class="summary">Attaque, décroissance, maintien et relâchement : l’ADSR à l’écoute.</p>
+            <a class="article-link" href="enveloppe-adsr.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13c5 0 5-9 10-9s5 18 10 18 5-18 10-18 5 18 10 18 5-9 10-9"/></svg>
+            <span class="article-topic">06 / MODULATION</span>
+            <h3>Le son en mouvement</h3>
+            <p class="summary">LFO, enveloppes, chorus, flanger et phaser : qui fait quoi ?</p>
+            <a class="article-link" href="modulations.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13 C8 13 9 4 15 4 S22 22 29 22 36 4 43 4 49 13 52 13"/></svg>
+            <span class="article-topic">07 / OSCILLATEUR</span>
+            <h3>La matière du son</h3>
+            <p class="summary">Fréquence, forme d’onde et harmoniques : écouter la première brique.</p>
+            <a class="article-link" href="oscillateur.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8c5 0 5-7 10-7s5 14 10 14 5-8 10-8 5 4 12 4"/></svg>
+            <span class="article-topic">08 / EFFETS</span>
+            <h3>Le son prend sa place</h3>
+            <p class="summary">Chorus, délai et réverbération : épaissir, répéter, placer.</p>
+            <a class="article-link" href="effets-audio.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+        </div>
+      </section>
+
+
+      <section class="reading" id="cahier-02" aria-labelledby="cahier-02-title">
+        <div class="reading-head"><h2 id="cahier-02-title">Cahier 02 · MIDI</h2><p>7 notes · sommaire</p></div>
+        <div class="article-list">
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l4-7 6 14 6-18 6 16 6-9 5 5h9"/></svg>
+            <span class="article-topic">01 / MIDI</span>
+            <h3>Le MIDI ne transporte pas le son</h3>
+            <p class="summary">Distinguer les données de jeu du son produit par l’instrument.</p>
+            <a class="article-link" href="midi-ne-transporte-pas-le-son.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13c6 0 6-8 12-8s6 16 12 16 6-16 12-16 6 8 14 8"/></svg>
+            <span class="article-topic">02 / MIDI</span>
+            <h3>Une note est un événement</h3>
+            <p class="summary">Note On, Note Off et durée : suivre le geste dans le temps.</p>
+            <a class="article-link" href="midi-note-evenement.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l5-6 5 12 5-17 5 18 5-12 5 8h12"/></svg>
+            <span class="article-topic">03 / MIDI</span>
+            <h3>Faire arriver le message au bon endroit</h3>
+            <p class="summary">Canaux, pistes et destinataires : suivre le trajet d’une note.</p>
+            <a class="article-link" href="midi-routage.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l5-8 5 16 6-20 5 17 6-10 5 5h10"/></svg>
+            <span class="article-topic">04 / MIDI</span>
+            <h3>Un geste, une valeur</h3>
+            <p class="summary">Comprendre les commandes MIDI et leur assignation à un paramètre.</p>
+            <a class="article-link" href="midi-controleur.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l5-8 5 16 6-20 5 17 6-10 5 5h10"/></svg>
+            <span class="article-topic">05 / MIDI</span>
+            <h3>Le geste peut se répéter</h3>
+            <p class="summary">Enregistrer et rejouer les variations d’un contrôleur.</p>
+            <a class="article-link" href="midi-automation.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l4-7 6 14 6-18 6 16 6-9 5 5h9"/></svg>
+            <span class="article-topic">06 / MIDI</span>
+            <h3>Frapper, doser, exprimer</h3>
+            <p class="summary">Distinguer la vélocité, le volume de canal et l’expression.</p>
+            <a class="article-link" href="midi-dynamique.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+          <article class="article-row">
+            <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l5-4 5 8 5-11 5 9 5-7 5 5 5-2h7"/></svg>
+            <span class="article-topic">07 / EXPRESSION</span>
+            <h3>Le geste continue après l’attaque</h3>
+            <p class="summary">Pitch Bend, sustain et pression : nuancer après le départ.</p>
+            <a class="article-link" href="midi-gestes-expressifs.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="atelier" id="atelier" aria-labelledby="atelier-title">
+        <div><h2 id="atelier-title">La technique sert l’écoute.</h2><p>Fréquences est un carnet de studio francophone pour les oreilles curieuses : on y parle d’outils, d’idées et de gestes, avec des mots simples et le son au centre.</p></div>
+        <span class="signature">fréquences / fin du cahier</span>
+      </section>
+    </main>
+
+    <footer><div class="page footer-inner"><p>© 2026 Fréquences · Cahier 01</p><div class="footer-links"><a href="#accueil">Retour au début</a><a href="#dossier">Reprendre le dossier</a></div></div></footer>
+    <script>
+      const trigger = document.querySelector("#play-tone");
+      const resetButton = document.querySelector("#reset-tone");
+      const figure = document.querySelector("#sound-figure");
+      const icon = document.querySelector("#play-icon");
+      const buttonLabel = trigger.querySelector("span");
+      const waveformControl = document.querySelector("#waveform-choice");
+      const frequencyControl = document.querySelector("#frequency-control");
+      const filterControl = document.querySelector("#filter-control");
+      const frequencyDisplay = document.querySelector("#frequency-display");
+      const frequencyValue = document.querySelector("#frequency-value");
+      const filterValue = document.querySelector("#filter-value");
+      const waveTrace = document.querySelector("#wave-trace");
+      const waveHalo = document.querySelector("#wave-halo");
+      const wavePoint = document.querySelector("#wave-point");
+      const spectrumBars = document.querySelector("#spectrum-bars");
+      const waveTitle = document.querySelector("#wave-title");
+      const audioStatus = document.querySelector("#audio-status");
+      const signalStatus = document.querySelector("#signal-status");
+      const signalSteps = [...document.querySelectorAll(".signal-step")];
+      const storyStages = [...document.querySelectorAll(".story-columns section[id^='stage-']")];
+      const waveNames = { sine: "sinusoïdale", triangle: "triangulaire", sawtooth: "en dent de scie", square: "carrée" };
+      const stagePresets = {
+        oscillator: { waveform: "sine", frequency: 220, cutoff: 8000, description: "onde sinusoïdale, son stable" },
+        filter: { waveform: "sawtooth", frequency: 220, cutoff: 8000, description: "balayage du passe-bas, du son brillant au son sombre" },
+        envelope: { waveform: "sawtooth", frequency: 220, cutoff: 2400, description: "attaque progressive et relâchement long" },
+        modulation: { waveform: "triangle", frequency: 330, cutoff: 1800, description: "timbre animé par une modulation lente" }
+      };
+      let currentStage = "oscillator";
+      let context;
+      let oscillator;
+      let filter;
+      let lfo;
+      let modulationDepth;
+      let filterSweepStart;
+      let filterSweepTimer;
+      let analyser;
+      let gain;
+      let animationFrame;
+      let timeSamples;
+
+      function selectedFrequency() { return Number(frequencyControl.value); }
+      function selectedCutoff() { return Number(filterControl.value); }
+      function formatCutoff(cutoff) {
+        return cutoff >= 1000
+          ? `${(cutoff / 1000).toLocaleString("fr-FR", { maximumFractionDigits: 1 })} kHz`
+          : `${cutoff} Hz`;
+      }
+      function updateRangeFill(control) {
+        const min = Number(control.min);
+        const max = Number(control.max);
+        const value = Number(control.value);
+        const progress = max > min ? ((value - min) / (max - min)) * 100 : 0;
+        control.style.setProperty("--range-progress", `${progress}%`);
+      }
+
+      function selectStage(stage, announce = true) {
+        const preset = stagePresets[stage];
+        if (!preset) return;
+        if (stage !== currentStage && context) stopPlayback("Étape modifiée. Relance l’écoute pour entendre ce réglage.");
+        currentStage = stage;
+        signalSteps.forEach((link) => {
+          if (link.dataset.stage === stage) link.setAttribute("aria-current", "step");
+          else link.removeAttribute("aria-current");
+        });
+        storyStages.forEach((section) => section.classList.toggle("is-active", section.id === `stage-${stage}`));
+        waveformControl.value = preset.waveform;
+        frequencyControl.value = String(preset.frequency);
+        filterControl.value = String(preset.cutoff);
+        updateReadouts();
+        if (lfo && modulationDepth && context) {
+          if (stage === "modulation") {
+            modulationDepth.gain.setTargetAtTime(Math.min(1200, selectedCutoff() * .42), context.currentTime, .08);
+            lfo.frequency.setTargetAtTime(3, context.currentTime, .08);
+          } else {
+            modulationDepth.gain.setTargetAtTime(0, context.currentTime, .08);
+          }
+        }
+        if (announce) {
+          const number = String(signalSteps.findIndex((link) => link.dataset.stage === stage) + 1).padStart(2, "0");
+          signalStatus.textContent = `Étape ${number} · ${preset.description}. Lance « Écouter » pour entendre le changement.`;
+        }
+      }
+
+      function sampleWave(type, phase) {
+        const cycle = phase / (Math.PI * 2);
+        if (type === "triangle") return (2 / Math.PI) * Math.asin(Math.sin(phase));
+        if (type === "sawtooth") return 2 * (cycle - Math.floor(cycle + 0.5));
+        if (type === "square") return Math.sin(phase) >= 0 ? 1 : -1;
+        return Math.sin(phase);
+      }
+
+      function renderSpectrum() {
+        const partialCount = 16;
+        const fundamental = selectedFrequency();
+        const cutoff = selectedCutoff();
+        for (let index = 0; index < partialCount; index += 1) {
+          const harmonic = index + 1;
+          let sourceLevel;
+          if (waveformControl.value === "sine") sourceLevel = harmonic === 1 ? 1 : 0;
+          else if (waveformControl.value === "triangle") sourceLevel = harmonic % 2 ? 1 / (harmonic * harmonic) : 0;
+          else if (waveformControl.value === "square") sourceLevel = harmonic % 2 ? 1 / harmonic : 0;
+          else sourceLevel = 1 / harmonic;
+          const ratio = (fundamental * harmonic) / cutoff;
+          const filteredLevel = sourceLevel / Math.sqrt(1 + Math.pow(ratio, 4));
+          const height = 4 + filteredLevel * 59;
+          let bar = spectrumBars.children[index];
+          if (!bar) {
+            bar = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            bar.setAttribute("class", "spectrum-bar");
+            bar.setAttribute("width", "8");
+            bar.setAttribute("rx", "4");
+            spectrumBars.appendChild(bar);
+          }
+          bar.setAttribute("x", String(35 + index * 28));
+          bar.setAttribute("y", String((250 - height).toFixed(1)));
+          bar.setAttribute("height", String(height.toFixed(1)));
+          bar.setAttribute("opacity", String((.07 + filteredLevel * .82).toFixed(2)));
+        }
+      }
+
+      function renderWaveform() {
+        const samples = 480;
+        const duration = 0.012;
+        const step = duration / samples;
+        const cutoff = selectedCutoff();
+        const alpha = 1 - Math.exp(-2 * Math.PI * cutoff * step);
+        const type = waveformControl.value;
+        let filtered = 0;
+        const points = [];
+
+        // Warm the simple low-pass model before drawing its 12 ms display window.
+        for (let index = -1200; index <= samples; index += 1) {
+          const time = index * step;
+          const input = sampleWave(type, Math.PI * 2 * selectedFrequency() * time);
+          filtered += alpha * (input - filtered);
+          if (index >= 0) {
+            const x = 18 + (index / samples) * 470;
+            const y = 145 - filtered * 91;
+            points.push(`${index === 0 ? "M" : "L"}${x.toFixed(2)} ${y.toFixed(2)}`);
+            if (index === Math.round(samples * .6)) {
+              wavePoint.setAttribute("cx", x.toFixed(2));
+              wavePoint.setAttribute("cy", y.toFixed(2));
+            }
+          }
+        }
+
+        const path = points.join(" ");
+        waveTrace.setAttribute("d", path);
+        waveHalo.setAttribute("d", path);
+        renderSpectrum();
+        waveTitle.textContent = `Forme d’onde ${waveNames[type]} à ${selectedFrequency()} hertz, après filtre passe-bas`;
+      }
+
+      function drawLiveWaveform() {
+        if (!analyser || !context || !timeSamples) return;
+        analyser.getByteTimeDomainData(timeSamples);
+        const points = [];
+        for (let index = 0; index < timeSamples.length; index += 1) {
+          const x = 18 + (index / (timeSamples.length - 1)) * 470;
+          const amplitude = (timeSamples[index] - 128) / 128;
+          const y = 145 - amplitude * 91;
+          points.push(`${index === 0 ? "M" : "L"}${x.toFixed(2)} ${y.toFixed(2)}`);
+          if (index === Math.round((timeSamples.length - 1) * .6)) {
+            wavePoint.setAttribute("cx", x.toFixed(2));
+            wavePoint.setAttribute("cy", y.toFixed(2));
+          }
+        }
+        const path = points.join(" ");
+        waveTrace.setAttribute("d", path);
+        waveHalo.setAttribute("d", path);
+        renderSpectrum();
+        waveTitle.textContent = `Signal sonore en cours : onde ${waveNames[waveformControl.value]}, ${selectedFrequency()} hertz, filtrée à ${filterValue.textContent}`;
+        animationFrame = window.requestAnimationFrame(drawLiveWaveform);
+      }
+
+      function updateReadouts() {
+        const frequency = selectedFrequency();
+        const cutoff = selectedCutoff();
+        waveformControl.dataset.wave = waveformControl.value;
+        frequencyDisplay.textContent = `${frequency} Hz`;
+        frequencyValue.textContent = `${frequency} Hz`;
+        filterValue.textContent = formatCutoff(cutoff);
+        updateRangeFill(frequencyControl);
+        updateRangeFill(filterControl);
+        if (oscillator && context) {
+          oscillator.type = waveformControl.value;
+          oscillator.frequency.setTargetAtTime(frequency, context.currentTime, 0.025);
+          filter.frequency.setTargetAtTime(cutoff, context.currentTime, 0.025);
+        }
+        renderWaveform();
+      }
+
+      function setPlaying(playing) {
+        figure.classList.toggle("playing", playing);
+        trigger.setAttribute("aria-pressed", String(playing));
+        trigger.setAttribute("aria-label", playing ? "Arrêter le son" : "Écouter le son avec les réglages choisis");
+        buttonLabel.textContent = playing ? "Arrêter" : "Écouter";
+        icon.innerHTML = playing
+          ? '<path d="M5.5 4.5h3.5v11H5.5zM11 4.5h3.5v11H11z" fill="currentColor"/>'
+          : '<path d="M6 4.5v11l9-5.5-9-5.5Z" fill="currentColor"/>';
+      }
+
+      waveformControl.addEventListener("change", updateReadouts);
+      frequencyControl.addEventListener("input", updateReadouts);
+      filterControl.addEventListener("input", () => {
+        if (filterSweepTimer) window.clearInterval(filterSweepTimer);
+        filterSweepTimer = undefined;
+        filterSweepStart = undefined;
+        if (filter && context) {
+          filter.frequency.cancelScheduledValues(context.currentTime);
+          filter.frequency.setTargetAtTime(selectedCutoff(), context.currentTime, 0.025);
+        }
+        updateReadouts();
+      });
+      resetButton.addEventListener("click", () => {
+        if (context) stopPlayback("Lecture arrêtée pour restaurer la référence sonore.");
+        selectStage("oscillator", false);
+        audioStatus.textContent = "Référence restaurée : sinusoïde à 220 Hz, filtre passe-bas à 2,4 kHz.";
+        signalStatus.textContent = "Référence sonore restaurée. Lance « Écouter » pour comparer les autres étapes.";
+      });
+      signalSteps.forEach((link) => link.addEventListener("click", async () => {
+        if (context) stopPlayback();
+        selectStage(link.dataset.stage);
+        await playSelectedStage();
+      }));
+
+      function stopPlayback(message = "Lecture arrêtée.") {
+        if (!context) return;
+        const oldContext = context;
+        if (gain) {
+          gain.gain.cancelScheduledValues(oldContext.currentTime);
+          gain.gain.setTargetAtTime(0, oldContext.currentTime, 0.025);
+        }
+        if (lfo) { try { lfo.stop(); } catch {} }
+        if (filterSweepTimer) window.clearInterval(filterSweepTimer);
+        filterSweepTimer = undefined;
+        filterSweepStart = undefined;
+        context = undefined;
+        oscillator = undefined;
+        filter = undefined;
+        analyser = undefined;
+        gain = undefined;
+        lfo = undefined;
+        modulationDepth = undefined;
+        if (animationFrame) window.cancelAnimationFrame(animationFrame);
+        animationFrame = undefined;
+        timeSamples = undefined;
+        setPlaying(false);
+        renderWaveform();
+        audioStatus.textContent = message;
+        const number = String(signalSteps.findIndex((link) => link.dataset.stage === currentStage) + 1).padStart(2, "0");
+        signalStatus.textContent = `Étape ${number} · ${stagePresets[currentStage].description}. ${message}`;
+        window.setTimeout(() => oldContext.close().catch(() => {}), 140);
+      }
+
+      trigger.addEventListener("click", async () => {
+        if (context) {
+          stopPlayback();
+          return;
+        }
+        await playSelectedStage();
+      });
+
+      async function playSelectedStage() {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) {
+          audioStatus.textContent = "La lecture audio n’est pas prise en charge par ce navigateur.";
+          buttonLabel.textContent = "Audio indisponible";
+          signalStatus.textContent = "La lecture audio n’est pas prise en charge par ce navigateur.";
+          return;
+        }
+
+        try {
+          context = new AudioContextClass();
+          if (context.state === "suspended") await context.resume();
+          oscillator = context.createOscillator();
+          filter = context.createBiquadFilter();
+          analyser = context.createAnalyser();
+          gain = context.createGain();
+          oscillator.type = waveformControl.value;
+          oscillator.frequency.value = selectedFrequency();
+          filter.type = "lowpass";
+          filter.frequency.value = selectedCutoff();
+          filter.Q.value = 0.707;
+          analyser.fftSize = 512;
+          analyser.smoothingTimeConstant = 0.42;
+          timeSamples = new Uint8Array(analyser.fftSize);
+          gain.gain.setValueAtTime(0.0001, context.currentTime);
+          if (currentStage === "envelope") {
+            gain.gain.linearRampToValueAtTime(0.035, context.currentTime + 0.75);
+            gain.gain.exponentialRampToValueAtTime(0.012, context.currentTime + 1.1);
+            gain.gain.setValueAtTime(0.012, context.currentTime + 1.32);
+            gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 2.5);
+            oscillator.addEventListener("ended", () => stopPlayback("Démonstration de l’enveloppe terminée."), { once: true });
+          } else {
+            gain.gain.linearRampToValueAtTime(0.035, context.currentTime + 0.06);
+          }
+          if (currentStage === "modulation") {
+            lfo = context.createOscillator();
+            modulationDepth = context.createGain();
+            lfo.type = "sine";
+            lfo.frequency.value = 3;
+            modulationDepth.gain.value = Math.min(1200, selectedCutoff() * .42);
+            lfo.connect(modulationDepth).connect(filter.frequency);
+            lfo.start();
+          }
+          oscillator.connect(filter).connect(analyser).connect(gain).connect(context.destination);
+          oscillator.start();
+          if (currentStage === "envelope") oscillator.stop(context.currentTime + 2.55);
+          if (currentStage === "filter") {
+            const sweepStart = context.currentTime;
+            const sweepDuration = 3.6;
+            const sweepFrom = selectedCutoff();
+            const sweepTo = 350;
+            filterSweepStart = sweepStart;
+            filter.frequency.cancelScheduledValues(sweepStart);
+            filter.frequency.setValueAtTime(sweepFrom, sweepStart);
+            filter.frequency.exponentialRampToValueAtTime(sweepTo, sweepStart + sweepDuration);
+            oscillator.stop(sweepStart + sweepDuration + 0.15);
+            oscillator.addEventListener("ended", () => stopPlayback("Balayage du filtre terminé."), { once: true });
+            filterSweepTimer = window.setInterval(() => {
+              if (!context || filterSweepStart === undefined) return;
+              const progress = Math.min(1, (context.currentTime - sweepStart) / sweepDuration);
+              const cutoff = Math.round((sweepFrom * Math.pow(sweepTo / sweepFrom, progress)) / 10) * 10;
+              filterControl.value = String(cutoff);
+              filterValue.textContent = formatCutoff(cutoff);
+              updateRangeFill(filterControl);
+              renderSpectrum();
+              if (progress >= 1) {
+                window.clearInterval(filterSweepTimer);
+                filterSweepTimer = undefined;
+              }
+            }, 50);
+          }
+          setPlaying(true);
+          if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) drawLiveWaveform();
+          audioStatus.textContent = `Lecture : onde ${waveNames[waveformControl.value]}, ${selectedFrequency()} hertz, filtre à ${filterValue.textContent}.`;
+          const number = String(signalSteps.findIndex((link) => link.dataset.stage === currentStage) + 1).padStart(2, "0");
+          signalStatus.textContent = `Étape ${number} · ${stagePresets[currentStage].description}. Démonstration en cours.`;
+        } catch (error) {
+          if (lfo) { try { lfo.stop(); } catch {} }
+          if (context) context.close().catch(() => {});
+          if (filterSweepTimer) window.clearInterval(filterSweepTimer);
+          filterSweepTimer = undefined;
+          filterSweepStart = undefined;
+          context = undefined;
+          oscillator = undefined;
+          filter = undefined;
+          analyser = undefined;
+          gain = undefined;
+          lfo = undefined;
+          modulationDepth = undefined;
+          if (animationFrame) window.cancelAnimationFrame(animationFrame);
+          animationFrame = undefined;
+          timeSamples = undefined;
+          setPlaying(false);
+          renderWaveform();
+          audioStatus.textContent = "Impossible de démarrer la lecture audio dans ce navigateur.";
+          signalStatus.textContent = "La démonstration sonore n’a pas pu démarrer. Réessaie avec le bouton Écouter.";
+        }
+      }
+
+      updateReadouts();
+      selectStage("oscillator", false);
+    </script>
+  </body>
+</html>

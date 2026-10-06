@@ -174,4 +174,1028 @@ body[data-design-system] .cover h1 {
   grid-column: 1 / -1;
   max-width: none;
   margin-bottom: 0;
-  font-family: "Arial Black", "Arial Nova", 
+  font-family: "Arial Black", "Arial Nova", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: clamp(66px, 9.2vw, 132px);
+  -webkit-text-stroke: .35px currentColor;
+  line-height: .92;
+  container-type: inline-size;
+}
+
+body[data-design-system] .cover-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-design-system] .cover-title-line {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  white-space: nowrap;
+  font-size: inherit;
+  font-size: min(1em, calc((100cqw - 44px) / 7));
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+body[data-design-system] .cover-title-word {
+  flex: 0 0 auto;
+}
+
+body[data-design-system] .cover-title-line::before,
+body[data-design-system] .cover-title-line::after {
+  content: "";
+  flex: 1 1 0;
+  min-width: 8px;
+  height: 2px;
+  background: currentColor;
+  opacity: .8;
+  transform: scaleX(.8);
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), opacity 280ms ease;
+}
+
+body[data-design-system] .cover-title-line::before {
+  transform-origin: right center;
+}
+
+body[data-design-system] .cover-title-line::after {
+  transform-origin: left center;
+}
+
+body[data-design-system] .cover-title-line:first-child::before,
+body[data-design-system] .cover-title-line:last-child::after {
+  flex: 0 0 clamp(12px, 2vw, 28px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] .cover-title-line:hover::before,
+  body[data-design-system] .cover-title-line:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-design-system] .cover-title-line::before,
+  body[data-design-system] .cover-title-line::after {
+    transform: none;
+    transition: none;
+  }
+}
+
+body[data-design-system] .cover-deck {
+  margin-top: 0;
+}
+
+@media (min-width: 981px) {
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1.15fr) minmax(370px, .85fr);
+    column-gap: clamp(28px, 4vw, 60px);
+  }
+
+  body[data-design-system] .cover-copy {
+    max-width: none;
+  }
+}
+
+body[data-design-system] .cover-figure {
+  border: 1px solid var(--ds-line-strong);
+  border-top: 3px solid var(--ds-red);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .cover-figure::before {
+  border: 0;
+}
+
+body[data-design-system] .reference-reset {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reference-reset:hover {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+}
+
+/* Les deux cahiers : objectif, notions et entrée dans le parcours. */
+body[data-design-system] .cover-start {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  margin-bottom: 14px;
+  color: var(--ds-red-soft);
+  font: 600 12px/1.4 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-intro {
+  padding-block: clamp(36px, 5vw, 64px);
+  border-bottom: 1px solid var(--ds-line);
+  scroll-margin-top: 24px;
+}
+
+body[data-design-system] .cahier-kicker {
+  margin: 0 0 12px;
+  color: var(--ds-red-soft);
+  font: 11px/1.5 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-intro > h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-lead {
+  max-width: 72ch;
+  margin: 0 0 28px;
+  color: var(--ds-text-muted);
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body[data-design-system] .cahier-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--ds-line);
+  border-top: 3px solid var(--ds-red);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .cahier-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 18px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .cahier-card-meta span:first-child {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-card h3 {
+  margin: 0 0 14px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+body[data-design-system] .cahier-objective {
+  margin: 0 0 22px;
+  color: var(--ds-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions-title {
+  margin: 0 0 10px;
+  color: var(--ds-text);
+  font: 11px/1.5 var(--ds-mono);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-notions {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  color: var(--ds-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions li + li {
+  margin-top: 9px;
+}
+
+body[data-design-system] .cahier-notions strong {
+  color: var(--ds-text);
+  font-weight: 600;
+}
+
+body[data-design-system] .cahier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ds-line);
+}
+
+body[data-design-system] .cahier-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-text-muted);
+  font: 600 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin {
+  padding: 10px 14px;
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  text-decoration: none;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin:hover {
+  background: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-practice {
+  margin: 20px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  body[data-design-system] .cahier-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Navigation de lecture : ordre des notes, sommaire et passage au cahier suivant. */
+body[data-design-system] .reading-path {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-position {
+  margin: 0 0 15px;
+  color: var(--ds-text-muted);
+  font: 11px/1.6 var(--ds-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reading-path-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+body[data-design-system] .reading-path-link {
+  min-width: 0;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  text-decoration: none;
+}
+
+body[data-design-system] .reading-path-link span {
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .reading-path-link strong {
+  color: var(--ds-text);
+  font: 600 15px/1.4 var(--ds-body);
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] .reading-path-link:hover {
+  border-color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-next {
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-next span {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-index {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  color: var(--ds-text-muted);
+  font: 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .reading-path-reference {
+  margin: 12px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .reading-path-reference a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-red-soft);
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 520px) {
+  body[data-design-system] .reading-path-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body[data-design-system] .signal-chain {
+  border-color: var(--ds-line-strong);
+}
+
+body[data-design-system] .signal-chain::before {
+  background: #111a24;
+}
+
+body[data-design-system] .signal-step {
+  border-right-color: var(--ds-line);
+}
+
+body[data-design-system] .signal-step-label {
+  font-weight: 500;
+}
+
+body[data-design-system] .signal-step b {
+  border-color: var(--ds-line-strong);
+  color: var(--ds-text-muted);
+}
+
+body[data-design-system] .signal-step::after,
+body[data-design-system] .signal-step[aria-current="step"]::after {
+  background: var(--ds-red);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible, [aria-current="step"]) b {
+  border-color: var(--ds-red);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible) .signal-step-arrow {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .story-columns section.is-active {
+  border-left-color: var(--ds-red);
+  background: rgba(255, 50, 31, .045);
+}
+
+body[data-design-system] :is(.story-columns h3, .article-row h3) {
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+
+body[data-design-system] .article-row {
+  border-color: var(--ds-line);
+  background: rgba(16, 18, 20, .8);
+}
+
+body[data-design-system] .article-row:hover {
+  background: var(--ds-surface-raised);
+}
+
+body[data-design-system] .article-topic {
+  border-color: var(--ds-red-soft);
+  background: transparent;
+  color: var(--ds-red-soft);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+}
+
+body[data-design-system] .article-topic::before {
+  background: var(--ds-red);
+}
+
+body[data-design-system] :is(.article-link, details summary) {
+  text-decoration-color: var(--ds-red);
+}
+
+body[data-design-system] :is(.toc, .side-card) {
+  padding: 16px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .toc-label {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .toc a {
+  border-top: 1px solid var(--ds-line);
+}
+
+::selection {
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] :focus-visible {
+  outline: 2px solid var(--ds-red-soft);
+  outline-offset: var(--ds-space-1);
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* One consistent dark instrument-console surface across every interactive lab. */
+body[data-design-system] :is(
+  .route,
+  .lab,
+  .controller-lab,
+  .gesture-lab,
+  .effect-lab,
+  .envelope-lab,
+  .filter-lab,
+  .modulation-lab,
+  .oscillator-lab
+) {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .route::before {
+  border: 0;
+}
+
+body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
+  font-family: var(--ds-display);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+/* Red is reserved for the primary action and selected controls. */
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
+  min-height: 44px;
+  border: 1px solid var(--ds-red);
+  border-radius: var(--ds-radius-control);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  font-family: var(--ds-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  background: var(--ds-red-soft);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
+  transform: translateY(0);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
+  border-color: var(--ds-red);
+  background: transparent;
+  color: var(--ds-red-soft);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+/* Le bouton d'écoute arrondi de l'accueil conserve la forme demandée. */
+body[data-design-system] .listen:not(.secondary) {
+  border-radius: 999px;
+}
+
+body[data-design-system] .action-button.secondary {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+}
+
+body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+  box-shadow: none;
+}
+
+/* Instrument choices keep their own chart colors; only selection chrome is unified. */
+body[data-design-system] :is(
+  .buffer-option,
+  .wave-option,
+  .filter-type,
+  .effect-pick,
+  .patch-mode,
+  .destination-pick
+)[aria-pressed="true"] {
+  border-color: var(--ds-red);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+body[data-design-system] .lab-mark {
+  border-color: var(--ds-red);
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] :is(.route-note, .control-explain, .routing-readout, .takeaway) {
+  border-left-color: var(--ds-red);
+}
+
+/* Keep all range controls keyboard and touch friendly; retain each page's value encoding. */
+body[data-design-system] input[type="range"] {
+  accent-color: var(--ds-red);
+  touch-action: pan-y;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  body[data-design-system] .masthead-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  body[data-design-system] .wordmark {
+    font-size: 22px;
+  }
+
+  body[data-design-system] .nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--ds-line);
+  }
+
+  body[data-design-system] .nav a {
+    font-size: 10px;
+    min-height: 44px;
+  }
+
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-design-system] .cover h1 {
+    font-size: clamp(46px, 13vw, 82px);
+  }
+
+  body[data-design-system] .cover-figure {
+    padding: 22px;
+  }
+
+  body[data-design-system] .dossier h2 {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+
+  body[data-design-system] .figure-foot {
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  body[data-design-system] .toc {
+    padding: 12px;
+  }
+}
+
+/* Une même hiérarchie pour les courbes, les repères et les schémas pédagogiques. */
+body[data-design-system] {
+  --chart-line: #e76524;
+  --chart-selected: #b8c66b;
+  --chart-grid: rgba(243, 241, 235, .13);
+}
+
+body[data-design-system] :is(.filter-graph-wrap, .envelope-display, .lfo-display,
+  .automation-chart, .cutoff-panel, .osc-wave-wrap, .harmonic-figure,
+  .spectrum-wrap, .level-meter, .timeline, .effect-display) {
+  min-width: 0;
+  border: 1px solid var(--ds-line);
+  border-radius: 0;
+  background: var(--ds-surface-raised);
+  box-shadow: none;
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) output {
+  color: var(--chart-selected);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] .chart-unit {
+  margin: 8px 0;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] svg[data-renderer="d3-line"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) text {
+  fill: var(--ds-text-muted);
+  font: 11px var(--ds-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) :is(.domain, .tick line) {
+  stroke: var(--ds-line-strong);
+  stroke-width: .75px;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] .chart-axes .domain {
+  display: none;
+}
+
+body[data-design-system] :is(.chart-grid line, .spectrum-d3-horizontal,
+  .spectrum-d3-vertical, .osc-wave-grid, .spectrum-grid, .lfo-grid,
+  .envelope-grid, .graph-grid, .automation-grid, .waveform .axis) {
+  stroke: var(--chart-grid);
+  stroke-width: .75px;
+  stroke-dasharray: 2 5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
+  .automation-path, .osc-wave-line, .spectrum-line, .spectrum-filtered,
+  .waveform .trace) {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: none;
+}
+
+body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
+  display: none;
+}
+
+body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {
+  stroke: var(--chart-selected);
+  stroke-width: 1px;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] :is(.envelope-point, .lfo-dot, .automation-point,
+  .spectrum-dot, .waveform .point) {
+  fill: var(--chart-selected);
+  stroke: var(--ds-bg);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] .waveform .wave-legend {
+  display: none;
+}
+
+body[data-design-system] .waveform-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .waveform .spectrum-bar {
+  fill: var(--chart-line);
+}
+
+body[data-design-system] :is(.stage-labels, .lfo-endpoints, .meter-scale, .time-axis) {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .level-fill {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-webkit-progress-value {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-moz-progress-bar {
+  background: var(--chart-selected);
+}
+
+/* Une piste fine et une zone de manipulation assez haute pour le toucher. */
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] .cc-slider::-webkit-slider-runnable-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] .cc-slider::-moz-range-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):hover {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-design-system="red-industrial">
+<header class="masthead"><div class="page masthead-inner"><a class="wordmark" href="index.html#accueil" aria-label="Fréquences, accueil"><span class="wordmark-symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="logo-rail" d="M6 4v16M12 4v16M18 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="logo-slider" d="M3 8h6M9 16h6M15 11h6" fill="none" stroke="var(--ds-red)" stroke-width="3.2" stroke-linecap="round"/></svg></span><span>fréquences <em>.</em></span></a><nav class="nav" aria-label="Navigation principale"><a href="index.html#dossier">Dossier</a><a href="reperes.html">Repères</a><a href="index.html#cahier-02">Sommaire</a></nav><span class="issue-tag">cahier 02 / MIDI</span></div></header>
+<main class="page">
+  <nav class="crumb" aria-label="Fil d’Ariane"><a href="index.html#accueil">Accueil</a><span aria-hidden="true">/</span><a href="index.html#cahier-02">Cahier 02 · MIDI</a><span aria-hidden="true">/</span><span aria-current="page">Note 02 sur 07</span></nav>
+  <header class="hero"><p class="kicker">02 / MIDI · 5 MIN DE LECTURE</p><h1>Une note est un événement.</h1><p class="deck">Une note MIDI ne porte pas une durée toute faite. Elle commence avec un message, se termine avec un autre, et prend sa place dans le temps de la séquence.</p><div class="meta"><span>Cahier 02 · Les gestes numériques</span><span>déclenchement · relâchement · durée</span></div></header>
+  <figure class="route" aria-labelledby="route-title"><div class="route-head"><h2 id="route-title">Deux messages encadrent une note.</h2><span>NOTE ON → NOTE OFF</span></div><ol class="route-list"><li><b>01 / DÉPART</b><strong>Note On</strong><span>La note commence à cet instant.</span></li><li><b>02 / MAINTIEN</b><strong>Le temps passe</strong><span>Le geste reste enfoncé.</span></li><li><b>03 / FIN</b><strong>Note Off</strong><span>Le geste de touche se termine.</span></li><li><b>04 / RENDU</b><strong>L’instrument répond</strong><span>Son enveloppe façonne la fin entendue.</span></li></ol><figcaption class="route-note">La durée de la note se lit entre les deux événements. Elle ne se trouve pas dans le seul message Note On.</figcaption></figure>
+  <div class="article-grid"><article>
+    <section class="article-section" id="evenements"><p class="section-index">01 / LE DÉBUT ET LA FIN</p><h2>Une note se joue dans le temps.</h2>
+      <p>Quand tu enfonces une touche, l’instrument reçoit un événement <strong>Note On</strong>. Quand tu la relâches, il reçoit un événement <strong>Note Off</strong> pour la même note et le même canal. La vélocité du Note On décrit la force de départ ; le message Note Off peut aussi transporter une vélocité de relâchement, même si beaucoup d’usages courants n’en tirent pas parti.</p>
+      <p>Le message de départ ne dit donc pas à lui seul « joue cette note pendant une seconde ». La durée apparaît parce qu’un événement de fin survient plus tard. Pour une phrase jouée en direct, le temps écoulé entre les deux gestes définit la durée demandée.</p>
+      <aside class="takeaway"><strong>À retenir —</strong> Note On marque un départ ; Note Off marque une fin. C’est leur écart dans le temps qui donne la longueur de la note.</aside>
+    </section>
+    <section class="article-section" id="atelier"><p class="section-index">02 / À L’ÉCOUTE</p><h2>Maintiens la note, puis relâche-la.</h2>
+      <p>Garde le bouton « Note On » enfoncé pour tenir la note ; relâche-le pour envoyer Note Off. Au clavier, maintiens Espace ou Entrée. Le son est synthétisé dans cette page ; aucun message ne part vers un appareil MIDI externe.</p>
+      <div class="lab" id="duration-lab"><div class="lab-head"><div><span class="lab-index">ATELIER / 02</span><h3>Combien de temps dure le geste ?</h3></div><span class="lab-mark">NOTE 60 · CANAL 1</span></div>
+        <p class="lab-intro">Appuie sans relâcher, attends, puis lève le doigt ou la touche. Le compteur mesure exactement cet intervalle.</p>
+        <div class="timeline" id="timeline" data-active="false" data-ended="false"><div class="timeline-top"><span>Chronologie des événements</span><output id="elapsed">en attente</output></div><div class="time-track"><div class="note-span" id="note-span"></div><div class="time-axis"><span>Départ</span><span>+ 0,5 s</span><span>+ 1 s</span><span>+ 1,5 s</span><span>+ 2 s</span></div></div><div class="event-pair"><div class="event" id="on-event" data-set="false"><span>Événement 1</span><strong id="on-value">Note On · —</strong></div><div class="event" id="off-event" data-set="false"><span>Événement 2</span><strong id="off-value">Note Off · —</strong></div></div></div>
+        <div class="measure"><span>Durée mesurée entre les événements</span><output id="duration">—</output><small>Cette mesure décrit l’intervalle des deux gestes dans la maquette.</small></div>
+        <div class="lab-actions"><button class="action-button" id="note-toggle" type="button" aria-pressed="false"><span id="note-toggle-icon" aria-hidden="true">▶</span> <span id="note-toggle-label">Maintenir pour jouer</span></button><p class="lab-status" id="lab-status" role="status">En attente d’un geste.</p></div>
+        <p class="lab-disclaimer"><strong>Démo locale :</strong> son synthétisé par le navigateur et messages simulés à l’écran ; aucun périphérique MIDI externe n’est connecté.</p>
+      </div>
+      <h3>Les événements ne sont pas l’enveloppe.</h3><p>Relâcher la touche ne signifie pas toujours que le son s’arrête net. Un synthétiseur peut appliquer une phase de release à son enveloppe, puis laisser le signal décroître. La note MIDI a reçu sa fin ; le timbre et la conception de l’instrument déterminent comment cette fin se fait entendre.</p>
+    </section>
+    <section class="article-section" id="sequence"><p class="section-index">03 / DANS UNE SÉQUENCE</p><h2>Le séquenceur garde aussi le placement.</h2>
+      <p>Dans une séquence, les événements sont associés à des positions temporelles. Un fichier MIDI standard peut conserver des données MIDI horodatées, ainsi que des informations comme le tempo et la mesure. Le séquenceur peut alors rejouer les notes dans le bon ordre et au bon moment.</p>
+      <p>Si tu déplaces Note Off plus loin, la note demandée s’allonge. Si tu déplaces Note On, son départ change de place. La grille, le tempo et les réglages de quantification aident à organiser ces positions, mais ils ne remplacent pas les événements de départ et de fin.</p>
+      <h3>Pourquoi deux fichiers sonnent-ils différemment ?</h3><p>Une séquence MIDI peut être jouée par différents instruments ou presets. Les notes et leurs placements peuvent rester identiques, tandis que l’enveloppe, le son de base ou le relâchement du nouvel instrument changent le résultat audible. Les événements décrivent l’interprétation ; l’instrument lui donne sa couleur.</p>
+      <aside class="takeaway"><strong>Repère :</strong> dans le fichier ou le séquenceur, tu peux examiner les événements et leur placement. Dans l’instrument, tu règles la façon dont le son réagit à ces événements.</aside>
+    </section>
+    <section class="article-section" id="pratique"><p class="section-index">04 / POUR LA SUITE</p><h2>Écoute ce que change la longueur.</h2>
+      <p>Fais deux essais : une note courte, puis une note tenue. Observe l’écart entre les deux événements et la façon dont le son s’éteint après le relâchement. Dans la prochaine note, nous suivrons le message jusqu’à sa destination : le bon canal, la bonne piste et le bon instrument.</p>
+      <ul class="references"><li><a href="https://midi.org/summary-of-midi-1-0-messages" target="_blank" rel="noopener noreferrer">MIDI Association — résumé des messages MIDI 1.0</a></li><li><a href="https://midi.org/standard-midi-files" target="_blank" rel="noopener noreferrer">MIDI Association — fichiers MIDI standard et données horodatées</a></li><li><a href="https://midi.org/about-midi-part-3midi-messages" target="_blank" rel="noopener noreferrer">MIDI Association — note, canal et vélocités</a></li></ul>
+    </section>
+    <nav class="reading-path" aria-label="Parcours de lecture : Cahier 02 · MIDI"><p class="reading-path-position">Cahier 02 · MIDI · Note 02 sur 07</p><div class="reading-path-links"><a class="reading-path-link " href="midi-ne-transporte-pas-le-son.html"><span>← Précédente · Note 01</span><strong>Le MIDI ne transporte pas le son</strong></a><a class="reading-path-link reading-path-next" href="midi-routage.html"><span>Suivante · Note 03 →</span><strong>Faire arriver le message au bon endroit</strong></a><a class="reading-path-index" href="index.html#cahier-02"><span>Sommaire du Cahier 02 · MIDI</span><span>7 notes <span aria-hidden="true">↑</span></span></a></div></nav>
+  </article><aside class="side"><nav class="toc" aria-label="Dans cette note"><p class="toc-label">Dans cette note</p><a href="#evenements">Début et fin</a><a href="#atelier">À l’écoute</a><a href="#sequence">Dans une séquence</a><a href="#pratique">Pour la suite</a></nav><div class="side-card"><h3>À garder en tête</h3><p>La durée n’est pas contenue dans un message isolé : elle se lit entre l’événement de départ et celui de fin.</p></div><div class="side-card"><h3>Mot-clé</h3><p>Un événement est une action datée : déclencher, relâcher ou modifier une commande.</p></div></aside></div>
+</main>
+<footer><div class="page footer-inner"><p>© 2026 Fréquences · Cahier 02 · MIDI</p><a href="index.html#accueil">Retour à l’accueil</a></div></footer>
+<script>
+(() => {
+  const toggleButton = document.querySelector('#note-toggle');
+  const toggleLabel = document.querySelector('#note-toggle-label');
+  const toggleIcon = document.querySelector('#note-toggle-icon');
+  const timeline = document.querySelector('#timeline');
+  const elapsed = document.querySelector('#elapsed');
+  const duration = document.querySelector('#duration');
+  const onEvent = document.querySelector('#on-event');
+  const offEvent = document.querySelector('#off-event');
+  const onValue = document.querySelector('#on-value');
+  const offValue = document.querySelector('#off-value');
+  const status = document.querySelector('#lab-status');
+  let audioContext = null;
+  let oscillator = null;
+  let gain = null;
+  let stoppingOscillator = null;
+  let startedAt = null;
+  let timer = null;
+  let active = false;
+  const displayTime = (milliseconds) => `${(milliseconds / 1000).toFixed(2)} s`;
+  const startSound = async () => {
+    const Context = window.AudioContext || window.webkitAudioContext;
+    if (!Context) return false;
+    if (!audioContext) audioContext = new Context();
+    if (audioContext.state === 'suspended') await audioContext.resume();
+    if (!active) return false;
+    oscillator = audioContext.createOscillator();
+    gain = audioContext.createGain();
+    oscillator.type = 'sine';
+    oscillator.frequency.setValueAtTime(261.63, audioContext.currentTime);
+    gain.gain.setValueAtTime(0, audioContext.currentTime);
+    gain.gain.linearRampToValueAtTime(0.075, audioContext.currentTime + 0.025);
+    oscillator.connect(gain).connect(audioContext.destination);
+    oscillator.start();
+    return true;
+  };
+  const stopSound = () => {
+    if (!oscillator || !audioContext || stoppingOscillator === oscillator) return;
+    const voice = oscillator;
+    const voiceGain = gain;
+    stoppingOscillator = voice;
+    const now = audioContext.currentTime;
+    voiceGain.gain.cancelScheduledValues(now);
+    voiceGain.gain.setTargetAtTime(0, now, 0.045);
+    voice.stop(now + 0.22);
+    voice.addEventListener('ended', () => {
+      if (stoppingOscillator === voice) stoppingOscillator = null;
+      if (oscillator === voice) { oscillator = null; gain = null; }
+    }, { once: true });
+  };
+  const updateElapsed = () => {
+    if (startedAt === null) return;
+    const milliseconds = performance.now() - startedAt;
+    elapsed.value = displayTime(milliseconds);
+    const width = Math.min(96, Math.max(2, milliseconds / 2000 * 100));
+    document.querySelector('#note-span').style.width = `${width}%`;
+  };
+  const releaseNote = () => {
+    if (!active || startedAt === null) return;
+    const elapsedMs = performance.now() - startedAt;
+    active = false;
+    window.clearInterval(timer);
+    timer = null;
+    timeline.dataset.active = 'false';
+    timeline.dataset.ended = 'true';
+    offEvent.dataset.set = 'true';
+    offValue.textContent = 'Note Off · canal 1 · note 60';
+    elapsed.value = displayTime(elapsedMs);
+    duration.value = displayTime(elapsedMs);
+    toggleButton.setAttribute('aria-pressed', 'false');
+    toggleLabel.textContent = 'Maintenir pour jouer';
+    toggleIcon.textContent = '▶';
+    stopSound();
+    status.textContent = `Note Off simulé après ${displayTime(elapsedMs)}.`;
+    startedAt = null;
+  };
+  const startNote = async () => {
+    if (active) return;
+    active = true;
+    startedAt = performance.now();
+    timeline.dataset.active = 'true';
+    timeline.dataset.ended = 'false';
+    onEvent.dataset.set = 'true';
+    offEvent.dataset.set = 'false';
+    onValue.textContent = 'Note On · canal 1 · note 60';
+    offValue.textContent = 'Note Off · —';
+    duration.value = 'en cours';
+    elapsed.value = '0.00 s';
+    toggleButton.setAttribute('aria-pressed', 'true');
+    toggleLabel.textContent = 'Relâcher pour Note Off';
+    toggleIcon.textContent = '■';
+    status.textContent = 'Note On simulé. Maintiens le bouton ; son relâchement enverra Note Off.';
+    timer = window.setInterval(updateElapsed, 50);
+    try {
+      const audible = await startSound();
+      if (active && !audible) status.textContent = 'Note On simulé ; la synthèse audio locale est indisponible dans ce navigateur.';
+    } catch {
+      if (active) status.textContent = 'Note On simulé ; le navigateur n’a pas démarré le son local.';
+    }
+  };
+  let pointerHeld = false;
+  let activePointerId = null;
+  let keyboardHeld = false;
+  let suppressClick = false;
+  const suppressNextClick = () => {
+    suppressClick = true;
+    window.setTimeout(() => { suppressClick = false; }, 0);
+  };
+  toggleButton.addEventListener('pointerdown', (event) => {
+    if (!event.isPrimary || event.button !== 0 || pointerHeld) return;
+    event.preventDefault();
+    pointerHeld = true;
+    activePointerId = event.pointerId;
+    try { toggleButton.setPointerCapture(event.pointerId); } catch {}
+    void startNote();
+  });
+  const pointerRelease = (event) => {
+    if (!pointerHeld || (event && event.pointerId !== undefined && event.pointerId !== activePointerId)) return;
+    pointerHeld = false;
+    activePointerId = null;
+    releaseNote();
+    suppressNextClick();
+  };
+  window.addEventListener('pointerup', pointerRelease);
+  window.addEventListener('pointercancel', pointerRelease);
+  toggleButton.addEventListener('keydown', (event) => {
+    if ((event.key !== ' ' && event.key !== 'Enter') || event.repeat) return;
+    event.preventDefault();
+    if (keyboardHeld) return;
+    keyboardHeld = true;
+    void startNote();
+  });
+  toggleButton.addEventListener('keyup', (event) => {
+    if (event.key !== ' ' && event.key !== 'Enter') return;
+    event.preventDefault();
+    if (!keyboardHeld) return;
+    keyboardHeld = false;
+    releaseNote();
+    suppressNextClick();
+  });
+  toggleButton.addEventListener('click', (event) => {
+    if (suppressClick) { suppressClick = false; return; }
+    // Allows assistive technologies that activate a button through click only.
+    if (event.detail === 0) { if (active) releaseNote(); else void startNote(); }
+  });
+  window.addEventListener('blur', () => { if (active) releaseNote(); pointerHeld = false; activePointerId = null; keyboardHeld = false; });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && active) releaseNote(); });
+  window.addEventListener('pagehide', stopSound);
+})();
+</script>
+</body>
+</html>

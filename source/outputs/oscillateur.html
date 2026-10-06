@@ -152,4 +152,1289 @@
       .graph-labels output { color:var(--teal); font-size:11px; }
       .filter-graph { display:block; width:100%; height:auto; margin-top:8px; overflow:hidden; }
       .graph-grid { fill:none; stroke:rgba(243,241,235,.13); stroke-dasharray:2 5; stroke-width:1; }
-      .response-curve,.response-glow { fill:none; stroke:v
+      .response-curve,.response-glow { fill:none; stroke:var(--yellow); stroke-linecap:round; stroke-linejoin:round; }
+      .response-glow { stroke:rgba(217,168,59,.16); stroke-width:12; }
+      .response-curve { stroke-width:2.5; }
+      .cutoff-marker { stroke:var(--teal); stroke-width:1; stroke-dasharray:3 4; opacity:.75; }
+      .filter-types { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:7px; margin-bottom:21px; }
+      .filter-type { min-height:43px; padding:0 9px; border:1px solid rgba(243,241,235,.2); background:rgba(255,255,255,.025); color:var(--muted); font:10px var(--mono); cursor:pointer; transition:transform 150ms ease,color 150ms ease,border-color 150ms ease,background 150ms ease; }
+      .filter-type:hover { transform:translateY(-1px); border-color:var(--yellow); color:var(--ink); }
+      .filter-type[aria-pressed="true"] { border-color:var(--teal); background:rgba(184,198,107,.12); color:var(--ink); box-shadow:inset 0 -2px var(--teal); }
+      .filter-control { display:flex; justify-content:space-between; gap:12px; margin:12px 0 1px; color:var(--muted); }
+      .filter-control output { color:var(--teal); font-size:11px; }
+      .filter-slider { --progress:51%; width:100%; height:9px; margin:7px 0 14px; appearance:none; border-radius:999px; background:linear-gradient(90deg,var(--red) 0 var(--progress),rgba(243,241,235,.16) var(--progress) 100%); cursor:ew-resize; }
+      .filter-slider::-webkit-slider-thumb { width:18px; height:18px; appearance:none; border:3px solid var(--paper); border-radius:50%; background:var(--yellow); box-shadow:0 0 0 1px var(--yellow); }
+      .filter-slider::-moz-range-thumb { width:13px; height:13px; border:3px solid var(--paper); border-radius:50%; background:var(--yellow); box-shadow:0 0 0 1px var(--yellow); }
+      .lab-footer { display:flex; align-items:center; justify-content:space-between; gap:18px; padding-top:14px; border-top:1px solid var(--rule); }
+      .lab-footer p { max-width:390px; margin:0; color:var(--muted); font-size:12px; line-height:1.5; }
+      .sound-button { min-height:45px; padding:0 17px; border:1px solid var(--yellow); border-radius:999px; background:var(--yellow); color:var(--paper); font:700 12px var(--sans); cursor:pointer; transition:transform 160ms ease,box-shadow 160ms ease; }
+      .sound-button:hover { transform:translateY(-2px); box-shadow:0 7px 20px rgba(217,168,59,.22); }
+      .sound-button:disabled { opacity:.65; cursor:wait; }
+      .sound-button span { margin-right:7px; font-size:10px; }
+      .sound-button[aria-pressed="true"] { background:transparent; color:var(--yellow); }
+      .sound-status { min-height:18px; margin:10px 0 0; color:var(--teal); font:10px var(--mono); }
+      .exercise-list { padding-left:20px; }
+      .exercise-list li { margin:10px 0; padding-left:4px; color:var(--muted); }
+      .exercise-list strong { color:var(--ink); }
+      @media (max-width:600px) { .filter-types { grid-template-columns:repeat(2,minmax(0,1fr)); } .lab-heading { display:block; } .lab-mark { display:inline-block; margin-top:10px; } .lab-footer { align-items:stretch; flex-direction:column; } .sound-button { align-self:flex-start; } }
+
+      .envelope-lab { margin:24px 0; padding:clamp(18px,4vw,30px); border:1px solid rgba(217,168,59,.38); background:linear-gradient(145deg,rgba(23,35,51,.97),rgba(14,16,18,.97)); box-shadow:0 18px 50px rgba(0,0,0,.2); }
+      .lab-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding-bottom:18px; border-bottom:1px solid var(--rule); }
+      .lab-index,.lab-mark,.envelope-display-head,.stage-labels,.env-control { color:var(--teal); font:10px var(--mono); letter-spacing:.05em; text-transform:uppercase; }
+      .lab-heading h3 { margin:5px 0 0; color:var(--ink); font:500 23px/1.2 var(--display); }
+      .lab-mark { padding:7px 9px; border:1px solid rgba(184,198,107,.32); white-space:nowrap; }
+      .envelope-display { margin:21px 0 18px; padding:12px 13px 9px; border:1px solid rgba(243,241,235,.16); background:rgba(255,255,255,.025); }
+      .envelope-display-head { display:flex; justify-content:space-between; gap:8px; color:var(--muted); font-size:9px; }
+      .envelope-display-head output { color:var(--teal); font-size:10px; }
+      .envelope-graph { display:block; width:100%; height:auto; margin-top:8px; overflow:hidden; }
+      .envelope-grid { fill:none; stroke:rgba(243,241,235,.13); stroke-dasharray:2 5; stroke-width:1; }
+      .envelope-glow,.envelope-line { fill:none; stroke:var(--yellow); stroke-linecap:round; stroke-linejoin:round; }
+      .envelope-glow { stroke:rgba(217,168,59,.18); stroke-width:12; }
+      .envelope-line { stroke-width:2.5; }
+      .envelope-point { fill:var(--teal); stroke:var(--paper); stroke-width:1.5; }
+      .stage-labels { display:flex; justify-content:space-between; gap:5px; padding-top:5px; color:var(--muted); font-size:8px; }
+      .envelope-controls { display:grid; grid-template-columns:1fr 1fr; gap:17px 23px; padding:9px 0 19px; }
+      .env-control { display:grid; grid-template-columns:1fr auto; align-items:center; gap:6px 10px; color:var(--muted); }
+      .env-control output { color:var(--teal); font-size:10px; }
+      .env-control input { grid-column:1/-1; width:100%; height:9px; margin:0; appearance:none; border-radius:999px; background:linear-gradient(90deg,var(--red) 0 var(--progress,0%),rgba(243,241,235,.16) var(--progress,0%) 100%); cursor:ew-resize; }
+      .env-control input::-webkit-slider-thumb { width:16px; height:16px; appearance:none; border:3px solid var(--paper); border-radius:50%; background:var(--yellow); box-shadow:0 0 0 1px var(--yellow); }
+      .env-control input::-moz-range-thumb { width:11px; height:11px; border:3px solid var(--paper); border-radius:50%; background:var(--yellow); box-shadow:0 0 0 1px var(--yellow); }
+      .lab-footer { display:flex; align-items:center; justify-content:space-between; gap:18px; padding-top:14px; border-top:1px solid var(--rule); }
+      .lab-footer p { max-width:390px; margin:0; color:var(--muted); font-size:12px; line-height:1.5; }
+      .sound-button { min-height:45px; padding:0 17px; border:1px solid var(--yellow); border-radius:999px; background:var(--yellow); color:var(--paper); font:700 12px var(--sans); cursor:pointer; transition:transform 160ms ease,box-shadow 160ms ease; }
+      .sound-button:hover { transform:translateY(-2px); box-shadow:0 7px 20px rgba(217,168,59,.22); }
+      .sound-button:disabled { opacity:.65; cursor:wait; }
+      .sound-button span { margin-right:7px; font-size:10px; }
+      .sound-button[aria-pressed="true"] { background:transparent; color:var(--yellow); }
+      .sound-status { min-height:18px; margin:10px 0 0; color:var(--teal); font:10px var(--mono); }
+      .exercise-list { padding-left:20px; }
+      .exercise-list li { margin:10px 0; padding-left:4px; color:var(--muted); }
+      .exercise-list strong { color:var(--ink); }
+      @media (max-width:600px) { .lab-heading { display:block; } .lab-mark { display:inline-block; margin-top:10px; } .stage-labels { font-size:7px; } .envelope-controls { gap:15px 12px; } .lab-footer { align-items:stretch; flex-direction:column; } .sound-button { align-self:flex-start; } }
+
+      .modulation-lab { margin:24px 0; padding:clamp(18px,4vw,30px); border:1px solid rgba(217,168,59,.38); background:linear-gradient(145deg,rgba(23,35,51,.97),rgba(14,16,18,.97)); box-shadow:0 18px 50px rgba(0,0,0,.2); }
+      .lab-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding-bottom:18px; border-bottom:1px solid var(--rule); }
+      .lab-index,.lab-mark,.lfo-readout span,.graph-labels,.mod-control { color:var(--teal); font:10px var(--mono); letter-spacing:.055em; text-transform:uppercase; }
+      .lab-heading h3 { margin:5px 0 0; color:var(--ink); font:500 23px/1.2 var(--display); }
+      .lab-mark { padding:7px 9px; border:1px solid rgba(184,198,107,.32); white-space:nowrap; }
+      .lfo-display { margin:20px 0 17px; padding:12px 13px 8px; border:1px solid rgba(243,241,235,.16); background:rgba(255,255,255,.025); }
+      .lfo-readout { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+      .lfo-readout strong { color:var(--yellow); font:11px var(--mono); }
+      .lfo-graph { display:block; width:100%; height:auto; margin:8px 0 5px; overflow:hidden; }
+      .lfo-grid { fill:none; stroke:rgba(243,241,235,.13); stroke-dasharray:2 5; stroke-width:1; }
+      .lfo-line { fill:none; stroke:var(--yellow); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+      .lfo-dot { fill:var(--teal); stroke:var(--paper); stroke-width:1.5; filter:drop-shadow(0 0 4px rgba(184,198,107,.5)); }
+      .lfo-endpoints { display:flex; justify-content:space-between; color:var(--muted); font:9px var(--mono); }
+      .destination-picks { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; margin:0 0 12px; }
+      .destination-pick { min-height:50px; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:3px; padding:7px 10px; border:1px solid rgba(243,241,235,.2); background:rgba(255,255,255,.025); color:var(--muted); font:11px var(--mono); cursor:pointer; transition:transform 150ms ease,color 150ms ease,border-color 150ms ease,background 150ms ease; }
+      .destination-pick:hover { transform:translateY(-1px); border-color:var(--yellow); color:var(--ink); }
+      .destination-pick[aria-pressed="true"] { border-color:var(--teal); background:rgba(184,198,107,.12); color:var(--ink); box-shadow:inset 0 -2px var(--teal); }
+      .destination-pick small { color:var(--teal); font:8px var(--mono); }
+      .target-description { min-height:42px; padding:10px 12px; border-left:2px solid var(--red-soft); background:rgba(255,255,255,.025); color:var(--muted); font-size:12px; line-height:1.5; }
+      .mod-control { display:flex; justify-content:space-between; gap:12px; margin:13px 0 1px; color:var(--muted); }
+      .mod-control output { color:var(--teal); font-size:11px; }
+      .mod-slider { --progress:38%; width:100%; height:9px; margin:7px 0 14px; appearance:none; border-radius:999px; background:linear-gradient(90deg,var(--red) 0 var(--progress),rgba(243,241,235,.16) var(--progress) 100%); cursor:ew-resize; }
+      .mod-slider::-webkit-slider-thumb { width:16px; height:16px; appearance:none; border:3px solid var(--paper); border-radius:50%; background:var(--yellow); box-shadow:0 0 0 1px var(--yellow); }
+      .mod-slider::-moz-range-thumb { width:11px; height:11px; border:3px solid var(--paper); border-radius:50%; background:var(--yellow); box-shadow:0 0 0 1px var(--yellow); }
+      .lab-footer { display:flex; align-items:center; justify-content:space-between; gap:18px; padding-top:14px; border-top:1px solid var(--rule); }
+      .lab-footer p { max-width:390px; margin:0; color:var(--muted); font-size:12px; line-height:1.5; }
+      .sound-button { min-height:45px; padding:0 17px; border:1px solid var(--yellow); border-radius:999px; background:var(--yellow); color:var(--paper); font:700 12px var(--sans); cursor:pointer; transition:transform 160ms ease,box-shadow 160ms ease; }
+      .sound-button:hover { transform:translateY(-2px); box-shadow:0 7px 20px rgba(217,168,59,.22); }
+      .sound-button:disabled { opacity:.65; cursor:wait; }
+      .sound-button span { margin-right:7px; font-size:10px; }
+      .sound-button[aria-pressed="true"] { background:transparent; color:var(--yellow); }
+      .sound-status { min-height:18px; margin:10px 0 0; color:var(--teal); font:10px var(--mono); }
+      .choice-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:20px 0; }
+      .choice-grid div { padding:13px; border-top:1px solid rgba(184,198,107,.45); background:rgba(255,255,255,.025); }
+      .choice-grid b { display:block; margin-bottom:8px; color:var(--teal); font:9px/1.5 var(--mono); }
+      .choice-grid p { margin:0; color:var(--muted); font-size:12px; line-height:1.5; }
+      @media (max-width:600px) { .lab-heading { display:block; } .lab-mark { display:inline-block; margin-top:10px; } .lab-footer { align-items:stretch; flex-direction:column; } .sound-button { align-self:flex-start; } .choice-grid { grid-template-columns:1fr; } }
+      @media (max-width: 800px) { .article-grid { grid-template-columns: 1fr; gap: 20px; } .side { position: static; grid-row: 1; } .toc { display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 12px 0 16px; border-left: 0; border-bottom: 1px solid var(--rule); } .toc-label { width: 100%; margin-bottom: 0; } .toc a { padding: 4px 0; } .side-card { display: none; } .route-list { grid-template-columns: repeat(2, minmax(0,1fr)); } .route-list li:nth-child(2)::after { display: none; } }
+      @media (max-width: 600px) { .page { width: calc(100% - 36px); } .masthead-inner { min-height: 68px; } .wordmark { gap: 8px; font-size: 20px; } .wordmark-symbol { width: 32px; height: 32px; } .wordmark-symbol svg { width: 20px; height: 20px; } .nav { gap: 10px; } .nav a { font-size: 11px; } .issue-tag { display: none; } .crumb { margin: 20px 0 19px; font-size: 10px; } .hero { padding: 19px 0 35px; } h1 { font-size: clamp(50px, 14vw, 76px); } .deck { font-size: 18px; } .route { margin-bottom: 45px; padding: 22px; } .route::before { inset: 8px; } .route-head { display: block; } .route-head span { display: inline-block; margin-top: 8px; } .route-list { gap: 7px; } .route-list li { min-height: 105px; padding: 12px 10px; } .route-list strong { font-size: 14px; } .route-list li::after { display: none; } .article-section { padding-bottom: 31px; margin-bottom: 31px; } h2 { font-size: 39px; } .lab { padding: 17px; } .lab-top { display: block; } .lab-mark { display: inline-block; margin-top: 8px; } .buffer-options { gap: 5px; } .buffer-option { font-size: 11px; } .patch-board { padding: 15px; } .patch-audio-path { grid-template-columns: 1fr; gap: 5px; } .patch-node { min-height: 78px; } .patch-arrow { transform: rotate(90deg); line-height: 1; } .patch-connections { grid-template-columns: 1fr; } .patch-connection { min-height: 0; } .result-grid { gap: 7px; } .result { min-height: 80px; padding: 11px 9px; } .result strong { font-size: 21px; } .footer-inner { min-height: 66px; align-items: start; flex-direction: column; justify-content: center; padding: 13px 0; } }
+      @media (max-width: 370px) { .page { width: calc(100% - 28px); } .wordmark { font-size: 17px; } .nav { gap: 7px; } .nav a { font-size: 10px; } .route { padding: 18px; } .route-list span { font-size: 11px; } .buffer-options { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: .01ms !important; } .buffer-option:hover, .patch-mode:hover, .filter-type:hover, .destination-pick:hover, .sound-button:hover { transform: none; } }
+
+      .oscillator-lab { margin:26px 0 25px; padding:clamp(17px,3.5vw,28px); border:1px solid rgba(217,168,59,.38); background:linear-gradient(145deg,rgba(23,35,51,.97),rgba(14,16,18,.97)); box-shadow:0 18px 50px rgba(0,0,0,.2); }
+      .osc-head { display:flex; align-items:start; justify-content:space-between; gap:16px; padding-bottom:17px; border-bottom:1px solid var(--rule); }
+      .osc-head h3 { margin:3px 0 0; color:var(--ink); font-size:24px; }
+      .osc-head p { margin:0; color:var(--teal); font:11px var(--mono); }
+      .osc-wave-wrap { margin:17px 0 20px; padding:13px 12px 8px; border:1px solid rgba(243,241,235,.18); background:rgba(255,255,255,.025); }
+      .osc-wave-meta { display:flex; justify-content:space-between; gap:12px; color:var(--teal); font:10px var(--mono); text-transform:uppercase; letter-spacing:.04em; }
+      .osc-wave { display:block; width:100%; height:auto; margin:8px 0 0; overflow:visible; }
+      .osc-wave-grid { fill:none; stroke:rgba(243,241,235,.13); stroke-dasharray:2 7; stroke-width:1; }
+      .osc-wave-line { fill:none; stroke:var(--yellow); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; filter:drop-shadow(0 0 5px rgba(217,168,59,.26)); }
+      .wave-options { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-bottom:19px; }
+      .wave-option { min-height:48px; padding:7px 9px; border:1px solid rgba(243,241,235,.22); background:rgba(255,255,255,.025); color:var(--muted); font:11px var(--mono); cursor:pointer; transition:transform 150ms ease,border-color 150ms ease,background 150ms ease,color 150ms ease; }
+      .wave-option:hover { transform:translateY(-2px); border-color:var(--yellow); color:var(--ink); }
+      .wave-option[aria-pressed="true"] { border-color:var(--yellow); background:rgba(217,168,59,.12); color:var(--ink); box-shadow:inset 0 -2px var(--yellow); }
+      .osc-control { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:0 0 5px; color:var(--muted); font:10px var(--mono); letter-spacing:.04em; }
+      .osc-control output { color:var(--teal); font:inherit; }
+      .osc-slider { --progress:33%; width:100%; height:9px; margin:0 0 15px; appearance:none; border-radius:999px; background:linear-gradient(90deg,var(--red) 0 var(--progress),rgba(243,241,235,.16) var(--progress) 100%); cursor:ew-resize; }
+      .osc-slider::-webkit-slider-thumb { width:18px; height:18px; appearance:none; border:2px solid var(--yellow); border-radius:50%; background:var(--paper); box-shadow:0 0 0 3px rgba(217,168,59,.12); }
+      .osc-slider::-moz-range-thumb { width:14px; height:14px; border:2px solid var(--yellow); border-radius:50%; background:var(--paper); box-shadow:0 0 0 3px rgba(217,168,59,.12); }
+      .harmonic-figure { margin:0 0 15px; padding:12px; border-top:1px solid var(--rule); background:rgba(255,255,255,.02); }
+      .harmonic-title { display:flex; justify-content:space-between; gap:10px; color:var(--muted); font:10px var(--mono); }
+      .harmonic-title output { color:var(--teal); }
+      .harmonic-chart { width:100%; height:auto; display:block; margin-top:8px; }
+      .harmonic-grid { stroke:rgba(243,241,235,.13); stroke-dasharray:2 6; }
+      .harmonic-bar { fill:var(--flame); opacity:.92; transition:x 180ms ease,y 180ms ease,height 180ms ease,opacity 180ms ease; }
+      .harmonic-label { fill:rgba(243,241,235,.58); font:9px var(--mono); }
+      .harmonic-axis { stroke:rgba(243,241,235,.3); }
+      .harmonic-chart[data-renderer="d3"] .harmonic-bar { fill:var(--flame); opacity:.92; transition:none; shape-rendering:crispEdges; }
+      .harmonic-chart[data-renderer="d3"] .harmonic-bar.is-selected { fill:var(--teal); }
+      .harmonic-chart #harmonic-grid line { stroke:rgba(243,241,235,.14); stroke-width:.75; vector-effect:non-scaling-stroke; shape-rendering:crispEdges; }
+      .spectrum-d3-axis { color:var(--muted); }
+      .spectrum-d3-axis text { fill:var(--muted); font:11px var(--mono); font-variant-numeric:tabular-nums; }
+      .spectrum-d3-axis .domain,.spectrum-d3-axis .tick line { stroke:rgba(243,241,235,.28); stroke-width:.75; vector-effect:non-scaling-stroke; shape-rendering:crispEdges; }
+      .spectrum-d3-y .domain { display:none; }
+      .spectrum-d3-annotation line { stroke:var(--teal); stroke-width:1; stroke-dasharray:3 5; opacity:.55; vector-effect:non-scaling-stroke; }
+      .spectrum-d3-annotation text { fill:var(--teal); font:11px var(--mono); }
+      .spectrum-d3-hitarea { cursor:crosshair; touch-action:pan-y pinch-zoom; }
+      .harmonic-help { margin:10px 0 8px; color:var(--muted); font-size:12px; line-height:1.45; }
+      .harmonic-inspection { margin-top:12px; flex-wrap:wrap; }
+      .harmonic-inspection output { color:var(--teal); }
+      #harmonic-inspect { height:44px; margin:0 0 8px; background:transparent; }
+      #harmonic-inspect::-webkit-slider-runnable-track { height:4px; border-radius:999px; background:linear-gradient(90deg,var(--red) 0 var(--progress),rgba(243,241,235,.16) var(--progress) 100%); }
+      #harmonic-inspect::-webkit-slider-thumb { width:16px; height:16px; margin-top:-6px; border-color:var(--teal); box-shadow:none; }
+      #harmonic-inspect::-moz-range-track { height:4px; border-radius:999px; background:rgba(243,241,235,.16); }
+      #harmonic-inspect::-moz-range-progress { height:4px; border-radius:999px; background:var(--red); }
+      #harmonic-inspect::-moz-range-thumb { width:12px; height:12px; border-color:var(--teal); box-shadow:none; }
+      .harmonic-readout { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; padding:10px 0 0; border-top:1px solid var(--rule); }
+      .harmonic-readout span { display:block; color:var(--muted); font:10px/1.4 var(--mono); }
+      .harmonic-readout output { display:block; margin-top:4px; color:var(--teal); font:500 14px/1.4 var(--mono); }
+      .osc-lab-footer { display:flex; align-items:center; justify-content:space-between; gap:18px; padding-top:14px; border-top:1px solid var(--rule); }
+      .osc-lab-footer p { max-width:390px; margin:0; color:var(--muted); font-size:12px; line-height:1.5; }
+      .osc-play { min-height:45px; padding:0 18px; border:1px solid var(--yellow); border-radius:999px; background:var(--yellow); color:var(--paper); font:700 12px var(--sans); cursor:pointer; transition:transform 150ms ease,box-shadow 150ms ease; }
+      .osc-play:hover { transform:translateY(-2px); box-shadow:0 7px 20px rgba(217,168,59,.22); }
+      .osc-play[aria-pressed="true"] { background:transparent; color:var(--yellow); }
+      .osc-play:disabled { opacity:.65; cursor:wait; }
+      .osc-play span { margin-right:7px; font-size:10px; }
+      .osc-status { min-height:1.5em; margin:9px 0 0; color:var(--muted); font:11px var(--mono); }
+      .wave-guide { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:20px 0; }
+      .wave-guide > div { padding:15px; border-top:1px solid rgba(243,241,235,.24); background:rgba(255,255,255,.025); }
+      .wave-guide b { display:block; margin-bottom:5px; color:var(--yellow); font:11px var(--mono); }
+      .wave-guide p { margin:0; color:var(--muted); font-size:13px; line-height:1.55; }
+      .osc-choice-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; margin:20px 0; }
+      .osc-choice-grid > div { padding:13px; border-left:2px solid var(--flame); background:rgba(255,255,255,.025); }
+      .osc-choice-grid b { display:block; margin-bottom:6px; color:var(--ink); font-size:12px; }
+      .osc-choice-grid p { margin:0; font-size:12px; }
+      @media (max-width:600px) { .wave-options { grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; } .osc-head { display:block; } .osc-head p { margin-top:5px; } .osc-lab-footer { align-items:stretch; flex-direction:column; } .osc-play { align-self:flex-start; } .wave-guide,.osc-choice-grid { grid-template-columns:1fr; } }
+      @media (prefers-reduced-motion:reduce) { .wave-option:hover,.osc-play:hover { transform:none; } .harmonic-bar { transition:none; } }
+    </style>
+  <style id="frequences-design-system" data-version="2026-10-06.13">
+/*
+ * Fréquences — direction industrielle rouge, version 2026-10-06.3.
+ * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
+ * Les couleurs des données des graphiques restent définies par chaque page.
+ */
+:root {
+  /* Color roles */
+  --ds-bg: #0e1012;
+  --ds-surface: #101214;
+  --ds-surface-raised: #1a1d20;
+  --ds-text: #f3f1eb;
+  --ds-text-muted: #aab1b2;
+  --ds-line: #42494c;
+  --ds-line-strong: #596165;
+  --ds-red: #ff321f;
+  --ds-red-soft: #ff6254;
+  --ds-headline: #f3f1eb;
+
+  /* Typography, 4px spacing scale, and shape */
+  --ds-display: Arial, Helvetica, sans-serif;
+  --ds-body: var(--sans, "DM Sans", "Arial Nova", sans-serif);
+  --ds-mono: var(--mono, "IBM Plex Mono", ui-monospace, monospace);
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-6: 24px;
+  --ds-space-8: 32px;
+  --ds-breakpoint-tablet: 768px;
+  --ds-breakpoint-desktop: 1024px;
+  --ds-radius-panel: 0;
+  --ds-radius-control: 0;
+
+  /* Interaction timing */
+  --ds-duration-fast: 150ms;
+  --ds-duration-standard: 230ms;
+  --ds-ease-standard: cubic-bezier(.2, .7, .2, 1);
+  --ds-focus-ring: 0 0 0 3px rgba(255, 98, 84, .3);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+body[data-design-system="red-industrial"] {
+  background-color: var(--ds-bg);
+  color: var(--ds-text);
+  font-family: var(--ds-body);
+}
+
+/* Une portée explicite donne la priorité au système sur les styles locaux. */
+body[data-design-system] :is(h1, h2, h3) {
+  font-family: var(--ds-display);
+  color: var(--ds-headline);
+}
+
+body[data-design-system] :is(h1, .article-section > h2, .dossier h2, .reading-head h2, .atelier h2) {
+  color: var(--ds-headline);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -.055em;
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] h1 {
+  line-height: .94;
+}
+
+body[data-design-system] .masthead {
+  border-bottom-color: var(--ds-line);
+  background: var(--ds-bg);
+}
+
+body[data-design-system] .wordmark {
+  font-family: var(--ds-display);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .wordmark-symbol {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ds-text);
+  box-shadow: none;
+}
+
+body[data-design-system] .wordmark-symbol::after {
+  display: none;
+}
+
+body[data-design-system] .wordmark-symbol svg {
+  width: 28px;
+  height: 28px;
+  overflow: visible;
+}
+
+body[data-design-system] .wordmark-symbol .logo-rail {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+body[data-design-system] .wordmark-symbol .logo-slider {
+  fill: none;
+  stroke: var(--ds-red);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
+@media (max-width: 600px) {
+  body[data-design-system] .wordmark-symbol {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  body[data-design-system] .wordmark-symbol svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+body[data-design-system] .wordmark em {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .nav a {
+  color: var(--ds-text);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .nav a:hover {
+  color: var(--ds-red-soft);
+}
+
+/* L'accueil possède ses propres classes : elles sont couvertes explicitement. */
+body[data-design-system] .cover {
+  row-gap: 24px;
+}
+
+body[data-design-system] .cover h1 {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin-bottom: 0;
+  font-family: "Arial Black", "Arial Nova", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: clamp(66px, 9.2vw, 132px);
+  -webkit-text-stroke: .35px currentColor;
+  line-height: .92;
+  container-type: inline-size;
+}
+
+body[data-design-system] .cover-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-design-system] .cover-title-line {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  white-space: nowrap;
+  font-size: inherit;
+  font-size: min(1em, calc((100cqw - 44px) / 7));
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+body[data-design-system] .cover-title-word {
+  flex: 0 0 auto;
+}
+
+body[data-design-system] .cover-title-line::before,
+body[data-design-system] .cover-title-line::after {
+  content: "";
+  flex: 1 1 0;
+  min-width: 8px;
+  height: 2px;
+  background: currentColor;
+  opacity: .8;
+  transform: scaleX(.8);
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), opacity 280ms ease;
+}
+
+body[data-design-system] .cover-title-line::before {
+  transform-origin: right center;
+}
+
+body[data-design-system] .cover-title-line::after {
+  transform-origin: left center;
+}
+
+body[data-design-system] .cover-title-line:first-child::before,
+body[data-design-system] .cover-title-line:last-child::after {
+  flex: 0 0 clamp(12px, 2vw, 28px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] .cover-title-line:hover::before,
+  body[data-design-system] .cover-title-line:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-design-system] .cover-title-line::before,
+  body[data-design-system] .cover-title-line::after {
+    transform: none;
+    transition: none;
+  }
+}
+
+body[data-design-system] .cover-deck {
+  margin-top: 0;
+}
+
+@media (min-width: 981px) {
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1.15fr) minmax(370px, .85fr);
+    column-gap: clamp(28px, 4vw, 60px);
+  }
+
+  body[data-design-system] .cover-copy {
+    max-width: none;
+  }
+}
+
+body[data-design-system] .cover-figure {
+  border: 1px solid var(--ds-line-strong);
+  border-top: 3px solid var(--ds-red);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .cover-figure::before {
+  border: 0;
+}
+
+body[data-design-system] .reference-reset {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reference-reset:hover {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+}
+
+/* Les deux cahiers : objectif, notions et entrée dans le parcours. */
+body[data-design-system] .cover-start {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  margin-bottom: 14px;
+  color: var(--ds-red-soft);
+  font: 600 12px/1.4 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-intro {
+  padding-block: clamp(36px, 5vw, 64px);
+  border-bottom: 1px solid var(--ds-line);
+  scroll-margin-top: 24px;
+}
+
+body[data-design-system] .cahier-kicker {
+  margin: 0 0 12px;
+  color: var(--ds-red-soft);
+  font: 11px/1.5 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-intro > h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-lead {
+  max-width: 72ch;
+  margin: 0 0 28px;
+  color: var(--ds-text-muted);
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body[data-design-system] .cahier-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--ds-line);
+  border-top: 3px solid var(--ds-red);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .cahier-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 18px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .cahier-card-meta span:first-child {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-card h3 {
+  margin: 0 0 14px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+body[data-design-system] .cahier-objective {
+  margin: 0 0 22px;
+  color: var(--ds-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions-title {
+  margin: 0 0 10px;
+  color: var(--ds-text);
+  font: 11px/1.5 var(--ds-mono);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-notions {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  color: var(--ds-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions li + li {
+  margin-top: 9px;
+}
+
+body[data-design-system] .cahier-notions strong {
+  color: var(--ds-text);
+  font-weight: 600;
+}
+
+body[data-design-system] .cahier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ds-line);
+}
+
+body[data-design-system] .cahier-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-text-muted);
+  font: 600 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin {
+  padding: 10px 14px;
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  text-decoration: none;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin:hover {
+  background: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-practice {
+  margin: 20px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  body[data-design-system] .cahier-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Navigation de lecture : ordre des notes, sommaire et passage au cahier suivant. */
+body[data-design-system] .reading-path {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-position {
+  margin: 0 0 15px;
+  color: var(--ds-text-muted);
+  font: 11px/1.6 var(--ds-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reading-path-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+body[data-design-system] .reading-path-link {
+  min-width: 0;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  text-decoration: none;
+}
+
+body[data-design-system] .reading-path-link span {
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .reading-path-link strong {
+  color: var(--ds-text);
+  font: 600 15px/1.4 var(--ds-body);
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] .reading-path-link:hover {
+  border-color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-next {
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-next span {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-index {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  color: var(--ds-text-muted);
+  font: 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .reading-path-reference {
+  margin: 12px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .reading-path-reference a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-red-soft);
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 520px) {
+  body[data-design-system] .reading-path-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body[data-design-system] .signal-chain {
+  border-color: var(--ds-line-strong);
+}
+
+body[data-design-system] .signal-chain::before {
+  background: #111a24;
+}
+
+body[data-design-system] .signal-step {
+  border-right-color: var(--ds-line);
+}
+
+body[data-design-system] .signal-step-label {
+  font-weight: 500;
+}
+
+body[data-design-system] .signal-step b {
+  border-color: var(--ds-line-strong);
+  color: var(--ds-text-muted);
+}
+
+body[data-design-system] .signal-step::after,
+body[data-design-system] .signal-step[aria-current="step"]::after {
+  background: var(--ds-red);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible, [aria-current="step"]) b {
+  border-color: var(--ds-red);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible) .signal-step-arrow {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .story-columns section.is-active {
+  border-left-color: var(--ds-red);
+  background: rgba(255, 50, 31, .045);
+}
+
+body[data-design-system] :is(.story-columns h3, .article-row h3) {
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+
+body[data-design-system] .article-row {
+  border-color: var(--ds-line);
+  background: rgba(16, 18, 20, .8);
+}
+
+body[data-design-system] .article-row:hover {
+  background: var(--ds-surface-raised);
+}
+
+body[data-design-system] .article-topic {
+  border-color: var(--ds-red-soft);
+  background: transparent;
+  color: var(--ds-red-soft);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+}
+
+body[data-design-system] .article-topic::before {
+  background: var(--ds-red);
+}
+
+body[data-design-system] :is(.article-link, details summary) {
+  text-decoration-color: var(--ds-red);
+}
+
+body[data-design-system] :is(.toc, .side-card) {
+  padding: 16px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .toc-label {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .toc a {
+  border-top: 1px solid var(--ds-line);
+}
+
+::selection {
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] :focus-visible {
+  outline: 2px solid var(--ds-red-soft);
+  outline-offset: var(--ds-space-1);
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* One consistent dark instrument-console surface across every interactive lab. */
+body[data-design-system] :is(
+  .route,
+  .lab,
+  .controller-lab,
+  .gesture-lab,
+  .effect-lab,
+  .envelope-lab,
+  .filter-lab,
+  .modulation-lab,
+  .oscillator-lab
+) {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .route::before {
+  border: 0;
+}
+
+body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
+  font-family: var(--ds-display);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+/* Red is reserved for the primary action and selected controls. */
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
+  min-height: 44px;
+  border: 1px solid var(--ds-red);
+  border-radius: var(--ds-radius-control);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  font-family: var(--ds-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  background: var(--ds-red-soft);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
+  transform: translateY(0);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
+  border-color: var(--ds-red);
+  background: transparent;
+  color: var(--ds-red-soft);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+/* Le bouton d'écoute arrondi de l'accueil conserve la forme demandée. */
+body[data-design-system] .listen:not(.secondary) {
+  border-radius: 999px;
+}
+
+body[data-design-system] .action-button.secondary {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+}
+
+body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+  box-shadow: none;
+}
+
+/* Instrument choices keep their own chart colors; only selection chrome is unified. */
+body[data-design-system] :is(
+  .buffer-option,
+  .wave-option,
+  .filter-type,
+  .effect-pick,
+  .patch-mode,
+  .destination-pick
+)[aria-pressed="true"] {
+  border-color: var(--ds-red);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+body[data-design-system] .lab-mark {
+  border-color: var(--ds-red);
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] :is(.route-note, .control-explain, .routing-readout, .takeaway) {
+  border-left-color: var(--ds-red);
+}
+
+/* Keep all range controls keyboard and touch friendly; retain each page's value encoding. */
+body[data-design-system] input[type="range"] {
+  accent-color: var(--ds-red);
+  touch-action: pan-y;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  body[data-design-system] .masthead-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  body[data-design-system] .wordmark {
+    font-size: 22px;
+  }
+
+  body[data-design-system] .nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--ds-line);
+  }
+
+  body[data-design-system] .nav a {
+    font-size: 10px;
+    min-height: 44px;
+  }
+
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-design-system] .cover h1 {
+    font-size: clamp(46px, 13vw, 82px);
+  }
+
+  body[data-design-system] .cover-figure {
+    padding: 22px;
+  }
+
+  body[data-design-system] .dossier h2 {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+
+  body[data-design-system] .figure-foot {
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  body[data-design-system] .toc {
+    padding: 12px;
+  }
+}
+
+/* Une même hiérarchie pour les courbes, les repères et les schémas pédagogiques. */
+body[data-design-system] {
+  --chart-line: #e76524;
+  --chart-selected: #b8c66b;
+  --chart-grid: rgba(243, 241, 235, .13);
+}
+
+body[data-design-system] :is(.filter-graph-wrap, .envelope-display, .lfo-display,
+  .automation-chart, .cutoff-panel, .osc-wave-wrap, .harmonic-figure,
+  .spectrum-wrap, .level-meter, .timeline, .effect-display) {
+  min-width: 0;
+  border: 1px solid var(--ds-line);
+  border-radius: 0;
+  background: var(--ds-surface-raised);
+  box-shadow: none;
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) output {
+  color: var(--chart-selected);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] .chart-unit {
+  margin: 8px 0;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] svg[data-renderer="d3-line"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) text {
+  fill: var(--ds-text-muted);
+  font: 11px var(--ds-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) :is(.domain, .tick line) {
+  stroke: var(--ds-line-strong);
+  stroke-width: .75px;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] .chart-axes .domain {
+  display: none;
+}
+
+body[data-design-system] :is(.chart-grid line, .spectrum-d3-horizontal,
+  .spectrum-d3-vertical, .osc-wave-grid, .spectrum-grid, .lfo-grid,
+  .envelope-grid, .graph-grid, .automation-grid, .waveform .axis) {
+  stroke: var(--chart-grid);
+  stroke-width: .75px;
+  stroke-dasharray: 2 5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
+  .automation-path, .osc-wave-line, .spectrum-line, .spectrum-filtered,
+  .waveform .trace) {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: none;
+}
+
+body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
+  display: none;
+}
+
+body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {
+  stroke: var(--chart-selected);
+  stroke-width: 1px;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] :is(.envelope-point, .lfo-dot, .automation-point,
+  .spectrum-dot, .waveform .point) {
+  fill: var(--chart-selected);
+  stroke: var(--ds-bg);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] .waveform .wave-legend {
+  display: none;
+}
+
+body[data-design-system] .waveform-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .waveform .spectrum-bar {
+  fill: var(--chart-line);
+}
+
+body[data-design-system] :is(.stage-labels, .lfo-endpoints, .meter-scale, .time-axis) {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .level-fill {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-webkit-progress-value {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-moz-progress-bar {
+  background: var(--chart-selected);
+}
+
+/* Une piste fine et une zone de manipulation assez haute pour le toucher. */
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] .cc-slider::-webkit-slider-runnable-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] .cc-slider::-moz-range-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):hover {
+    transform: none;
+  }
+}
+</style>
+</head>
+  <body data-design-system="red-industrial">
+    <header class="masthead">
+      <div class="page masthead-inner">
+        <a class="wordmark" href="index.html#accueil" aria-label="Fréquences, accueil"><span class="wordmark-symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="logo-rail" d="M6 4v16M12 4v16M18 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="logo-slider" d="M3 8h6M9 16h6M15 11h6" fill="none" stroke="var(--ds-red)" stroke-width="3.2" stroke-linecap="round"/></svg></span><span>fréquences <em>.</em></span></a>
+        <nav class="nav" aria-label="Navigation principale"><a href="index.html#dossier">Dossier</a><a href="reperes.html">Repères</a><a href="index.html#lectures">Sommaire</a></nav>
+        <span class="issue-tag">cahier 01 / 2026</span>
+      </div>
+    </header>
+    <main class="page">
+      <nav class="crumb" aria-label="Fil d’Ariane"><a href="index.html#accueil">Accueil</a><span aria-hidden="true">/</span><a href="index.html#lectures">Cahier 01 · Audio</a><span aria-hidden="true">/</span><span aria-current="page">Note 08 sur 09</span></nav>
+      <header class="hero">
+        <p class="kicker">07 / SOURCE · 6 MIN DE LECTURE</p>
+        <h1>Oscillateur : la matière du son.</h1>
+        <p class="deck">Avant le filtre et les effets, une source répète une vibration. Sa fréquence donne une hauteur ; la forme de cette vibration apporte déjà une couleur.</p>
+        <div class="meta"><span>Comprendre la première brique</span><span>cycle · hauteur · harmoniques · timbre</span></div>
+      </header>
+      <figure class="route" aria-labelledby="route-title">
+        <div class="route-head"><h2 id="route-title">Une onde, deux informations à écouter.</h2><span>SOURCE → TIMBRE</span></div>
+        <ol class="route-list"><li><b>01 / CYCLE</b><strong>Une vibration se répète</strong><span>Le signal revient à son point de départ.</span></li><li><b>02 / HAUTEUR</b><strong>La fréquence fondamentale</strong><span>Compte les cycles par seconde.</span></li><li><b>03 / SPECTRE</b><strong>Les harmoniques</strong><span>Ajoutent des composantes au son.</span></li><li><b>04 / COULEUR</b><strong>La forme d’onde</strong><span>Répartit ces composantes autrement.</span></li></ol>
+        <figcaption class="route-note">Dans cette note, la hauteur reste la même quand tu changes de forme : c’est la couleur du son qui se transforme.</figcaption>
+      </figure>
+      <div class="article-grid">
+        <article>
+          <section class="article-section" id="source">
+            <p class="section-index">01 / LA SOURCE</p><h2>Un oscillateur répète une vibration.</h2>
+            <p>Un oscillateur produit un signal qui se répète dans le temps. Sur le dessin, l’axe horizontal suit le temps ; l’axe vertical montre l’amplitude, autrement dit l’écart du signal autour de sa position centrale. Le motif qui revient constitue un cycle.</p>
+            <p>Un synthétiseur peut partir d’une onde simple puis la façonner avec un filtre, une enveloppe et des modulations. Le résultat ne dépend donc pas seulement de l’oscillateur, mais la source fournit la première matière à écouter.</p>
+            <aside class="pullquote"><strong>Repère :</strong> l’onde montre comment le signal bouge dans le temps. Le spectre montre quelles composantes fréquentielles le composent.</aside>
+          </section>
+          <section class="article-section" id="laboratoire">
+            <p class="section-index">02 / ÉCOUTE COMPARÉE</p><h2>Garde la note, change la forme.</h2>
+            <p>Choisis une onde et écoute-la. La fréquence reste identique pendant que la forme du cycle et la répartition des harmoniques changent. Déplace ensuite le réglage de hauteur pour entendre le cycle se resserrer ou s’étirer.</p>
+            <div class="oscillator-lab" id="oscillator-lab">
+              <div class="osc-head"><div><p>ÉCOUTE 07</p><h3>Une source, quatre formes</h3></div><p>OSCILLATEUR · MONOPHONIQUE</p></div>
+              <div class="osc-wave-wrap"><div class="osc-wave-meta"><span id="wave-name">SINUSOÏDE</span><output id="fundamental-readout">220 Hz · La3</output></div><svg class="osc-wave" viewBox="0 0 600 110" role="img" aria-label="Forme d’onde d’un cycle"><path class="osc-wave-grid" d="M20 20H580M20 55H580M20 90H580M160 8V98M300 8V98M440 8V98"/><path class="osc-wave-line" id="osc-wave-line" d=""/></svg></div>
+              <div class="wave-options" role="group" aria-label="Choisir une forme d’onde"><button class="wave-option" type="button" data-waveform="sine" aria-pressed="true">Sinusoïde</button><button class="wave-option" type="button" data-waveform="triangle" aria-pressed="false">Triangle</button><button class="wave-option" type="button" data-waveform="square" aria-pressed="false">Carrée</button><button class="wave-option" type="button" data-waveform="sawtooth" aria-pressed="false">Dent de scie</button></div>
+              <label class="osc-control" for="pitch-control"><span>FRÉQUENCE FONDAMENTALE</span><output id="pitch-value" for="pitch-control">220 Hz · La3</output></label><input id="pitch-control" class="osc-slider" type="range" min="110" max="440" step="1" value="220" aria-describedby="pitch-help">
+              <figure class="harmonic-figure">
+                <figcaption class="harmonic-title"><span>AMPLITUDE RELATIVE · FRÉQUENCE EN Hz</span><output id="spectrum-wave-name">SINUSOÏDE</output></figcaption>
+                <svg class="harmonic-chart" id="harmonic-chart" viewBox="0 0 600 150" role="img" aria-label="Amplitude relative des douze premiers partiels de la sinusoïde, de 0 à 6000 hertz" aria-describedby="harmonic-description">
+                  <desc id="harmonic-description">Modèle des douze premiers partiels d’une onde idéale. Leur fréquence est un multiple de la fondamentale ; leur amplitude relative dépend de la forme choisie.</desc>
+                  <g id="harmonic-grid" aria-hidden="true"><path class="harmonic-grid" d="M20 35H580M20 75H580M20 115H580M160 24V120M300 24V120M440 24V120M580 24V120"/></g>
+                  <g id="harmonic-bars"></g>
+                  <g id="harmonic-x-axis" aria-hidden="true"><path class="harmonic-axis" d="M20 120H580"/><text class="harmonic-label" x="20" y="140" text-anchor="start">0</text><text class="harmonic-label" x="160" y="140">1500</text><text class="harmonic-label" x="300" y="140">3000</text><text class="harmonic-label" x="440" y="140">4500</text><text class="harmonic-label" x="580" y="140" text-anchor="end">6000 Hz</text></g>
+                </svg>
+                <p id="harmonic-help" class="harmonic-help">Touche le graphique ou utilise le curseur ci-dessous pour examiner un partiel. Modèle d’onde idéal : la fondamentale sert de référence à 100 %.</p>
+                <label class="osc-control harmonic-inspection" for="harmonic-inspect"><span>PARTIEL INSPECTÉ</span><output id="harmonic-rank" for="harmonic-inspect">H1 · fondamentale</output></label>
+                <input id="harmonic-inspect" class="osc-slider" type="range" min="1" max="12" step="1" value="1" aria-describedby="harmonic-help">
+                <div class="harmonic-readout"><div><span>FRÉQUENCE DU PARTIEL</span><output id="harmonic-frequency">220 Hz</output></div><div><span>AMPLITUDE RELATIVE</span><output id="harmonic-amplitude">100 %</output></div></div>
+              </figure>
+              <div class="osc-lab-footer"><p id="pitch-help">A3 à 220 Hz. Les partiels se déplacent avec la fondamentale ; leur niveau relatif dépend de la forme d’onde. Le niveau d’écoute reste modéré.</p><button type="button" class="osc-play" id="osc-play" aria-pressed="false"><span aria-hidden="true">▶</span> Écouter</button></div>
+              <p class="osc-status" id="osc-status" aria-live="polite">Écoute inactive. Le son démarre uniquement à ta demande.</p>
+            </div>
+            <p>Le dessin est un cycle de référence. Le synthétiseur produit une onde continue ; le tracé simplifié rend ses différences plus faciles à comparer.</p>
+          </section>
+          <section class="article-section" id="hauteur">
+            <p class="section-index">03 / FRÉQUENCE FONDAMENTALE</p><h2>La hauteur donne le rythme du cycle.</h2>
+            <p>La fréquence indique combien de cycles se produisent chaque seconde. À 220 hertz, le signal recommence 220 fois par seconde. Pour une onde périodique simple, cette fréquence fondamentale sert de repère de hauteur ; le curseur permet de la déplacer sans changer la forme choisie.</p>
+            <p>Une octave correspond à un rapport de fréquence de deux : doubler 220 Hz donne 440 Hz. Le nom de la note dépend aussi du diapason de référence et du système d’accord, mais le rapport d’octave reste le même.</p>
+            <aside class="pullquote"><strong>À retenir :</strong> si la fréquence fondamentale ne bouge pas, changer de sinusoïde à dent de scie modifie surtout le timbre, pas la hauteur visée.</aside>
+          </section>
+          <section class="article-section" id="harmoniques">
+            <p class="section-index">04 / HARMONIQUES ET TIMBRE</p><h2>La forme distribue les harmoniques.</h2>
+            <p>Une onde périodique peut se décrire comme une fondamentale accompagnée de composantes dont les fréquences sont des multiples entiers de celle-ci. Ces composantes sont les harmoniques. Leur présence et leur niveau relatif contribuent fortement à la couleur entendue.</p>
+            <div class="wave-guide"><div><b>SINUSOÏDE</b><p>Une seule composante : la fondamentale. Son contour lisse donne un son pur, sans harmoniques supplémentaires dans le modèle idéal.</p></div><div><b>CARRÉE</b><p>Une forme carrée symétrique contient surtout les harmoniques impaires : la 1re, la 3e, la 5e… Leur niveau décroît avec leur rang.</p></div><div><b>TRIANGLE</b><p>Elle contient elle aussi des harmoniques impaires, mais elles diminuent plus vite. Le son est souvent moins brillant qu’une onde carrée.</p></div><div><b>DENT DE SCIE</b><p>Elle rassemble les harmoniques paires et impaires. Beaucoup de composantes la rendent riche en matière à filtrer.</p></div></div>
+            <p>Ce sont des repères pour des formes idéales, à symétrie classique. Les oscillateurs réels ou logiciels peuvent proposer des variantes, limiter les harmoniques selon la hauteur ou modifier la largeur d’impulsion ; le son dépend alors du circuit, du moteur et des réglages.</p>
+          </section>
+          <section class="article-section" id="choisir">
+            <p class="section-index">05 / CHOISIR UN POINT DE DÉPART</p><h2>Écoute d’abord, règle ensuite.</h2>
+            <div class="osc-choice-grid"><div><b>UN SON PUR OU DOUX</b><p>Pars d’une sinusoïde, puis ajoute une autre source si tu veux enrichir le timbre.</p></div><div><b>UNE SOURCE QUI SE SCULPTE</b><p>Essaie une dent de scie : ses harmoniques offrent de la matière au filtre.</p></div><div><b>UN TIMBRE PLUS CREUX</b><p>Compare carré et triangle à même hauteur, puis écoute ce que le filtre retire.</p></div></div>
+            <p>Il n’y a pas de forme « meilleure » en soi. Garde la fréquence fixe pendant la comparaison, écoute les différences, puis passe au filtre. Tu pourras ainsi relier ce que tu vois dans le spectre à ce que tu entends.</p>
+          </section>
+          <section class="article-section references" id="references"><p class="section-index">POUR ALLER PLUS LOIN</p><h2>Ondes et oscillateurs.</h2>
+            <ul><li><a href="https://www.ableton.com/en/manual/live-instrument-reference/" target="_blank" rel="noreferrer">Live 12 Reference Manual · Ableton</a>, formes d’onde disponibles dans les instruments.</li><li><a href="https://physics.umd.edu/hep/drew/fourier/fourier_waves.html" target="_blank" rel="noreferrer">Superposition and Fourier Synthesis · University of Maryland</a>, construction des formes périodiques par les harmoniques.</li><li><a href="https://www.w3.org/TR/webaudio-1.0/#OscillatorNode" target="_blank" rel="noreferrer">Web Audio API · W3C</a>, comportement des formes d’onde utilisées par le lecteur.</li></ul>
+          </section>
+          <nav class="reading-path" aria-label="Parcours de lecture : Cahier 01 · Audio"><p class="reading-path-position">Cahier 01 · Audio · Note 08 sur 09</p><div class="reading-path-links"><a class="reading-path-link " href="modulations.html"><span>← Précédente · Note 07</span><strong>Le son en mouvement</strong></a><a class="reading-path-link reading-path-next" href="effets-audio.html"><span>Suivante · Note 09 →</span><strong>Le son prend sa place</strong></a><a class="reading-path-index" href="index.html#lectures"><span>Sommaire du Cahier 01 · Audio</span><span>9 notes <span aria-hidden="true">↑</span></span></a></div></nav>
+        </article>
+        <aside class="side"><nav class="toc" aria-label="Dans cette note"><p class="toc-label">Dans cette note</p><a href="#source">L’oscillateur</a><a href="#laboratoire">Écoute comparée</a><a href="#hauteur">Fréquence fondamentale</a><a href="#harmoniques">Harmoniques et timbre</a><a href="#choisir">Choisir une forme</a></nav><div class="side-card"><h3>À garder en tête</h3><p>La fréquence donne le repère de hauteur. La répartition des harmoniques aide à comprendre la couleur de l’onde.</p></div></aside>
+      </div>
+    </main>
+    <footer><div class="page footer-inner"><p>© 2026 Fréquences · Cahier 01</p><a href="index.html#accueil">Retour au début ↑</a></div></footer>
+    <script src="assets/vendor/d3-7.9.0.min.js"></script>
+    <script src="assets/harmonic-spectrum.js"></script>
+    <script>
+      const waveButtons=[...document.querySelectorAll(".wave-option")];
+      const waveLine=document.querySelector("#osc-wave-line");
+      const waveName=document.querySelector("#wave-name"),spectrumWaveName=document.querySelector("#spectrum-wave-name"),fundamentalReadout=document.querySelector("#fundamental-readout");
+      const pitchControl=document.querySelector("#pitch-control"),pitchValue=document.querySelector("#pitch-value");
+      const bars=document.querySelector("#harmonic-bars");
+      const inspectControl=document.querySelector("#harmonic-inspect"),rankReadout=document.querySelector("#harmonic-rank"),partialFrequency=document.querySelector("#harmonic-frequency"),partialAmplitude=document.querySelector("#harmonic-amplitude");
+      const playButton=document.querySelector("#osc-play"),status=document.querySelector("#osc-status");
+      const names={sine:"Sinusoïde",triangle:"Triangle",square:"Carrée",sawtooth:"Dent de scie"};
+      let waveform="sine",audioContext=null,oscillator=null,gainNode=null,harmonicIndex=1;
+      const spectrumChart=window.FrequencesSpectrum?window.FrequencesSpectrum.create(document.querySelector("#harmonic-chart"),{onInspect:inspectHarmonic}):null;
+      const svgNS="http://www.w3.org/2000/svg";
+      function frequency(){return Number(pitchControl.value);}
+      function noteName(hz){const midi=Math.round(69+12*Math.log2(hz/440));const namesFr=["Do","Do♯","Ré","Ré♯","Mi","Fa","Fa♯","Sol","Sol♯","La","La♯","Si"];return `${namesFr[(midi%12+12)%12]}${Math.floor(midi/12)-1}`;}
+      function waveValue(type,phase){if(type==="sine")return Math.sin(phase*Math.PI*2);if(type==="triangle")return 1-4*Math.abs(phase-.5);if(type==="square")return phase<.5?1:-1;return 2*phase-1;}
+      function makeWavePath(type){if(type==="square")return "M20 22 H300 V88 H580 V22";if(type==="sawtooth")return "M20 88 L580 22 V88";if(type==="triangle")return "M20 88 L300 22 L580 88";const points=[];const samples=240;for(let i=0;i<=samples;i++){const phase=i/samples;const x=20+phase*560;const y=55-waveValue(type,phase)*33;points.push(`${i?"L":"M"}${x.toFixed(2)} ${y.toFixed(2)}`);}return points.join(" ");}
+      function harmonicLevel(type,n){if(type==="sine")return n===1?1:0;if(type==="square")return n%2?1/n:0;if(type==="triangle")return n%2?1/(n*n):0;return 1/n;}
+      function renderSpectrum(){
+        const hz=frequency();
+        const data=window.FrequencesSpectrum?window.FrequencesSpectrum.partials(waveform,hz):Array.from({length:12},(_,i)=>({rank:i+1,frequency:hz*(i+1),level:harmonicLevel(waveform,i+1)}));
+        if(spectrumChart){spectrumChart.update(data,harmonicIndex);}else{
+          bars.replaceChildren();
+          for(const item of data){const height=item.level*85,center=20+(item.frequency/6000)*560,width=Math.min(12,Math.max(5,(hz/6000)*560*.62));const rect=document.createElementNS(svgNS,"rect");rect.setAttribute("class",`harmonic-bar${item.rank===harmonicIndex?" is-selected":""}`);rect.setAttribute("x",center-width/2);rect.setAttribute("y",120-height);rect.setAttribute("width",width);rect.setAttribute("height",height);rect.setAttribute("rx",0);rect.setAttribute("aria-hidden","true");bars.appendChild(rect);}
+        }
+        const selected=data[harmonicIndex-1],number=new Intl.NumberFormat("fr-FR",{maximumFractionDigits:2});
+        rankReadout.textContent=`H${selected.rank}${selected.rank===1?" · fondamentale":""}`;
+        partialFrequency.textContent=`${number.format(selected.frequency)} Hz`;
+        partialAmplitude.textContent=`${number.format(selected.level*100)} %${selected.level===0?" · absent":""}`;
+        inspectControl.value=String(harmonicIndex);
+        inspectControl.style.setProperty("--progress",`${((harmonicIndex-1)/11)*100}%`);
+        inspectControl.setAttribute("aria-valuetext",`Harmonique ${selected.rank}, ${selected.frequency} hertz, amplitude relative ${number.format(selected.level*100)} pour cent${selected.level===0?", absente dans cette forme idéale":""}`);
+        document.querySelector("#harmonic-chart").setAttribute("aria-label",`Amplitude relative des douze premiers partiels de ${names[waveform]}, de ${hz} à ${hz*12} hertz, sur une échelle de 0 à 6000 hertz`);
+      }
+      function inspectHarmonic(index){harmonicIndex=Math.max(1,Math.min(12,Math.round(Number(index)||1)));renderSpectrum();}
+      function render(){waveLine.setAttribute("d",makeWavePath(waveform));waveName.textContent=names[waveform].toLocaleUpperCase("fr-FR");spectrumWaveName.textContent=names[waveform].toLocaleUpperCase("fr-FR");waveButtons.forEach(button=>button.setAttribute("aria-pressed",String(button.dataset.waveform===waveform)));pitchValue.value=`${frequency()} Hz · ${noteName(frequency())}`;pitchValue.textContent=pitchValue.value;fundamentalReadout.textContent=pitchValue.value;pitchControl.setAttribute("aria-valuetext",`${frequency()} hertz, ${noteName(frequency())}`);pitchControl.style.setProperty("--progress",`${((frequency()-110)/(440-110))*100}%`);renderSpectrum();}
+      function chooseWave(type){waveform=type;if(oscillator)oscillator.type=type;render();if(audioContext)status.textContent=`Écoute active : ${names[type].toLocaleLowerCase("fr-FR")} à ${frequency()} hertz.`;}
+      function setPitch(){const hz=frequency();pitchValue.value=`${hz} Hz · ${noteName(hz)}`;pitchValue.textContent=pitchValue.value;fundamentalReadout.textContent=pitchValue.value;pitchControl.setAttribute("aria-valuetext",`${hz} hertz, ${noteName(hz)}`);pitchControl.style.setProperty("--progress",`${((hz-110)/330)*100}%`);renderSpectrum();if(oscillator&&audioContext)oscillator.frequency.setTargetAtTime(hz,audioContext.currentTime,.025);if(audioContext)status.textContent=`Écoute active : ${names[waveform].toLocaleLowerCase("fr-FR")} à ${hz} hertz.`;}
+      async function startSound(){const AudioContextClass=window.AudioContext||window.webkitAudioContext;if(!AudioContextClass){status.textContent="La synthèse audio n’est pas disponible dans ce navigateur.";return;}if(audioContext)return;playButton.disabled=true;try{audioContext=new AudioContextClass();await audioContext.resume();oscillator=audioContext.createOscillator();gainNode=audioContext.createGain();oscillator.type=waveform;oscillator.frequency.value=frequency();gainNode.gain.value=.0001;oscillator.connect(gainNode);gainNode.connect(audioContext.destination);oscillator.start();gainNode.gain.setTargetAtTime(.055,audioContext.currentTime,.025);playButton.setAttribute("aria-pressed","true");playButton.innerHTML='<span aria-hidden="true">■</span> Arrêter';playButton.disabled=false;status.textContent=`Écoute active : ${names[waveform].toLocaleLowerCase("fr-FR")} à ${frequency()} hertz.`;}catch(error){status.textContent="Impossible de démarrer l’écoute. Vérifie les réglages audio du navigateur.";if(audioContext)await audioContext.close().catch(()=>{});audioContext=null;oscillator=null;gainNode=null;playButton.disabled=false;playButton.setAttribute("aria-pressed","false");}}
+      async function stopSound(){const oldContext=audioContext,oldOscillator=oscillator,oldGain=gainNode;if(!oldContext)return;playButton.disabled=true;playButton.setAttribute("aria-pressed","false");playButton.innerHTML='<span aria-hidden="true">▶</span> Écouter';const now=oldContext.currentTime;oldGain.gain.cancelScheduledValues(now);oldGain.gain.setTargetAtTime(.0001,now,.025);oldOscillator.onended=async()=>{await oldContext.close().catch(()=>{});if(audioContext===oldContext){audioContext=null;oscillator=null;gainNode=null;playButton.disabled=false;status.textContent="Écoute inactive.";}};try{oldOscillator.stop(now+.14);}catch(error){await oldContext.close().catch(()=>{});audioContext=null;oscillator=null;gainNode=null;playButton.disabled=false;status.textContent="Écoute inactive.";}}
+      waveButtons.forEach(button=>button.addEventListener("click",()=>chooseWave(button.dataset.waveform)));pitchControl.addEventListener("input",setPitch);inspectControl.addEventListener("input",()=>inspectHarmonic(inspectControl.value));playButton.addEventListener("click",()=>playButton.getAttribute("aria-pressed")==="true"?stopSound():startSound());
+      window.addEventListener("pagehide",event=>{if(spectrumChart&&!(event&&event.persisted))spectrumChart.destroy();if(audioContext)audioContext.close().catch(()=>{});audioContext=null;oscillator=null;gainNode=null;playButton.disabled=false;playButton.setAttribute("aria-pressed","false");playButton.innerHTML='<span aria-hidden="true">▶</span> Écouter';status.textContent="Écoute inactive.";});
+      window.addEventListener("pageshow",event=>{if(event.persisted)renderSpectrum();});
+      render();
+    </script>
+  </body>
+</html>

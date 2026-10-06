@@ -175,4 +175,1019 @@ body[data-design-system] .cover h1 {
   grid-column: 1 / -1;
   max-width: none;
   margin-bottom: 0;
-  font-family: "Arial Black", "Arial Nova",
+  font-family: "Arial Black", "Arial Nova", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: clamp(66px, 9.2vw, 132px);
+  -webkit-text-stroke: .35px currentColor;
+  line-height: .92;
+  container-type: inline-size;
+}
+
+body[data-design-system] .cover-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-design-system] .cover-title-line {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  white-space: nowrap;
+  font-size: inherit;
+  font-size: min(1em, calc((100cqw - 44px) / 7));
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+body[data-design-system] .cover-title-word {
+  flex: 0 0 auto;
+}
+
+body[data-design-system] .cover-title-line::before,
+body[data-design-system] .cover-title-line::after {
+  content: "";
+  flex: 1 1 0;
+  min-width: 8px;
+  height: 2px;
+  background: currentColor;
+  opacity: .8;
+  transform: scaleX(.8);
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), opacity 280ms ease;
+}
+
+body[data-design-system] .cover-title-line::before {
+  transform-origin: right center;
+}
+
+body[data-design-system] .cover-title-line::after {
+  transform-origin: left center;
+}
+
+body[data-design-system] .cover-title-line:first-child::before,
+body[data-design-system] .cover-title-line:last-child::after {
+  flex: 0 0 clamp(12px, 2vw, 28px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] .cover-title-line:hover::before,
+  body[data-design-system] .cover-title-line:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-design-system] .cover-title-line::before,
+  body[data-design-system] .cover-title-line::after {
+    transform: none;
+    transition: none;
+  }
+}
+
+body[data-design-system] .cover-deck {
+  margin-top: 0;
+}
+
+@media (min-width: 981px) {
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1.15fr) minmax(370px, .85fr);
+    column-gap: clamp(28px, 4vw, 60px);
+  }
+
+  body[data-design-system] .cover-copy {
+    max-width: none;
+  }
+}
+
+body[data-design-system] .cover-figure {
+  border: 1px solid var(--ds-line-strong);
+  border-top: 3px solid var(--ds-red);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .cover-figure::before {
+  border: 0;
+}
+
+body[data-design-system] .reference-reset {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reference-reset:hover {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+}
+
+/* Les deux cahiers : objectif, notions et entrée dans le parcours. */
+body[data-design-system] .cover-start {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  margin-bottom: 14px;
+  color: var(--ds-red-soft);
+  font: 600 12px/1.4 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-intro {
+  padding-block: clamp(36px, 5vw, 64px);
+  border-bottom: 1px solid var(--ds-line);
+  scroll-margin-top: 24px;
+}
+
+body[data-design-system] .cahier-kicker {
+  margin: 0 0 12px;
+  color: var(--ds-red-soft);
+  font: 11px/1.5 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-intro > h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-lead {
+  max-width: 72ch;
+  margin: 0 0 28px;
+  color: var(--ds-text-muted);
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body[data-design-system] .cahier-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--ds-line);
+  border-top: 3px solid var(--ds-red);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .cahier-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 18px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .cahier-card-meta span:first-child {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-card h3 {
+  margin: 0 0 14px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+body[data-design-system] .cahier-objective {
+  margin: 0 0 22px;
+  color: var(--ds-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions-title {
+  margin: 0 0 10px;
+  color: var(--ds-text);
+  font: 11px/1.5 var(--ds-mono);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-notions {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  color: var(--ds-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions li + li {
+  margin-top: 9px;
+}
+
+body[data-design-system] .cahier-notions strong {
+  color: var(--ds-text);
+  font-weight: 600;
+}
+
+body[data-design-system] .cahier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ds-line);
+}
+
+body[data-design-system] .cahier-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-text-muted);
+  font: 600 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin {
+  padding: 10px 14px;
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  text-decoration: none;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin:hover {
+  background: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-practice {
+  margin: 20px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  body[data-design-system] .cahier-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Navigation de lecture : ordre des notes, sommaire et passage au cahier suivant. */
+body[data-design-system] .reading-path {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-position {
+  margin: 0 0 15px;
+  color: var(--ds-text-muted);
+  font: 11px/1.6 var(--ds-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reading-path-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+body[data-design-system] .reading-path-link {
+  min-width: 0;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  text-decoration: none;
+}
+
+body[data-design-system] .reading-path-link span {
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .reading-path-link strong {
+  color: var(--ds-text);
+  font: 600 15px/1.4 var(--ds-body);
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] .reading-path-link:hover {
+  border-color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-next {
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-next span {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-index {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  color: var(--ds-text-muted);
+  font: 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .reading-path-reference {
+  margin: 12px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .reading-path-reference a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-red-soft);
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 520px) {
+  body[data-design-system] .reading-path-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body[data-design-system] .signal-chain {
+  border-color: var(--ds-line-strong);
+}
+
+body[data-design-system] .signal-chain::before {
+  background: #111a24;
+}
+
+body[data-design-system] .signal-step {
+  border-right-color: var(--ds-line);
+}
+
+body[data-design-system] .signal-step-label {
+  font-weight: 500;
+}
+
+body[data-design-system] .signal-step b {
+  border-color: var(--ds-line-strong);
+  color: var(--ds-text-muted);
+}
+
+body[data-design-system] .signal-step::after,
+body[data-design-system] .signal-step[aria-current="step"]::after {
+  background: var(--ds-red);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible, [aria-current="step"]) b {
+  border-color: var(--ds-red);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible) .signal-step-arrow {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .story-columns section.is-active {
+  border-left-color: var(--ds-red);
+  background: rgba(255, 50, 31, .045);
+}
+
+body[data-design-system] :is(.story-columns h3, .article-row h3) {
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+
+body[data-design-system] .article-row {
+  border-color: var(--ds-line);
+  background: rgba(16, 18, 20, .8);
+}
+
+body[data-design-system] .article-row:hover {
+  background: var(--ds-surface-raised);
+}
+
+body[data-design-system] .article-topic {
+  border-color: var(--ds-red-soft);
+  background: transparent;
+  color: var(--ds-red-soft);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+}
+
+body[data-design-system] .article-topic::before {
+  background: var(--ds-red);
+}
+
+body[data-design-system] :is(.article-link, details summary) {
+  text-decoration-color: var(--ds-red);
+}
+
+body[data-design-system] :is(.toc, .side-card) {
+  padding: 16px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .toc-label {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .toc a {
+  border-top: 1px solid var(--ds-line);
+}
+
+::selection {
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] :focus-visible {
+  outline: 2px solid var(--ds-red-soft);
+  outline-offset: var(--ds-space-1);
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* One consistent dark instrument-console surface across every interactive lab. */
+body[data-design-system] :is(
+  .route,
+  .lab,
+  .controller-lab,
+  .gesture-lab,
+  .effect-lab,
+  .envelope-lab,
+  .filter-lab,
+  .modulation-lab,
+  .oscillator-lab
+) {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .route::before {
+  border: 0;
+}
+
+body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
+  font-family: var(--ds-display);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+/* Red is reserved for the primary action and selected controls. */
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
+  min-height: 44px;
+  border: 1px solid var(--ds-red);
+  border-radius: var(--ds-radius-control);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  font-family: var(--ds-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  background: var(--ds-red-soft);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
+  transform: translateY(0);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
+  border-color: var(--ds-red);
+  background: transparent;
+  color: var(--ds-red-soft);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+/* Le bouton d'écoute arrondi de l'accueil conserve la forme demandée. */
+body[data-design-system] .listen:not(.secondary) {
+  border-radius: 999px;
+}
+
+body[data-design-system] .action-button.secondary {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+}
+
+body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+  box-shadow: none;
+}
+
+/* Instrument choices keep their own chart colors; only selection chrome is unified. */
+body[data-design-system] :is(
+  .buffer-option,
+  .wave-option,
+  .filter-type,
+  .effect-pick,
+  .patch-mode,
+  .destination-pick
+)[aria-pressed="true"] {
+  border-color: var(--ds-red);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+body[data-design-system] .lab-mark {
+  border-color: var(--ds-red);
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] :is(.route-note, .control-explain, .routing-readout, .takeaway) {
+  border-left-color: var(--ds-red);
+}
+
+/* Keep all range controls keyboard and touch friendly; retain each page's value encoding. */
+body[data-design-system] input[type="range"] {
+  accent-color: var(--ds-red);
+  touch-action: pan-y;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  body[data-design-system] .masthead-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  body[data-design-system] .wordmark {
+    font-size: 22px;
+  }
+
+  body[data-design-system] .nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--ds-line);
+  }
+
+  body[data-design-system] .nav a {
+    font-size: 10px;
+    min-height: 44px;
+  }
+
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-design-system] .cover h1 {
+    font-size: clamp(46px, 13vw, 82px);
+  }
+
+  body[data-design-system] .cover-figure {
+    padding: 22px;
+  }
+
+  body[data-design-system] .dossier h2 {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+
+  body[data-design-system] .figure-foot {
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  body[data-design-system] .toc {
+    padding: 12px;
+  }
+}
+
+/* Une même hiérarchie pour les courbes, les repères et les schémas pédagogiques. */
+body[data-design-system] {
+  --chart-line: #e76524;
+  --chart-selected: #b8c66b;
+  --chart-grid: rgba(243, 241, 235, .13);
+}
+
+body[data-design-system] :is(.filter-graph-wrap, .envelope-display, .lfo-display,
+  .automation-chart, .cutoff-panel, .osc-wave-wrap, .harmonic-figure,
+  .spectrum-wrap, .level-meter, .timeline, .effect-display) {
+  min-width: 0;
+  border: 1px solid var(--ds-line);
+  border-radius: 0;
+  background: var(--ds-surface-raised);
+  box-shadow: none;
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) output {
+  color: var(--chart-selected);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] .chart-unit {
+  margin: 8px 0;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] svg[data-renderer="d3-line"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) text {
+  fill: var(--ds-text-muted);
+  font: 11px var(--ds-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) :is(.domain, .tick line) {
+  stroke: var(--ds-line-strong);
+  stroke-width: .75px;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] .chart-axes .domain {
+  display: none;
+}
+
+body[data-design-system] :is(.chart-grid line, .spectrum-d3-horizontal,
+  .spectrum-d3-vertical, .osc-wave-grid, .spectrum-grid, .lfo-grid,
+  .envelope-grid, .graph-grid, .automation-grid, .waveform .axis) {
+  stroke: var(--chart-grid);
+  stroke-width: .75px;
+  stroke-dasharray: 2 5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
+  .automation-path, .osc-wave-line, .spectrum-line, .spectrum-filtered,
+  .waveform .trace) {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: none;
+}
+
+body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
+  display: none;
+}
+
+body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {
+  stroke: var(--chart-selected);
+  stroke-width: 1px;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] :is(.envelope-point, .lfo-dot, .automation-point,
+  .spectrum-dot, .waveform .point) {
+  fill: var(--chart-selected);
+  stroke: var(--ds-bg);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] .waveform .wave-legend {
+  display: none;
+}
+
+body[data-design-system] .waveform-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .waveform .spectrum-bar {
+  fill: var(--chart-line);
+}
+
+body[data-design-system] :is(.stage-labels, .lfo-endpoints, .meter-scale, .time-axis) {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .level-fill {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-webkit-progress-value {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-moz-progress-bar {
+  background: var(--chart-selected);
+}
+
+/* Une piste fine et une zone de manipulation assez haute pour le toucher. */
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] .cc-slider::-webkit-slider-runnable-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] .cc-slider::-moz-range-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):hover {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-design-system="red-industrial">
+  <header class="masthead"><div class="page masthead-inner">
+    <a class="wordmark" href="index.html#accueil" aria-label="Fréquences, accueil"><span class="wordmark-symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="logo-rail" d="M6 4v16M12 4v16M18 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="logo-slider" d="M3 8h6M9 16h6M15 11h6" fill="none" stroke="var(--ds-red)" stroke-width="3.2" stroke-linecap="round"/></svg></span><span>fréquences <em>.</em></span></a>
+    <nav class="nav" aria-label="Navigation principale"><a href="index.html#dossier">Dossier</a><a href="reperes.html">Repères</a><a href="index.html#cahier-02">Sommaire</a></nav>
+    <span class="issue-tag">cahier 02 / MIDI</span>
+  </div></header>
+  <main class="page">
+    <nav class="crumb" aria-label="Fil d’Ariane"><a href="index.html#accueil">Accueil</a><span aria-hidden="true">/</span><a href="index.html#cahier-02">Cahier 02 · MIDI</a><span aria-hidden="true">/</span><span aria-current="page">Note 01 sur 07</span></nav>
+    <header class="hero">
+      <p class="kicker">01 / MIDI · 5 MIN DE LECTURE</p>
+      <h1>Le MIDI ne transporte pas le son.</h1>
+      <p class="deck">Une touche enfoncée, une note relâchée, une molette qui bouge : le MIDI décrit des gestes et des valeurs. C’est un instrument ou un logiciel qui interprète ces messages et fabrique le son.</p>
+      <div class="meta"><span>Cahier 02 · Les gestes numériques</span><span>événement · note · vélocité · synthétiseur</span></div>
+    </header>
+    <figure class="route" aria-labelledby="route-title">
+      <div class="route-head"><h2 id="route-title">Une action, deux chemins distincts.</h2><span>COMMANDE ≠ AUDIO</span></div>
+      <ol class="route-list"><li><b>01 / GESTE</b><strong>Une touche est pressée</strong><span>Un clavier ou un logiciel déclenche une action.</span></li><li><b>02 / MESSAGE</b><strong>Note On · vélocité</strong><span>Des données décrivent la note jouée.</span></li><li><b>03 / INSTRUMENT</b><strong>Le synthé interprète</strong><span>Il choisit comment répondre au message.</span></li><li><b>04 / AUDIO</b><strong>Le son est produit</strong><span>Le signal peut alors rejoindre les haut-parleurs.</span></li></ol>
+      <figcaption class="route-note">Le message MIDI et le signal audio sont deux choses différentes, même lorsqu’ils circulent dans le même ordinateur.</figcaption>
+    </figure>
+    <div class="article-grid">
+      <article>
+        <section class="article-section" id="message">
+          <p class="section-index">01 / LE MESSAGE</p><h2>Le MIDI décrit ce qui se passe.</h2>
+          <p>Imagine une petite fiche de consigne plutôt qu’un enregistrement. Elle peut dire : « commence la note 60 sur le canal 1, avec une vélocité de 85 ». Un autre message indique ensuite que la note se termine. Ces nombres ne contiennent ni la forme de l’onde ni le timbre du piano, du synthétiseur ou de la batterie que tu entends.</p>
+          <p>Dans le MIDI 1.0, un message de note précise notamment un canal, un numéro de note et une vélocité. Le canal aide à adresser le message ; le numéro identifie la hauteur demandée ; la vélocité décrit la force de frappe associée à l’événement. L’instrument destinataire décide ensuite comment utiliser cette information : la vélocité peut, par exemple, agir sur le volume, le timbre ou les deux.</p>
+          <aside class="takeaway"><strong>À retenir —</strong> le MIDI transmet des instructions de jeu. À lui seul, il ne transporte pas l’enregistrement audio entendu.</aside>
+        </section>
+        <section class="article-section" id="atelier">
+          <p class="section-index">02 / À L’ÉCOUTE</p><h2>Un événement, puis un son.</h2>
+          <p>Essaie le petit atelier. Le panneau de gauche affiche une simulation de message MIDI : il se met à jour même si tu coupes le son. Le bouton d’écoute commande un synthétiseur très simple créé dans cette page ; il ne communique pas avec un instrument externe.</p>
+          <div class="lab" id="midi-lab">
+            <div class="lab-head"><div><span class="lab-index">ATELIER / 01</span><h3>La note 60, en données et en son</h3></div><span class="lab-mark">CANAL 1 · C4</span></div>
+            <p class="lab-intro">Déclenche la note, observe les champs, puis relâche-la. La vélocité change la valeur envoyée et la force du son local.</p>
+            <div class="event-stage">
+              <div class="event-card" id="event-card" data-active="false" aria-live="polite">
+                <div class="event-card-head"><strong id="event-name">AUCUN ÉVÉNEMENT</strong><span>SIMULATION MIDI 1.0</span></div>
+                <div class="event-fields"><div class="event-field"><span>Message</span><output id="field-message">—</output></div><div class="event-field"><span>Note</span><output id="field-note">—</output></div><div class="event-field"><span>Vélocité</span><output id="field-velocity">—</output></div></div>
+              </div>
+              <div class="sound-state"><p id="sound-description">Le synthétiseur local est prêt. Le son démarre seulement à ta demande.</p><label class="sound-toggle"><input id="sound-enabled" type="checkbox" checked><span>Son local activé</span></label></div>
+            </div>
+            <label class="velocity-control" for="velocity"><span class="control-label">Vélocité de la note</span><output id="velocity-value" for="velocity">85 / 127</output><input id="velocity" type="range" min="1" max="127" value="85" aria-label="Vélocité MIDI simulée"></label>
+            <div class="lab-actions"><button class="action-button" id="note-on" type="button"><span aria-hidden="true">▶</span> Déclencher la note</button><button class="action-button secondary" id="note-off" type="button" disabled><span aria-hidden="true">■</span> Relâcher la note</button><p class="lab-status" id="lab-status" role="status">En attente d’un geste.</p></div>
+            <p class="lab-disclaimer"><strong>Simulation pédagogique :</strong> les champs illustrent des données MIDI, mais aucun message n’est envoyé à un appareil ou à un logiciel externe. Le son, lui, est synthétisé localement par le navigateur.</p>
+          </div>
+          <h3>Pourquoi séparer les deux ?</h3>
+          <p>Parce qu’un même événement MIDI peut piloter des instruments très différents. La suite logicielle, le preset et les réglages du synthétiseur changent le résultat sonore sans changer le geste de départ. À l’inverse, on peut conserver une performance MIDI et lui faire jouer un autre son plus tard.</p>
+        </section>
+        <section class="article-section" id="trajet">
+          <p class="section-index">03 / LE TRAJET</p><h2>Le message a besoin d’un interprète.</h2>
+          <p>Dans une configuration courante, un clavier ou une piste MIDI produit les événements ; ils sont dirigés vers un instrument logiciel ou matériel ; cet instrument transforme les commandes en signal audio. Le son rejoint ensuite une sortie audio, une interface, un casque ou des enceintes. Selon le matériel et le logiciel, plusieurs de ces étapes peuvent se dérouler dans le même appareil.</p>
+          <p>Un fichier MIDI standard garde généralement des événements de performance — notes, durées, canaux et autres commandes — plutôt qu’une capture du son lui-même. Pour entendre ce fichier, il faut donc qu’un instrument compatible le lise. Remplacer cet instrument peut transformer radicalement le rendu tout en conservant la séquence de notes.</p>
+          <h3>Une comparaison simple</h3>
+          <p>Une partition ne contient pas l’orchestre : elle indique quoi jouer. Le MIDI n’est pas exactement une partition écrite, car il peut aussi décrire la durée et certains gestes en détail, mais la comparaison aide à retenir une idée : les données guident une source sonore, elles ne sont pas cette source.</p>
+          <aside class="takeaway"><strong>Le test mental :</strong> si tu peux changer le synthétiseur et obtenir un autre timbre à partir des mêmes notes, c’est que la performance et le son sont bien deux couches distinctes.</aside>
+        </section>
+        <section class="article-section" id="suite">
+          <p class="section-index">04 / POUR LA SUITE</p><h2>Une note est aussi un événement.</h2>
+          <p>Maintenant que le message est séparé du son, on peut regarder de plus près ce qu’il raconte : quand la note commence, combien de temps elle dure, et comment sa vélocité peut être interprétée. C’est le sujet de la prochaine note du cahier.</p>
+          <h3>Petit exercice</h3>
+          <p>Déclenche plusieurs fois la note avec des vélocités différentes. Observe les valeurs affichées, puis écoute comment le son local réagit. Coupe le son : les événements de la maquette restent visibles. Cette séparation entre commande et sortie est le fil conducteur du cahier MIDI.</p>
+          <ul class="references"><li><a href="https://midi.org/about-midi-part-3midi-messages" target="_blank" rel="noopener noreferrer">MIDI Association — structure des messages MIDI</a></li><li><a href="https://midi.org/expanded-midi-1-0-messages-list" target="_blank" rel="noopener noreferrer">MIDI Association — liste étendue des messages MIDI 1.0</a></li></ul>
+        </section>
+        <nav class="reading-path" aria-label="Parcours de lecture : Cahier 02 · MIDI"><p class="reading-path-position">Cahier 02 · MIDI · Note 01 sur 07</p><div class="reading-path-links"><a class="reading-path-link " href="index.html#cahiers"><span>Première note du cahier</span><strong>Choisir un cahier</strong></a><a class="reading-path-link reading-path-next" href="midi-note-evenement.html"><span>Suivante · Note 02 →</span><strong>Une note est un événement</strong></a><a class="reading-path-index" href="index.html#cahier-02"><span>Sommaire du Cahier 02 · MIDI</span><span>7 notes <span aria-hidden="true">↑</span></span></a></div></nav><p class="reading-path-reference">Pour faire le lien avec l’audio : <a href="controleur-devient-instrument.html">Quand le contrôleur devient instrument</a>.</p>
+      </article>
+      <aside class="side"><nav class="toc" aria-label="Dans cette note"><p class="toc-label">Dans cette note</p><a href="#message">Le message</a><a href="#atelier">À l’écoute</a><a href="#trajet">Le trajet</a><a href="#suite">Pour la suite</a></nav><div class="side-card"><h3>À garder en tête</h3><p>Le MIDI décrit une action. Un instrument interprète cette action et produit le son.</p></div><div class="side-card"><h3>Repère de l’atelier</h3><p>Note 60 · canal 1 · vélocité réglable. Le son est une synthèse locale de démonstration.</p></div></aside>
+    </div>
+  </main>
+  <footer><div class="page footer-inner"><p>© 2026 Fréquences · Cahier 02 · MIDI</p><a href="index.html#accueil">Retour à l’accueil</a></div></footer>
+  <script>
+    (() => {
+      const velocity = document.querySelector('#velocity');
+      const velocityValue = document.querySelector('#velocity-value');
+      const eventCard = document.querySelector('#event-card');
+      const eventName = document.querySelector('#event-name');
+      const fieldMessage = document.querySelector('#field-message');
+      const fieldNote = document.querySelector('#field-note');
+      const fieldVelocity = document.querySelector('#field-velocity');
+      const soundEnabled = document.querySelector('#sound-enabled');
+      const soundDescription = document.querySelector('#sound-description');
+      const noteOnButton = document.querySelector('#note-on');
+      const noteOffButton = document.querySelector('#note-off');
+      const status = document.querySelector('#lab-status');
+      let audioContext = null;
+      let oscillator = null;
+      let gainNode = null;
+      let active = false;
+      const updateVelocity = () => {
+        const value = Number(velocity.value);
+        velocityValue.value = `${value} / 127`;
+        velocity.style.setProperty('--progress', `${((value - 1) / 126) * 100}%`);
+        
+      };
+      const updateEvent = (on) => {
+        eventCard.dataset.active = String(on);
+        eventName.textContent = on ? 'NOTE ON' : 'NOTE OFF';
+        fieldMessage.value = on ? 'Note On' : 'Note Off';
+        fieldNote.value = '60 · C4';
+        fieldVelocity.value = on ? velocity.value : '0';
+      };
+      const stopLocalSound = (immediate = false) => {
+        if (!oscillator || !audioContext || oscillator.stopAt) return;
+        const now = audioContext.currentTime;
+        gainNode.gain.cancelScheduledValues(now);
+        gainNode.gain.setTargetAtTime(0, now, immediate ? 0.005 : 0.045);
+        oscillator.stopAt = now + (immediate ? 0.04 : 0.2);
+        oscillator.stop(oscillator.stopAt + 0.02);
+        const stoppedOscillator = oscillator;
+        oscillator.addEventListener('ended', () => {
+          if (oscillator === stoppedOscillator) {
+            oscillator = null;
+            gainNode = null;
+          }
+        }, { once: true });
+      };
+      const startLocalSound = async () => {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) throw new Error('Web Audio indisponible');
+        if (!audioContext) audioContext = new AudioContextClass();
+        if (audioContext.state === 'suspended') await audioContext.resume();
+        if (!active) return false;
+        if (oscillator) stopLocalSound(true);
+        const now = audioContext.currentTime;
+        oscillator = audioContext.createOscillator();
+        gainNode = audioContext.createGain();
+        oscillator.type = 'triangle';
+        oscillator.frequency.setValueAtTime(261.63, now);
+        const velocityGain = 0.018 + (Number(velocity.value) / 127) * 0.09;
+        gainNode.gain.setValueAtTime(0, now);
+        gainNode.gain.linearRampToValueAtTime(soundEnabled.checked ? velocityGain : 0, now + 0.018);
+        oscillator.connect(gainNode).connect(audioContext.destination);
+        oscillator.start(now);
+        return true;
+      };
+      velocity.addEventListener('input', updateVelocity);
+      updateVelocity();
+      noteOnButton.addEventListener('click', async () => {
+        active = true;
+        velocity.disabled = true;
+        updateEvent(true);
+        noteOnButton.disabled = true;
+        noteOffButton.disabled = false;
+        status.textContent = `Événement simulé : Note On, canal 1, note 60, vélocité ${velocity.value}.`;
+        try {
+          if (soundEnabled.checked) {
+            const started = await startLocalSound();
+            soundDescription.textContent = started ? 'Le synthétiseur local joue un son triangulaire à 261,63 Hz.' : 'Le synthétiseur local a terminé la note.';
+          } else {
+            soundDescription.textContent = 'Le message est visible, mais le synthétiseur local est coupé.';
+          }
+        } catch {
+          soundDescription.textContent = 'Le navigateur ne permet pas la synthèse audio ici ; les données simulées restent disponibles.';
+          status.textContent += ' Son local indisponible dans ce navigateur.';
+        }
+      });
+      noteOffButton.addEventListener('click', () => {
+        if (!active) return;
+        active = false;
+        velocity.disabled = false;
+        updateEvent(false);
+        stopLocalSound();
+        noteOnButton.disabled = false;
+        noteOffButton.disabled = true;
+        soundDescription.textContent = soundEnabled.checked ? 'Le synthétiseur local a terminé la note.' : 'Le message Note Off est visible ; le synthétiseur local reste coupé.';
+        status.textContent = 'Événement simulé : Note Off, canal 1, note 60. La note est relâchée.';
+      });
+      soundEnabled.addEventListener('change', () => {
+        soundDescription.textContent = soundEnabled.checked ? (active ? 'Le son local est activé pendant la note en cours.' : 'Le synthétiseur local est prêt. Le son démarre seulement à ta demande.') : (active ? 'Le message continue ; le son local est coupé.' : 'Le synthétiseur local est coupé. Les événements restent visibles.');
+        if (active && gainNode && audioContext) {
+          const now = audioContext.currentTime;
+          gainNode.gain.cancelScheduledValues(now);
+          gainNode.gain.setTargetAtTime(soundEnabled.checked ? 0.018 + (Number(velocity.value) / 127) * 0.09 : 0, now, 0.025);
+        }
+      });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden && active) noteOffButton.click();
+      });
+      window.addEventListener('pagehide', () => stopLocalSound(true));
+    })();
+  </script>
+</body>
+</html>

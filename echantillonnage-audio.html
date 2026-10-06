@@ -165,4 +165,1024 @@
   --ds-duration-fast: 150ms;
   --ds-duration-standard: 230ms;
   --ds-ease-standard: cubic-bezier(.2, .7, .2, 1);
-  --ds-focus-ring:
+  --ds-focus-ring: 0 0 0 3px rgba(255, 98, 84, .3);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+body[data-design-system="red-industrial"] {
+  background-color: var(--ds-bg);
+  color: var(--ds-text);
+  font-family: var(--ds-body);
+}
+
+/* Une portée explicite donne la priorité au système sur les styles locaux. */
+body[data-design-system] :is(h1, h2, h3) {
+  font-family: var(--ds-display);
+  color: var(--ds-headline);
+}
+
+body[data-design-system] :is(h1, .article-section > h2, .dossier h2, .reading-head h2, .atelier h2) {
+  color: var(--ds-headline);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -.055em;
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] h1 {
+  line-height: .94;
+}
+
+body[data-design-system] .masthead {
+  border-bottom-color: var(--ds-line);
+  background: var(--ds-bg);
+}
+
+body[data-design-system] .wordmark {
+  font-family: var(--ds-display);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .wordmark-symbol {
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ds-text);
+  box-shadow: none;
+}
+
+body[data-design-system] .wordmark-symbol::after {
+  display: none;
+}
+
+body[data-design-system] .wordmark-symbol svg {
+  width: 28px;
+  height: 28px;
+  overflow: visible;
+}
+
+body[data-design-system] .wordmark-symbol .logo-rail {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+body[data-design-system] .wordmark-symbol .logo-slider {
+  fill: none;
+  stroke: var(--ds-red);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
+@media (max-width: 600px) {
+  body[data-design-system] .wordmark-symbol {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+  }
+
+  body[data-design-system] .wordmark-symbol svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+body[data-design-system] .wordmark em {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .nav a {
+  color: var(--ds-text);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .nav a:hover {
+  color: var(--ds-red-soft);
+}
+
+/* L'accueil possède ses propres classes : elles sont couvertes explicitement. */
+body[data-design-system] .cover {
+  row-gap: 24px;
+}
+
+body[data-design-system] .cover h1 {
+  grid-column: 1 / -1;
+  max-width: none;
+  margin-bottom: 0;
+  font-family: "Arial Black", "Arial Nova", Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: clamp(66px, 9.2vw, 132px);
+  -webkit-text-stroke: .35px currentColor;
+  line-height: .92;
+  container-type: inline-size;
+}
+
+body[data-design-system] .cover-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-design-system] .cover-title-line {
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  white-space: nowrap;
+  font-size: inherit;
+  font-size: min(1em, calc((100cqw - 44px) / 7));
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+body[data-design-system] .cover-title-word {
+  flex: 0 0 auto;
+}
+
+body[data-design-system] .cover-title-line::before,
+body[data-design-system] .cover-title-line::after {
+  content: "";
+  flex: 1 1 0;
+  min-width: 8px;
+  height: 2px;
+  background: currentColor;
+  opacity: .8;
+  transform: scaleX(.8);
+  transition: transform 280ms cubic-bezier(.16, 1, .3, 1), opacity 280ms ease;
+}
+
+body[data-design-system] .cover-title-line::before {
+  transform-origin: right center;
+}
+
+body[data-design-system] .cover-title-line::after {
+  transform-origin: left center;
+}
+
+body[data-design-system] .cover-title-line:first-child::before,
+body[data-design-system] .cover-title-line:last-child::after {
+  flex: 0 0 clamp(12px, 2vw, 28px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] .cover-title-line:hover::before,
+  body[data-design-system] .cover-title-line:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-design-system] .cover-title-line::before,
+  body[data-design-system] .cover-title-line::after {
+    transform: none;
+    transition: none;
+  }
+}
+
+body[data-design-system] .cover-deck {
+  margin-top: 0;
+}
+
+@media (min-width: 981px) {
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1.15fr) minmax(370px, .85fr);
+    column-gap: clamp(28px, 4vw, 60px);
+  }
+
+  body[data-design-system] .cover-copy {
+    max-width: none;
+  }
+}
+
+body[data-design-system] .cover-figure {
+  border: 1px solid var(--ds-line-strong);
+  border-top: 3px solid var(--ds-red);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .cover-figure::before {
+  border: 0;
+}
+
+body[data-design-system] .reference-reset {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reference-reset:hover {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+}
+
+/* Les deux cahiers : objectif, notions et entrée dans le parcours. */
+body[data-design-system] .cover-start {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  min-height: 44px;
+  margin-bottom: 14px;
+  color: var(--ds-red-soft);
+  font: 600 12px/1.4 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-intro {
+  padding-block: clamp(36px, 5vw, 64px);
+  border-bottom: 1px solid var(--ds-line);
+  scroll-margin-top: 24px;
+}
+
+body[data-design-system] .cahier-kicker {
+  margin: 0 0 12px;
+  color: var(--ds-red-soft);
+  font: 11px/1.5 var(--ds-mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-intro > h2 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 4.2vw, 52px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-lead {
+  max-width: 72ch;
+  margin: 0 0 28px;
+  color: var(--ds-text-muted);
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body[data-design-system] .cahier-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--ds-line);
+  border-top: 3px solid var(--ds-red);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .cahier-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 18px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .cahier-card-meta span:first-child {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-card h3 {
+  margin: 0 0 14px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+body[data-design-system] .cahier-objective {
+  margin: 0 0 22px;
+  color: var(--ds-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions-title {
+  margin: 0 0 10px;
+  color: var(--ds-text);
+  font: 11px/1.5 var(--ds-mono);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-notions {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  color: var(--ds-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions li + li {
+  margin-top: 9px;
+}
+
+body[data-design-system] .cahier-notions strong {
+  color: var(--ds-text);
+  font-weight: 600;
+}
+
+body[data-design-system] .cahier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ds-line);
+}
+
+body[data-design-system] .cahier-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-text-muted);
+  font: 600 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin {
+  padding: 10px 14px;
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  text-decoration: none;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin:hover {
+  background: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-practice {
+  margin: 20px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  body[data-design-system] .cahier-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Navigation de lecture : ordre des notes, sommaire et passage au cahier suivant. */
+body[data-design-system] .reading-path {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-position {
+  margin: 0 0 15px;
+  color: var(--ds-text-muted);
+  font: 11px/1.6 var(--ds-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reading-path-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+body[data-design-system] .reading-path-link {
+  min-width: 0;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  text-decoration: none;
+}
+
+body[data-design-system] .reading-path-link span {
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .reading-path-link strong {
+  color: var(--ds-text);
+  font: 600 15px/1.4 var(--ds-body);
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] .reading-path-link:hover {
+  border-color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-next {
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-next span {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-index {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  color: var(--ds-text-muted);
+  font: 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .reading-path-reference {
+  margin: 12px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .reading-path-reference a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-red-soft);
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 520px) {
+  body[data-design-system] .reading-path-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body[data-design-system] .signal-chain {
+  border-color: var(--ds-line-strong);
+}
+
+body[data-design-system] .signal-chain::before {
+  background: #111a24;
+}
+
+body[data-design-system] .signal-step {
+  border-right-color: var(--ds-line);
+}
+
+body[data-design-system] .signal-step-label {
+  font-weight: 500;
+}
+
+body[data-design-system] .signal-step b {
+  border-color: var(--ds-line-strong);
+  color: var(--ds-text-muted);
+}
+
+body[data-design-system] .signal-step::after,
+body[data-design-system] .signal-step[aria-current="step"]::after {
+  background: var(--ds-red);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible, [aria-current="step"]) b {
+  border-color: var(--ds-red);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible) .signal-step-arrow {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .story-columns section.is-active {
+  border-left-color: var(--ds-red);
+  background: rgba(255, 50, 31, .045);
+}
+
+body[data-design-system] :is(.story-columns h3, .article-row h3) {
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+
+body[data-design-system] .article-row {
+  border-color: var(--ds-line);
+  background: rgba(16, 18, 20, .8);
+}
+
+body[data-design-system] .article-row:hover {
+  background: var(--ds-surface-raised);
+}
+
+body[data-design-system] .article-topic {
+  border-color: var(--ds-red-soft);
+  background: transparent;
+  color: var(--ds-red-soft);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+}
+
+body[data-design-system] .article-topic::before {
+  background: var(--ds-red);
+}
+
+body[data-design-system] :is(.article-link, details summary) {
+  text-decoration-color: var(--ds-red);
+}
+
+body[data-design-system] :is(.toc, .side-card) {
+  padding: 16px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .toc-label {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .toc a {
+  border-top: 1px solid var(--ds-line);
+}
+
+::selection {
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] :focus-visible {
+  outline: 2px solid var(--ds-red-soft);
+  outline-offset: var(--ds-space-1);
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* One consistent dark instrument-console surface across every interactive lab. */
+body[data-design-system] :is(
+  .route,
+  .lab,
+  .controller-lab,
+  .gesture-lab,
+  .effect-lab,
+  .envelope-lab,
+  .filter-lab,
+  .modulation-lab,
+  .oscillator-lab
+) {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .route::before {
+  border: 0;
+}
+
+body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
+  font-family: var(--ds-display);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+/* Red is reserved for the primary action and selected controls. */
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
+  min-height: 44px;
+  border: 1px solid var(--ds-red);
+  border-radius: var(--ds-radius-control);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  font-family: var(--ds-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  background: var(--ds-red-soft);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
+  transform: translateY(0);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
+  border-color: var(--ds-red);
+  background: transparent;
+  color: var(--ds-red-soft);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+/* Le bouton d'écoute arrondi de l'accueil conserve la forme demandée. */
+body[data-design-system] .listen:not(.secondary) {
+  border-radius: 999px;
+}
+
+body[data-design-system] .action-button.secondary {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+}
+
+body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+  box-shadow: none;
+}
+
+/* Instrument choices keep their own chart colors; only selection chrome is unified. */
+body[data-design-system] :is(
+  .buffer-option,
+  .wave-option,
+  .filter-type,
+  .effect-pick,
+  .patch-mode,
+  .destination-pick
+)[aria-pressed="true"] {
+  border-color: var(--ds-red);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+body[data-design-system] .lab-mark {
+  border-color: var(--ds-red);
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] :is(.route-note, .control-explain, .routing-readout, .takeaway) {
+  border-left-color: var(--ds-red);
+}
+
+/* Keep all range controls keyboard and touch friendly; retain each page's value encoding. */
+body[data-design-system] input[type="range"] {
+  accent-color: var(--ds-red);
+  touch-action: pan-y;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  body[data-design-system] .masthead-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  body[data-design-system] .wordmark {
+    font-size: 22px;
+  }
+
+  body[data-design-system] .nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--ds-line);
+  }
+
+  body[data-design-system] .nav a {
+    font-size: 10px;
+    min-height: 44px;
+  }
+
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-design-system] .cover h1 {
+    font-size: clamp(46px, 13vw, 82px);
+  }
+
+  body[data-design-system] .cover-figure {
+    padding: 22px;
+  }
+
+  body[data-design-system] .dossier h2 {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+
+  body[data-design-system] .figure-foot {
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  body[data-design-system] .toc {
+    padding: 12px;
+  }
+}
+
+/* Une même hiérarchie pour les courbes, les repères et les schémas pédagogiques. */
+body[data-design-system] {
+  --chart-line: #e76524;
+  --chart-selected: #b8c66b;
+  --chart-grid: rgba(243, 241, 235, .13);
+}
+
+body[data-design-system] :is(.filter-graph-wrap, .envelope-display, .lfo-display,
+  .automation-chart, .cutoff-panel, .osc-wave-wrap, .harmonic-figure,
+  .spectrum-wrap, .level-meter, .timeline, .effect-display) {
+  min-width: 0;
+  border: 1px solid var(--ds-line);
+  border-radius: 0;
+  background: var(--ds-surface-raised);
+  box-shadow: none;
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) output {
+  color: var(--chart-selected);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] .chart-unit {
+  margin: 8px 0;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] svg[data-renderer="d3-line"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) text {
+  fill: var(--ds-text-muted);
+  font: 11px var(--ds-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) :is(.domain, .tick line) {
+  stroke: var(--ds-line-strong);
+  stroke-width: .75px;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] .chart-axes .domain {
+  display: none;
+}
+
+body[data-design-system] :is(.chart-grid line, .spectrum-d3-horizontal,
+  .spectrum-d3-vertical, .osc-wave-grid, .spectrum-grid, .lfo-grid,
+  .envelope-grid, .graph-grid, .automation-grid, .waveform .axis) {
+  stroke: var(--chart-grid);
+  stroke-width: .75px;
+  stroke-dasharray: 2 5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
+  .automation-path, .osc-wave-line, .spectrum-line, .spectrum-filtered,
+  .waveform .trace) {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: none;
+}
+
+body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
+  display: none;
+}
+
+body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {
+  stroke: var(--chart-selected);
+  stroke-width: 1px;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] :is(.envelope-point, .lfo-dot, .automation-point,
+  .spectrum-dot, .waveform .point) {
+  fill: var(--chart-selected);
+  stroke: var(--ds-bg);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] .waveform .wave-legend {
+  display: none;
+}
+
+body[data-design-system] .waveform-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .waveform .spectrum-bar {
+  fill: var(--chart-line);
+}
+
+body[data-design-system] :is(.stage-labels, .lfo-endpoints, .meter-scale, .time-axis) {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .level-fill {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-webkit-progress-value {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-moz-progress-bar {
+  background: var(--chart-selected);
+}
+
+/* Une piste fine et une zone de manipulation assez haute pour le toucher. */
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] .cc-slider::-webkit-slider-runnable-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] .cc-slider::-moz-range-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):hover {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-design-system="red-industrial">
+<header class="masthead"><div class="page masthead-inner"><a class="wordmark" href="index.html#accueil" aria-label="Fréquences, accueil"><span class="wordmark-symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="logo-rail" d="M6 4v16M12 4v16M18 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="logo-slider" d="M3 8h6M9 16h6M15 11h6" fill="none" stroke="var(--ds-red)" stroke-width="3.2" stroke-linecap="round"/></svg></span><span>fréquences <em>.</em></span></a><nav class="nav" aria-label="Navigation principale"><a href="index.html#dossier">Dossier</a><a href="reperes.html">Repères</a><a href="index.html#lectures">Sommaire</a></nav><span class="issue-tag">cahier 01 / audio</span></div></header>
+<main class="page">
+<nav class="crumb" aria-label="Fil d’Ariane"><a href="index.html#accueil">Accueil</a><span aria-hidden="true">/</span><a href="index.html#lectures">Cahier 01 · Audio</a><span aria-hidden="true">/</span><span aria-current="page">Note 02 sur 09</span></nav>
+<header class="hero"><p class="kicker">02 / AUDIO NUMÉRIQUE · 5 MIN DE LECTURE</p><h1>Le son devient une suite de nombres.</h1><p class="deck">Comment une vibration continue devient-elle une suite de nombres ? Deux réglages répondent à des questions différentes : à quel rythme mesurer le signal, et avec quelle finesse coder son amplitude.</p><div class="meta"><span>Cahier 01 · Audio</span><span>échantillons · fréquence · résolution</span></div></header>
+<figure class="route" aria-labelledby="route-title"><div class="route-head"><h2 id="route-title">Du signal continu aux nombres</h2><span>MESURER → CODER → RECONSTRUIRE</span></div><ol class="route-list"><li><b>01 / SIGNAL</b><strong>Une vibration</strong><span>Le microphone fournit une variation continue.</span></li><li><b>02 / MESURE</b><strong>Des instants</strong><span>Le convertisseur relève le signal à intervalles réguliers.</span></li><li><b>03 / CODAGE</b><strong>Des valeurs</strong><span>Chaque mesure reçoit un code numérique.</span></li><li><b>04 / LECTURE</b><strong>Une sortie</strong><span>Le convertisseur reconstruit un signal pour l’écoute.</span></li></ol><figcaption class="route-note">Le buffer audio rassemble des échantillons en blocs pour les traiter. Il ne détermine ni la fréquence d’échantillonnage ni la résolution du fichier.</figcaption></figure>
+<div class="article-grid"><article>
+<section class="article-section" id="mesurer"><p class="section-index">01 / MESURER LE SIGNAL</p><h2>Le son continu devient une suite de nombres.</h2>
+<p>Un microphone transforme les variations de pression de l’air en signal électrique. Lors d’une conversion analogique-numérique, l’appareil relève l’amplitude de ce signal à intervalles réguliers et enregistre chaque mesure sous forme de nombre. La lecture reconstruit ensuite une tension à partir de cette suite.</p>
+<p>Deux réglages décrivent deux aspects différents. La <strong>fréquence d’échantillonnage</strong> indique combien de mesures sont prises chaque seconde. La <strong>résolution en bits</strong> détermine combien de valeurs d’amplitude peuvent être codées à chaque mesure.</p>
+<aside class="pullquote"><strong>Repère —</strong> fréquence d’échantillonnage = espacement dans le temps ; résolution = finesse de mesure de l’amplitude.</aside></section>
+<section class="article-section" id="atelier"><p class="section-index">02 / VISUALISER</p><h2>Observe les points et les niveaux.</h2>
+<p>Cette maquette montre quelques mesures d’une onde simple. Réduis le nombre de points pour espacer les mesures ; baisse le nombre de bits pour réduire les niveaux d’amplitude disponibles. Le dessin est volontairement agrandi : il aide à voir le principe, mais ne simule pas un convertisseur ni un fichier audio.</p>
+<div class="lab" id="sampling-lab"><div class="lab-top"><div><h3>Une onde, deux résolutions</h3><p>Mesures et niveaux affichés sur la même fenêtre temporelle.</p></div><span class="lab-mark">MAQUETTE</span></div>
+<svg class="sample-plot" viewBox="0 0 800 260" role="img" aria-labelledby="sample-title sample-desc"><title id="sample-title">Mesures et quantification d’une onde</title><desc id="sample-desc">Une ligne continue est comparée à une représentation en paliers, faite de mesures espacées et d’un nombre limité de niveaux.</desc><path class="sample-grid" d="M30 35H770M30 80H770M30 125H770M30 170H770M30 215H770M30 35V215M215 35V215M400 35V215M585 35V215M770 35V215"/><path id="continuous-wave" class="sample-wave"/><path id="quantized-wave" class="sample-step"/><g id="sample-points" class="sample-points"></g><text x="34" y="247" class="sample-axis">TEMPS →</text><text x="766" y="27" text-anchor="end" class="sample-axis">AMPLITUDE</text></svg>
+<div class="meter-label"><label for="sample-count">Mesures visibles</label><output id="sample-count-value" for="sample-count">16 points</output></div><input class="meter sample-range" id="sample-count" type="range" min="8" max="48" step="8" value="16" aria-describedby="sample-help"><div class="meter-label"><label for="bit-depth">Résolution du modèle</label><output id="bit-depth-value" for="bit-depth">4 bits · 16 niveaux</output></div><input class="meter sample-range" id="bit-depth" type="range" min="2" max="8" step="1" value="4" aria-describedby="sample-help"><p class="lab-explainer" id="sample-help" role="status" aria-live="polite">Modèle pédagogique : le nombre de points du dessin n’est pas une fréquence en hertz, et les niveaux ne représentent pas un convertisseur réel.</p></div>
+<p>Dans un projet réel, 44,1 kHz signifie 44 100 mesures par seconde et par canal. Selon le théorème d’échantillonnage, un système correctement filtré peut représenter les fréquences situées sous la moitié de cette valeur, soit 22,05 kHz. Le filtre anti-repliement atténue les fréquences trop hautes avant qu’elles ne créent de fausses composantes dans le signal numérique.</p></section>
+<section class="article-section" id="resolution"><p class="section-index">03 / LA RÉSOLUTION</p><h2>Les bits décrivent les niveaux d’amplitude.</h2>
+<p>Avec <strong>N bits</strong>, une mesure peut prendre jusqu’à 2<sup>N</sup> codes différents. En 16 bits, cela fait 65 536 valeurs possibles ; en 24 bits, plus de 16 millions. Le convertisseur arrondit le signal à l’un des niveaux disponibles : cet écart est l’erreur de quantification.</p>
+<p>Ajouter des bits rend ces paliers plus fins et réduit le bruit de quantification théorique. Cela ne répare pas un signal déjà bruité, saturé ou mal enregistré. Le niveau du micro, le préampli, le bruit de fond et la marge avant saturation comptent aussi.</p>
+<aside class="pullquote"><strong>À retenir —</strong> une fréquence plus élevée mesure plus souvent dans le temps ; davantage de bits permettent une mesure d’amplitude plus fine.</aside></section>
+<section class="article-section" id="reperes"><p class="section-index">04 / RELIER LES RÉGLAGES</p><h2>Échantillons, buffer et MIDI ne désignent pas la même chose.</h2>
+<p>Le buffer rassemble temporairement des échantillons déjà produits pour que le logiciel les traite par blocs. Sa taille influe sur le délai de traitement et la charge de calcul ; la fréquence d’échantillonnage fixe le rythme auquel les échantillons sont produits. Ces réglages se rencontrent dans le trajet audio, mais ils répondent à des questions distinctes.</p>
+<p>Le MIDI décrit des événements de jeu et des commandes, pas les valeurs qui forment l’onde audio. Pour voir comment une note ou un geste est transmis, poursuis avec <a href="midi-ne-transporte-pas-le-son.html">Le MIDI ne transporte pas le son</a>. Le son numérique et le MIDI se rejoignent quand un instrument interprète ces événements puis génère un signal audio.</p></section>
+<section class="article-section references" id="sources"><p class="section-index">POUR ALLER PLUS LOIN</p><h2>Sources et méthode.</h2><p>La maquette affiche un signal périodique et des niveaux idéalisés pour isoler les deux paramètres. Elle ne simule ni filtrage anti-repliement, ni bruit, ni conversion matériel.</p><ul class="references"><li><a href="https://developer.apple.com/library/archive/documentation/MusicAudio/Conceptual/CoreAudioOverview/WhatisCoreAudio/WhatisCoreAudio.html" target="_blank" rel="noopener noreferrer">What Is Core Audio? — Apple Developer Documentation</a>, pour la mesure périodique et le codage PCM.</li><li><a href="https://musicweb.ucsd.edu/~trsmyth/digitalAudio171/Nyquist_Sampling_Theorem.html" target="_blank" rel="noopener noreferrer">Nyquist Sampling Theorem — University of California, San Diego</a>, pour la fréquence d’échantillonnage et la reconstruction.</li><li><a href="https://www.ableton.com/en/manual/managing-files-and-sets/" target="_blank" rel="noopener noreferrer">Managing Files and Sets — Ableton Live 12 Manual</a>, pour les formats et profondeurs de bit disponibles à l’export.</li></ul></section>
+<nav class="reading-path" aria-label="Parcours de lecture : Cahier 01 · Audio"><p class="reading-path-position">Cahier 01 · Audio · Note 02 sur 09</p><div class="reading-path-links"><a class="reading-path-link " href="buffer-audio.html"><span>← Précédente · Note 01</span><strong>Le buffer audio, en clair</strong></a><a class="reading-path-link reading-path-next" href="modulaire-sans-mur.html"><span>Suivante · Note 03 →</span><strong>Le modulaire sans le mur de câbles</strong></a><a class="reading-path-index" href="index.html#lectures"><span>Sommaire du Cahier 01 · Audio</span><span>9 notes <span aria-hidden="true">↑</span></span></a></div></nav>
+</article><aside class="side"><nav class="toc" aria-label="Dans cette note"><p class="toc-label">Dans cette note</p><a href="#mesurer">Mesurer le signal</a><a href="#atelier">Visualiser les mesures</a><a href="#resolution">La résolution</a><a href="#reperes">Relier les réglages</a><a href="#sources">Sources</a></nav><div class="side-card"><h3>À garder en tête</h3><p>La fréquence espace les mesures dans le temps ; les bits déterminent les codes d’amplitude.</p></div></aside></div>
+</main>
+<footer><div class="page footer-inner"><p>© 2026 Fréquences · Cahier 01 · Audio</p><a href="index.html#accueil">Retour à l’accueil</a></div></footer>
+<script>
+(() => {
+  const countControl = document.querySelector('#sample-count');
+  const depthControl = document.querySelector('#bit-depth');
+  const countOutput = document.querySelector('#sample-count-value');
+  const depthOutput = document.querySelector('#bit-depth-value');
+  const wave = document.querySelector('#continuous-wave');
+  const steps = document.querySelector('#quantized-wave');
+  const points = document.querySelector('#sample-points');
+  const help = document.querySelector('#sample-help');
+  if (!countControl || !depthControl || !wave || !steps || !points) return;
+  const left=30, right=770, middle=125, amplitude=84, cycles=3;
+  const yFor = value => middle - value * amplitude;
+  const quantize = (value, bits) => {
+    const levels = 2 ** bits;
+    return Math.round((value + 1) * .5 * (levels - 1)) / (levels - 1) * 2 - 1;
+  };
+  function draw() {
+    const count=Number(countControl.value), bits=Number(depthControl.value), levels=2**bits;
+    let continuous='';
+    for (let i=0;i<=240;i++) {
+      const x=left+(right-left)*i/240, value=Math.sin(2*Math.PI*cycles*i/240);
+      continuous += `${i ? 'L' : 'M'}${x.toFixed(1)} ${yFor(value).toFixed(1)} `;
+    }
+    wave.setAttribute('d',continuous.trim());
+    const samples=[];
+    for(let i=0;i<count;i++) {
+      const x=left+(right-left)*i/(count-1), value=Math.sin(2*Math.PI*cycles*i/(count-1));
+      samples.push({x, y:yFor(quantize(value,bits))});
+    }
+    let path=`M${samples[0].x.toFixed(1)} ${samples[0].y.toFixed(1)}`;
+    for(let i=1;i<samples.length;i++) path+=` H${samples[i].x.toFixed(1)} V${samples[i].y.toFixed(1)}`;
+    steps.setAttribute('d',path);
+    points.replaceChildren(...samples.map(point=>{const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');circle.setAttribute('cx',point.x);circle.setAttribute('cy',point.y);circle.setAttribute('r','5');return circle;}));
+    countOutput.value=`${count} points`; countOutput.textContent=countOutput.value;
+    depthOutput.value=`${bits} bits · ${levels} niveaux`; depthOutput.textContent=depthOutput.value;
+    help.textContent=`Modèle pédagogique : ${count} mesures et ${levels} niveaux sur cette fenêtre. Ce ne sont ni une fréquence en hertz ni les réglages d’un convertisseur réel.`;
+  }
+  countControl.addEventListener('input',draw); depthControl.addEventListener('input',draw); draw();
+})();
+</script>
+</body></html>

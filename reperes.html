@@ -387,4 +387,762 @@ body[data-design-system] .cahier-lead {
 }
 
 body[data-design-system] .cahier-grid {
-  display
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body[data-design-system] .cahier-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--ds-line);
+  border-top: 3px solid var(--ds-red);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .cahier-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 18px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .cahier-card-meta span:first-child {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-card h3 {
+  margin: 0 0 14px;
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+
+body[data-design-system] .cahier-objective {
+  margin: 0 0 22px;
+  color: var(--ds-text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions-title {
+  margin: 0 0 10px;
+  color: var(--ds-text);
+  font: 11px/1.5 var(--ds-mono);
+  text-transform: uppercase;
+}
+
+body[data-design-system] .cahier-notions {
+  margin: 0 0 24px;
+  padding-left: 20px;
+  color: var(--ds-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .cahier-notions li + li {
+  margin-top: 9px;
+}
+
+body[data-design-system] .cahier-notions strong {
+  color: var(--ds-text);
+  font-weight: 600;
+}
+
+body[data-design-system] .cahier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--ds-line);
+}
+
+body[data-design-system] .cahier-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-text-muted);
+  font: 600 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin {
+  padding: 10px 14px;
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  text-decoration: none;
+}
+
+body[data-design-system] .cahier-actions .cahier-begin:hover {
+  background: var(--ds-red-soft);
+}
+
+body[data-design-system] .cahier-practice {
+  margin: 20px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  body[data-design-system] .cahier-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Navigation de lecture : ordre des notes, sommaire et passage au cahier suivant. */
+body[data-design-system] .reading-path {
+  margin-top: 32px;
+  padding-top: 22px;
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-position {
+  margin: 0 0 15px;
+  color: var(--ds-text-muted);
+  font: 11px/1.6 var(--ds-mono);
+  letter-spacing: .045em;
+  text-transform: uppercase;
+}
+
+body[data-design-system] .reading-path-links {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+}
+
+body[data-design-system] .reading-path-link {
+  min-width: 0;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  text-decoration: none;
+}
+
+body[data-design-system] .reading-path-link span {
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .reading-path-link strong {
+  color: var(--ds-text);
+  font: 600 15px/1.4 var(--ds-body);
+  overflow-wrap: break-word;
+}
+
+body[data-design-system] .reading-path-link:hover {
+  border-color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-next {
+  border-top: 2px solid var(--ds-red);
+}
+
+body[data-design-system] .reading-path-next span {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .reading-path-index {
+  grid-column: 1 / -1;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 8px 0;
+  color: var(--ds-text-muted);
+  font: 12px/1.5 var(--ds-mono);
+  text-underline-offset: 5px;
+}
+
+body[data-design-system] .reading-path-reference {
+  margin: 12px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+body[data-design-system] .reading-path-reference a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ds-red-soft);
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 520px) {
+  body[data-design-system] .reading-path-links {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+body[data-design-system] .signal-chain {
+  border-color: var(--ds-line-strong);
+}
+
+body[data-design-system] .signal-chain::before {
+  background: #111a24;
+}
+
+body[data-design-system] .signal-step {
+  border-right-color: var(--ds-line);
+}
+
+body[data-design-system] .signal-step-label {
+  font-weight: 500;
+}
+
+body[data-design-system] .signal-step b {
+  border-color: var(--ds-line-strong);
+  color: var(--ds-text-muted);
+}
+
+body[data-design-system] .signal-step::after,
+body[data-design-system] .signal-step[aria-current="step"]::after {
+  background: var(--ds-red);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible, [aria-current="step"]) b {
+  border-color: var(--ds-red);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] .signal-step:is(:hover, :focus-visible) .signal-step-arrow {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .story-columns section.is-active {
+  border-left-color: var(--ds-red);
+  background: rgba(255, 50, 31, .045);
+}
+
+body[data-design-system] :is(.story-columns h3, .article-row h3) {
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+
+body[data-design-system] .article-row {
+  border-color: var(--ds-line);
+  background: rgba(16, 18, 20, .8);
+}
+
+body[data-design-system] .article-row:hover {
+  background: var(--ds-surface-raised);
+}
+
+body[data-design-system] .article-topic {
+  border-color: var(--ds-red-soft);
+  background: transparent;
+  color: var(--ds-red-soft);
+  font: 500 11px/1.4 var(--ds-mono);
+  letter-spacing: .06em;
+}
+
+body[data-design-system] .article-topic::before {
+  background: var(--ds-red);
+}
+
+body[data-design-system] :is(.article-link, details summary) {
+  text-decoration-color: var(--ds-red);
+}
+
+body[data-design-system] :is(.toc, .side-card) {
+  padding: 16px;
+  border: 1px solid var(--ds-line);
+  background: var(--ds-surface);
+}
+
+body[data-design-system] .toc-label {
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] .toc a {
+  border-top: 1px solid var(--ds-line);
+}
+
+::selection {
+  background: var(--ds-red);
+  color: var(--ds-bg);
+}
+
+body[data-design-system] :focus-visible {
+  outline: 2px solid var(--ds-red-soft);
+  outline-offset: var(--ds-space-1);
+  box-shadow: var(--ds-focus-ring);
+}
+
+/* One consistent dark instrument-console surface across every interactive lab. */
+body[data-design-system] :is(
+  .route,
+  .lab,
+  .controller-lab,
+  .gesture-lab,
+  .effect-lab,
+  .envelope-lab,
+  .filter-lab,
+  .modulation-lab,
+  .oscillator-lab
+) {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-panel);
+  background: var(--ds-surface);
+  box-shadow: none;
+}
+
+body[data-design-system] .route::before {
+  border: 0;
+}
+
+body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
+  font-family: var(--ds-display);
+  font-weight: 700;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+/* Red is reserved for the primary action and selected controls. */
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
+  min-height: 44px;
+  border: 1px solid var(--ds-red);
+  border-radius: var(--ds-radius-control);
+  background: var(--ds-red);
+  color: var(--ds-bg);
+  font-family: var(--ds-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+  box-shadow: none;
+  transition:
+    background-color var(--ds-duration-fast) var(--ds-ease-standard),
+    border-color var(--ds-duration-fast) var(--ds-ease-standard),
+    color var(--ds-duration-fast) var(--ds-ease-standard),
+    transform var(--ds-duration-fast) var(--ds-ease-standard),
+    box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  background: var(--ds-red-soft);
+  box-shadow: none;
+  transform: translateY(-1px);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
+  transform: translateY(0);
+}
+
+body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
+  border-color: var(--ds-red);
+  background: transparent;
+  color: var(--ds-red-soft);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+/* Le bouton d'écoute arrondi de l'accueil conserve la forme demandée. */
+body[data-design-system] .listen:not(.secondary) {
+  border-radius: 999px;
+}
+
+body[data-design-system] .action-button.secondary {
+  border-color: var(--ds-line-strong);
+  border-radius: var(--ds-radius-control);
+  background: transparent;
+  color: var(--ds-text);
+}
+
+body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+  border-color: var(--ds-red-soft);
+  color: var(--ds-red-soft);
+  box-shadow: none;
+}
+
+/* Instrument choices keep their own chart colors; only selection chrome is unified. */
+body[data-design-system] :is(
+  .buffer-option,
+  .wave-option,
+  .filter-type,
+  .effect-pick,
+  .patch-mode,
+  .destination-pick
+)[aria-pressed="true"] {
+  border-color: var(--ds-red);
+  box-shadow: inset 0 -2px var(--ds-red);
+}
+
+body[data-design-system] .lab-mark {
+  border-color: var(--ds-red);
+  color: var(--ds-red-soft);
+}
+
+body[data-design-system] :is(.route-note, .control-explain, .routing-readout, .takeaway) {
+  border-left-color: var(--ds-red);
+}
+
+/* Keep all range controls keyboard and touch friendly; retain each page's value encoding. */
+body[data-design-system] input[type="range"] {
+  accent-color: var(--ds-red);
+  touch-action: pan-y;
+}
+
+button:disabled,
+input:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  body[data-design-system] .masthead-inner {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+  }
+
+  body[data-design-system] .wordmark {
+    font-size: 22px;
+  }
+
+  body[data-design-system] .nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    border-top: 1px solid var(--ds-line);
+  }
+
+  body[data-design-system] .nav a {
+    font-size: 10px;
+    min-height: 44px;
+  }
+
+  body[data-design-system] .cover {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  body[data-design-system] .cover h1 {
+    font-size: clamp(46px, 13vw, 82px);
+  }
+
+  body[data-design-system] .cover-figure {
+    padding: 22px;
+  }
+
+  body[data-design-system] .dossier h2 {
+    font-size: clamp(30px, 8vw, 48px);
+  }
+
+  body[data-design-system] .figure-foot {
+    flex-wrap: wrap;
+    align-items: start;
+  }
+
+  body[data-design-system] .toc {
+    padding: 12px;
+  }
+}
+
+/* Une même hiérarchie pour les courbes, les repères et les schémas pédagogiques. */
+body[data-design-system] {
+  --chart-line: #e76524;
+  --chart-selected: #b8c66b;
+  --chart-grid: rgba(243, 241, 235, .13);
+}
+
+body[data-design-system] :is(.filter-graph-wrap, .envelope-display, .lfo-display,
+  .automation-chart, .cutoff-panel, .osc-wave-wrap, .harmonic-figure,
+  .spectrum-wrap, .level-meter, .timeline, .effect-display) {
+  min-width: 0;
+  border: 1px solid var(--ds-line);
+  border-radius: 0;
+  background: var(--ds-surface-raised);
+  box-shadow: none;
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] :is(.graph-labels, .envelope-display-head, .lfo-display-head,
+  .automation-top, .osc-wave-meta, .harmonic-title, .level-top, .timeline-top,
+  .effect-display-head, .lfo-readout, .cutoff-top) output {
+  color: var(--chart-selected);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] .chart-unit {
+  margin: 8px 0;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] svg[data-renderer="d3-line"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) text {
+  fill: var(--ds-text-muted);
+  font: 11px var(--ds-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+body[data-design-system] :is(.chart-axes, .spectrum-d3-axis) :is(.domain, .tick line) {
+  stroke: var(--ds-line-strong);
+  stroke-width: .75px;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] .chart-axes .domain {
+  display: none;
+}
+
+body[data-design-system] :is(.chart-grid line, .spectrum-d3-horizontal,
+  .spectrum-d3-vertical, .osc-wave-grid, .spectrum-grid, .lfo-grid,
+  .envelope-grid, .graph-grid, .automation-grid, .waveform .axis) {
+  stroke: var(--chart-grid);
+  stroke-width: .75px;
+  stroke-dasharray: 2 5;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  shape-rendering: crispEdges;
+}
+
+body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
+  .automation-path, .osc-wave-line, .spectrum-line, .spectrum-filtered,
+  .waveform .trace) {
+  fill: none;
+  stroke: var(--chart-line);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: none;
+}
+
+body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
+  display: none;
+}
+
+body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {
+  stroke: var(--chart-selected);
+  stroke-width: 1px;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] :is(.envelope-point, .lfo-dot, .automation-point,
+  .spectrum-dot, .waveform .point) {
+  fill: var(--chart-selected);
+  stroke: var(--ds-bg);
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
+body[data-design-system] .waveform .wave-legend {
+  display: none;
+}
+
+body[data-design-system] .waveform-caption {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .waveform .spectrum-bar {
+  fill: var(--chart-line);
+}
+
+body[data-design-system] :is(.stage-labels, .lfo-endpoints, .meter-scale, .time-axis) {
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  color: var(--ds-text-muted);
+  font: 11px/1.5 var(--ds-mono);
+}
+
+body[data-design-system] .level-fill {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-webkit-progress-value {
+  background: var(--chart-selected);
+}
+
+body[data-design-system] .meter::-moz-progress-bar {
+  background: var(--chart-selected);
+}
+
+/* Une piste fine et une zone de manipulation assez haute pour le toucher. */
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input) {
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ds-red) var(--progress, 0%), var(--ds-line) var(--progress, 0%));
+}
+
+body[data-design-system] .cc-slider::-webkit-slider-runnable-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] .cc-slider::-moz-range-track {
+  background: var(--ds-line);
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+  appearance: none;
+}
+
+body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-control input)::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ds-bg);
+  border-radius: 50%;
+  background: var(--chart-selected);
+  box-shadow: 0 0 0 1px var(--chart-selected);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):hover {
+    transform: none;
+  }
+}
+</style>
+</head>
+<body data-design-system="red-industrial">
+  <header class="masthead">
+    <div class="page masthead-inner">
+      <a class="wordmark" href="index.html#accueil" aria-label="Fréquences, accueil"><span class="wordmark-symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="logo-rail" d="M6 4v16M12 4v16M18 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="logo-slider" d="M3 8h6M9 16h6M15 11h6" fill="none" stroke="var(--ds-red)" stroke-width="3.2" stroke-linecap="round"/></svg></span><span>fréquences <em>.</em></span></a>
+      <nav class="nav" aria-label="Navigation principale"><a href="index.html#dossier">Dossier</a><a href="reperes.html" aria-current="page">Repères</a><a href="index.html#lectures">La revue</a></nav>
+      <span class="issue-tag">cahier 01 / 2026</span>
+    </div>
+  </header>
+  <main class="page">
+    <section class="hero" aria-labelledby="page-title">
+      <div><p class="eyebrow">LE LEXIQUE DE STUDIO · 12 NOTIONS</p><h1 id="page-title">Des mots pour entendre.</h1><p class="deck">Un petit dictionnaire de la synthèse et de la création sonore. Des explications courtes pour relier les réglages à ce qu’on entend.</p></div>
+      <aside class="hero-note"><span class="micro-label">MODE D’EMPLOI</span><strong>Lis, cherche, écoute.</strong><p>Filtre par famille ou cherche un mot. Chaque définition part d’un geste ou d’un son concret.</p></aside>
+    </section>
+    <section class="index-tools" aria-labelledby="index-title">
+      <div class="tool-top"><h2 id="index-title">Trouver un repère</h2><output class="result-count" id="result-count" aria-live="polite">12 notions</output></div>
+      <label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">Rechercher dans le lexique</span><input class="search" id="term-search" type="search" placeholder="Ex. coupure, gate, latence…" autocomplete="off"></label>
+      <div class="filters" role="group" aria-label="Filtrer les notions par famille">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">Tout</button>
+        <button class="filter" type="button" data-filter="synthese" aria-pressed="false">Synthèse</button>
+        <button class="filter" type="button" data-filter="filtre" aria-pressed="false">Filtre</button>
+        <button class="filter" type="button" data-filter="enveloppe" aria-pressed="false">Enveloppe</button>
+        <button class="filter" type="button" data-filter="modulation" aria-pressed="false">Modulation</button>
+        <button class="filter" type="button" data-filter="mao" aria-pressed="false">MAO / MIDI</button>
+      </div>
+    </section>
+    <section class="terms" id="term-list" aria-label="Notions du lexique">
+      <article class="term" data-categories="synthese" data-search="oscillateur source onde son synthétiseur vibration"><div class="term-top"><span class="term-index">01 / SOURCE</span><span class="term-category">SYNTHÈSE</span></div><h3>Oscillateur</h3><p>La source qui répète une vibration et produit une onde. Sa forme — sinus, triangle, dent de scie ou carré — donne une première couleur au son.</p><div class="term-foot"><span>source sonore</span><span><a href="index.html#dossier">voir le dossier ↗</a></span></div></article>
+      <article class="term" data-categories="synthese" data-search="fréquence hauteur hertz hz fondamentale octave note"><div class="term-top"><span class="term-index">02 / HAUTEUR</span><span class="term-category">SYNTHÈSE</span></div><h3>Fréquence</h3><p>Le nombre de cycles d’une vibration par seconde, exprimé en hertz. La fréquence fondamentale contribue à la hauteur perçue : quand elle double, on monte d’une octave.</p><div class="term-foot"><span>hauteur · Hz</span><span><a href="index.html#dossier">écouter à 220 Hz ↗</a></span></div></article>
+      <article class="term" data-categories="synthese" data-search="harmonique spectre timbre partiels onde son riche brillant"><div class="term-top"><span class="term-index">03 / SPECTRE</span><span class="term-category">SYNTHÈSE</span></div><h3>Harmonique</h3><p>Une composante dont la fréquence est un multiple entier de la fondamentale. Leur équilibre aide à distinguer deux sons de même hauteur : c’est une part essentielle de leur timbre.</p><div class="term-foot"><span>couleur sonore</span><span>fondamentale × entier</span></div></article>
+      <article class="term" data-categories="filtre" data-search="filtre passe bas passe haut passe bande coupe fréquence timbre"><div class="term-top"><span class="term-index">04 / ÉQUILIBRE</span><span class="term-category">FILTRE</span></div><h3>Filtre</h3><p>Un circuit ou un traitement qui modifie le niveau de certaines zones du spectre. Un passe-bas atténue progressivement les fréquences situées au-dessus de sa coupure.</p><div class="term-foot"><span>sculpter le spectre</span><span><a href="familles-de-filtres.html#familles">voir les familles ↗</a></span></div></article>
+      <article class="term" data-categories="filtre" data-search="coupure cutoff fréquence filtre ouverture balayage"><div class="term-top"><span class="term-index">05 / SEUIL</span><span class="term-category">FILTRE</span></div><h3>Fréquence de coupure</h3><p>Le point autour duquel un filtre commence à atténuer le son. La déplacer vers le bas assombrit souvent le timbre ; la remonter lui rend davantage d’aigus.</p><div class="term-foot"><span>cutoff</span><span><a href="familles-de-filtres.html#laboratoire">tester le balayage ↗</a></span></div></article>
+      <article class="term" data-categories="filtre" data-search="résonance resonance accentuation pic filtre sifflement cutoff"><div class="term-top"><span class="term-index">06 / ACCENT</span><span class="term-category">FILTRE</span></div><h3>Résonance</h3><p>Une accentuation des fréquences proches de la coupure. Une dose légère souligne le mouvement du filtre ; poussée très loin, elle peut devenir sifflante, voire amorcer une oscillation.</p><div class="term-foot"><span>autour du cutoff</span><span>à doser à l’oreille</span></div></article>
+      <article class="term" data-categories="enveloppe" data-search="enveloppe adsr attaque decay sustain release temps note amplitude filtre"><div class="term-top"><span class="term-index">07 / CHRONOLOGIE</span><span class="term-category">ENVELOPPE</span></div><h3>Enveloppe ADSR</h3><p>Quatre étapes qui dessinent l’évolution d’une note : attaque, décroissance, maintien pendant la note, puis relâchement quand la touche est levée.</p><div class="term-foot"><span>Attack · Decay · Sustain · Release</span><span><a href="enveloppe-adsr.html#laboratoire">écouter l’exemple ↗</a></span></div></article>
+      <article class="term" data-categories="enveloppe modulation" data-search="gate porte note déclenchement clavier enveloppe vca touche"><div class="term-top"><span class="term-index">08 / DÉCLENCHEMENT</span><span class="term-category">ENVELOPPE · MODULATION</span></div><h3>Gate</h3><p>Un signal qui indique qu’une note est tenue. Il déclenche souvent une enveloppe ; sa durée suit généralement celle de la touche, contrairement à une impulsion brève.</p><div class="term-foot"><span>début et durée d’une note</span><span><a href="modulaire-sans-mur.html#patch">voir le patch ↗</a></span></div></article>
+      <article class="term" data-categories="enveloppe" data-search="vca amplificateur contrôlé tension volume niveau ouvrir fermer son"><div class="term-top"><span class="term-index">09 / NIVEAU</span><span class="term-category">ENVELOPPE</span></div><h3>VCA</h3><p>Un amplificateur dont le niveau est commandé par une tension ou un signal de contrôle. Relié à une enveloppe, il ouvre le son pendant la note et le referme ensuite.</p><div class="term-foot"><span>amplificateur contrôlé</span><span><a href="modulaire-sans-mur.html#premier-patch">construire une voix ↗</a></span></div></article>
+      <article class="term" data-categories="modulation" data-search="lfo low frequency oscillator oscillateur lent vibrato tremolo mouvement cyclique"><div class="term-top"><span class="term-index">10 / MOUVEMENT</span><span class="term-category">MODULATION</span></div><h3>LFO</h3><p>Un oscillateur lent utilisé comme commande. Envoyé vers la hauteur, il peut produire un vibrato ; vers le volume, un trémolo ; vers le filtre, un mouvement de timbre.</p><div class="term-foot"><span>mouvement périodique</span><span><a href="modulations.html#laboratoire">voir le LFO agir ↗</a></span></div></article>
+      <article class="term" data-categories="mao" data-search="buffer tampon audio latence taille craquement délai traitement logiciel"><div class="term-top"><span class="term-index">11 / TEMPS RÉEL</span><span class="term-category">MAO</span></div><h3>Buffer audio</h3><p>Une petite réserve de données que l’ordinateur traite avant de les envoyer à la sortie. Plus elle est courte, plus la réponse peut être rapide, mais plus le système est sollicité.</p><div class="term-foot"><span>taille · latence · stabilité</span><span><a href="buffer-audio.html">lire la note ↗</a></span></div></article>
+      <article class="term" data-categories="mao" data-search="midi cc control change controle commande mapping contrôleur valeur message"><div class="term-top"><span class="term-index">12 / COMMANDE</span><span class="term-category">MAO / MIDI</span></div><h3>MIDI CC</h3><p>Un message MIDI de type Control Change qui transmet une valeur de commande, par exemple la position d’un potentiomètre. Le numéro et l’effet associé dépendent du matériel ou du logiciel.</p><div class="term-foot"><span>Control Change</span><span><a href="controleur-devient-instrument.html#plage">mapper un contrôle ↗</a></span></div></article>
+    </section>
+    <p class="empty" id="empty-state"><strong>Aucun repère trouvé.</strong>Essaie un autre mot ou réinitialise les filtres.</p>
+    <section class="closing"><div><h2>La théorie se vérifie à l’oreille.</h2><p>Chaque définition renvoie à un exemple du cahier. Choisis un terme, puis retourne écouter ce qu’il change vraiment.</p></div><a href="index.html#lectures">RETOUR AU CAHIER ↗</a></section>
+  </main>
+  <footer><div class="page footer-inner"><p>© 2026 Fréquences · Cahier 01</p><a href="index.html#accueil">Retour au début ↑</a></div></footer>
+  <script>
+    const searchInput = document.querySelector("#term-search");
+    const filterButtons = [...document.querySelectorAll(".filter")];
+    const terms = [...document.querySelectorAll(".term")];
+    const count = document.querySelector("#result-count");
+    const empty = document.querySelector("#empty-state");
+    let activeFilter = "all";
+    const normalize = (value) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("fr").trim();
+    function applyFilters() {
+      const query = normalize(searchInput.value);
+      let visible = 0;
+      terms.forEach((term) => {
+        const categories = term.dataset.categories.split(/\s+/);
+        const searchable = normalize(`${term.textContent} ${term.dataset.search}`);
+        const matchesCategory = activeFilter === "all" || categories.includes(activeFilter);
+        const matchesQuery = !query || searchable.includes(query);
+        const show = matchesCategory && matchesQuery;
+        term.hidden = !show;
+        if (show) visible++;
+      });
+      count.textContent = `${visible} ${visible > 1 ? "notions" : "notion"}`;
+      empty.style.display = visible ? "none" : "block";
+    }
+    filterButtons.forEach((button) => button.addEventListener("click", () => {
+      activeFilter = button.dataset.filter;
+      filterButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+      applyFilters();
+    }));
+    searchInput.addEventListener("input", applyFilters);
+    applyFilters();
+  </script>
+</body>
+</html>
