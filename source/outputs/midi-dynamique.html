@@ -1026,7 +1026,7 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
         <div class="slider-block is-next"><label class="slider-label" for="velocity-slider"><span>Force de la prochaine note</span><output id="velocity-label" for="velocity-slider">82</output></label><input class="cc-slider" id="velocity-slider" type="range" min="0" max="127" value="82" step="1" aria-describedby="velocity-help"><div class="slider-hint" id="velocity-help"><span>0 · muette</span><span>127 · forte</span></div></div>
         <div class="slider-block is-live"><label class="slider-label" for="volume-slider"><span>CC 7 · volume de canal</span><output id="volume-label" for="volume-slider">100</output></label><input class="cc-slider" id="volume-slider" type="range" min="0" max="127" value="100" step="1" aria-describedby="volume-help"><div class="slider-hint" id="volume-help"><span>0 · silence</span><span>127 · niveau max.</span></div></div>
         <div class="slider-block is-live"><label class="slider-label" for="expression-slider"><span>CC 11 · expression</span><output id="expression-label" for="expression-slider">127</output></label><input class="cc-slider" id="expression-slider" type="range" min="0" max="127" value="127" step="1" aria-describedby="expression-help"><div class="slider-hint" id="expression-help"><span>0 · retenue</span><span>127 · pleine</span></div></div>
-        <div class="level-meter"><div class="level-top"><span>Gain de canal · CC 7 × CC 11</span><output id="level-value">79 %</output></div><div class="level-track" role="meter" aria-label="Niveau résultant" aria-valuemin="0" aria-valuemax="100" aria-valuenow="51"><div class="level-fill" id="level-fill"></div></div></div>
+        <div class="level-meter"><div class="level-top"><span>Gain de canal · CC 7 × CC 11</span><output id="level-value">79 %</output></div><div class="level-track" role="meter" aria-label="Niveau résultant" aria-valuemin="0" aria-valuemax="100" aria-valuenow="79"><div class="level-fill" id="level-fill"></div></div></div>
         <div class="lab-actions"><button class="action-button" id="note-button" type="button" aria-pressed="false"><span id="note-icon" aria-hidden="true">▶</span> <span id="note-label">Démarrer la note</span></button><p class="lab-status" id="lab-status" role="status">Clique pour démarrer la note, règle CC 7 et CC 11 pendant le son, puis clique à nouveau pour l’arrêter.</p></div>
         <p class="lab-disclaimer"><strong>Démo locale :</strong> Note On, vélocité et Control Change sont simulés à l’écran. Le son est synthétisé par le navigateur ; aucun appareil MIDI n’est connecté.</p>
       </div>
@@ -1070,6 +1070,9 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
     velocityValue.value = `${velocity.value} / 127`; velocityLabel.value = velocity.value;
     volumeValue.value = `${volume.value} / 127`; volumeLabel.value = volume.value;
     expressionValue.value = `${expression.value} / 127`; expressionLabel.value = expression.value;
+    velocity.setAttribute('aria-valuetext', `${velocity.value} sur 127, vélocité de la prochaine note`);
+    volume.setAttribute('aria-valuetext', `${volume.value} sur 127, volume de canal`);
+    expression.setAttribute('aria-valuetext', `${expression.value} sur 127, expression`);
     const percent = Math.round(level()*100);
     levelValue.value = `${percent} %`; levelFill.style.width = `${percent}%`; meter.setAttribute('aria-valuenow',String(percent));
     if (active && gain && context) {

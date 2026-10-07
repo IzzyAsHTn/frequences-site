@@ -138,6 +138,7 @@
       .signal-step[aria-current="step"]::after { background: var(--yellow); opacity: 1; transform: scaleX(1); }
       .signal-step[aria-current="step"] b { border-color: var(--yellow); background: var(--yellow); color: var(--paper); }
       .signal-status { margin: 0; padding: 9px 12px 2px; color: var(--muted); font: 11px/1.5 var(--mono); }
+      @media (max-width: 600px) { .signal-status { min-height: 4.5em; } }
       .story-columns section { padding: 8px 12px 8px 14px; border-left: 2px solid transparent; transition: background-color 240ms ease, border-color 240ms ease; }
       .story-columns section.is-active { border-left-color: var(--yellow); background: rgba(244,201,93,.07); }
       .stage-insight { margin-top: 18px; padding: 15px 16px 16px; border: 1px solid rgba(243,241,235,.16); background: rgba(14,16,18,.56); }
@@ -1804,6 +1805,8 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
         frequencyDisplay.textContent = `${frequency} Hz`;
         frequencyValue.textContent = `${frequency} Hz`;
         filterValue.textContent = formatCutoff(cutoff);
+        frequencyControl.setAttribute("aria-valuetext", `${frequency} hertz`);
+        filterControl.setAttribute("aria-valuetext", formatCutoff(cutoff));
         updateRangeFill(frequencyControl);
         updateRangeFill(filterControl);
         if (oscillator && context) {

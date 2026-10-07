@@ -233,6 +233,7 @@
       .destination-pick[aria-pressed="true"] { border-color:var(--teal); background:rgba(184,198,107,.12); color:var(--ink); box-shadow:inset 0 -2px var(--teal); }
       .destination-pick small { color:var(--teal); font:8px var(--mono); }
       .target-description { min-height:42px; padding:10px 12px; border-left:2px solid var(--red-soft); background:rgba(255,255,255,.025); color:var(--muted); font-size:12px; line-height:1.5; }
+      @media (max-width: 600px) { .target-description { min-height: 8em; } }
       .mod-control { display:flex; justify-content:space-between; gap:12px; margin:13px 0 1px; color:var(--muted); }
       .mod-control output { color:var(--teal); font-size:11px; }
       .mod-slider { --progress:38%; width:100%; height:9px; margin:7px 0 14px; appearance:none; border-radius:999px; background:linear-gradient(90deg,var(--red) 0 var(--progress),rgba(243,241,235,.16) var(--progress) 100%); cursor:ew-resize; }

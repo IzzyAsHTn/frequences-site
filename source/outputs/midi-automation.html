@@ -1098,6 +1098,7 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
   const updateValue = (value, fromPlayback = false) => {
     const safe = Math.max(0, Math.min(127, Math.round(value)));
     slider.value = String(safe);
+    slider.setAttribute('aria-valuetext', `${safe} sur 127, valeur du contrôleur CC 74`);
     ccValue.value = `${safe} / 127`;
     sliderValue.value = String(safe);
     const hz = mapHz(safe);

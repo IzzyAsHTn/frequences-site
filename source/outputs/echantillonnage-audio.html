@@ -100,6 +100,7 @@
       .result span { display: block; color: var(--muted); font: 10px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .035em; }
       .result strong { display: block; margin-top: 6px; color: var(--yellow); font: 500 24px/1.2 var(--display); }
       .lab-explainer { margin: 15px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+      @media (max-width: 600px) { #sample-help { min-height: 6.4em; } }
       .lab-explainer strong { color: var(--ink); }
       .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
       .side { position: sticky; top: 25px; }
@@ -1180,6 +1181,8 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
     points.replaceChildren(...samples.map(point=>{const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');circle.setAttribute('cx',point.x);circle.setAttribute('cy',point.y);circle.setAttribute('r','5');return circle;}));
     countOutput.value=`${count} points`; countOutput.textContent=countOutput.value;
     depthOutput.value=`${bits} bits · ${levels} niveaux`; depthOutput.textContent=depthOutput.value;
+    countControl.setAttribute('aria-valuetext',`${count} points de mesure`);
+    depthControl.setAttribute('aria-valuetext',`${bits} bits, ${levels} niveaux`);
     help.textContent=`Modèle pédagogique : ${count} mesures et ${levels} niveaux sur cette fenêtre. Ce ne sont ni une fréquence en hertz ni les réglages d’un convertisseur réel.`;
   }
   countControl.addEventListener('input',draw); depthControl.addEventListener('input',draw); draw();

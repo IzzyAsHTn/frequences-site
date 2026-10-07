@@ -1099,6 +1099,7 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
       const updateVelocity = () => {
         const value = Number(velocity.value);
         velocityValue.value = `${value} / 127`;
+        velocity.setAttribute('aria-valuetext', `${value} sur 127, vélocité MIDI simulée`);
         velocity.style.setProperty('--progress', `${((value - 1) / 126) * 100}%`);
         
       };
