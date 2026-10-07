@@ -1,0 +1,9 @@
+# Dossier de travail local : les sources publiables sont exportées par tools/sync_local_project.py.
+/outputs/
+/scripts/
+/work/
+
+# Fichiers temporaires locaux.
+__pycache__/
+*.py[cod]
+.DS_Store
