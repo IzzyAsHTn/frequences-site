@@ -1804,6 +1804,8 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
         frequencyDisplay.textContent = `${frequency} Hz`;
         frequencyValue.textContent = `${frequency} Hz`;
         filterValue.textContent = formatCutoff(cutoff);
+        frequencyControl.setAttribute("aria-valuetext", `${frequency} hertz`);
+        filterControl.setAttribute("aria-valuetext", `${cutoff} hertz`);
         updateRangeFill(frequencyControl);
         updateRangeFill(filterControl);
         if (oscillator && context) {
