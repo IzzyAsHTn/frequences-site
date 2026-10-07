@@ -188,6 +188,9 @@
       .article-topic { width: fit-content; display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border: 1px solid rgba(184,198,107,.38); background: rgba(184,198,107,.045); color: var(--teal); font: 11px var(--mono); letter-spacing: .045em; line-height: 1.2; transition: transform 180ms cubic-bezier(.16,1,.3,1), color 160ms ease, border-color 160ms ease, background-color 160ms ease; }
       .article-topic::before { width: 5px; height: 5px; flex: 0 0 auto; background: var(--teal); content: ""; transform: rotate(45deg); transition: background-color 160ms ease, transform 180ms cubic-bezier(.16,1,.3,1); }
       .article-row h3 { margin: 0; color: var(--yellow); font: 500 clamp(24px, 2.8vw, 34px)/1.08 var(--display); letter-spacing: -.05em; }
+      .article-title-link { color: inherit; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+      .article-title-link:hover, .article-title-link:focus-visible { color: var(--violet); text-decoration-color: var(--yellow); text-decoration-line: underline; }
+      .article-title-link:focus-visible { border-radius: 2px; outline: 2px solid currentColor; outline-offset: 4px; }
       .article-row .summary { margin: 3px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
       .article-row details { grid-column: 3 / 5; margin-top: 12px; }
       .article-row details p { max-width: 660px; margin: 13px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
@@ -1496,63 +1499,63 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h7l4-8 7 16 6-20 6 18 6-11 5 7h9"/></svg>
             <span class="article-topic">01 / MAO</span>
-            <h3>Le buffer audio, en clair</h3>
+            <h3><a class="article-title-link" href="buffer-audio.html">Le buffer audio, en clair</a></h3>
             <p class="summary">Le réglage discret qui change la sensation de jeu.</p>
             <a class="article-link" href="buffer-audio.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h7l3-6 5 12 5-12 5 12 5-12 5 12 5-6h7"/></svg>
             <span class="article-topic">02 / NUMÉRIQUE</span>
-            <h3>Le son devient une suite de nombres</h3>
+            <h3><a class="article-title-link" href="echantillonnage-audio.html">Le son devient une suite de nombres</a></h3>
             <p class="summary">Échantillons, fréquence et résolution : ce que la machine mesure.</p>
             <a class="article-link" href="echantillonnage-audio.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h7c4 0 4-8 8-8s4 16 8 16 4-16 8-16 4 16 8 16h11"/></svg>
             <span class="article-topic">02 / SYNTHÈSE</span>
-            <h3>Le modulaire sans le mur de câbles</h3>
+            <h3><a class="article-title-link" href="modulaire-sans-mur.html">Le modulaire sans le mur de câbles</a></h3>
             <p class="summary">Suivre le trajet du signal pour comprendre le patch.</p>
             <a class="article-link" href="modulaire-sans-mur.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h7l5-5 5 10 5-5 5-10 5 20 5-10 5 5h8"/></svg>
             <span class="article-topic">03 / GESTE</span>
-            <h3>Quand le contrôleur devient instrument</h3>
+            <h3><a class="article-title-link" href="controleur-devient-instrument.html">Quand le contrôleur devient instrument</a></h3>
             <p class="summary">Le mouvement comme première matière du son.</p>
             <a class="article-link" href="controleur-devient-instrument.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 4h11c6 0 6 18 14 18s8-18 14-18h11"/></svg>
             <span class="article-topic">04 / FILTRE</span>
-            <h3>Un filtre, quatre façons d’écouter</h3>
+            <h3><a class="article-title-link" href="familles-de-filtres.html">Un filtre, quatre façons d’écouter</a></h3>
             <p class="summary">Passe-bas, passe-haut, bande et coupe-bande : comprendre ce qui reste.</p>
             <a class="article-link" href="familles-de-filtres.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 23 15 4 23 14 31 17h10l11 6"/></svg>
             <span class="article-topic">05 / ENVELOPPE</span>
-            <h3>La note a son temps</h3>
+            <h3><a class="article-title-link" href="enveloppe-adsr.html">La note a son temps</a></h3>
             <p class="summary">Attaque, décroissance, maintien et relâchement : l’ADSR à l’écoute.</p>
             <a class="article-link" href="enveloppe-adsr.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13c5 0 5-9 10-9s5 18 10 18 5-18 10-18 5 18 10 18 5-9 10-9"/></svg>
             <span class="article-topic">06 / MODULATION</span>
-            <h3>Le son en mouvement</h3>
+            <h3><a class="article-title-link" href="modulations.html">Le son en mouvement</a></h3>
             <p class="summary">LFO, enveloppes, chorus, flanger et phaser : qui fait quoi ?</p>
             <a class="article-link" href="modulations.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13 C8 13 9 4 15 4 S22 22 29 22 36 4 43 4 49 13 52 13"/></svg>
             <span class="article-topic">07 / OSCILLATEUR</span>
-            <h3>La matière du son</h3>
+            <h3><a class="article-title-link" href="oscillateur.html">La matière du son</a></h3>
             <p class="summary">Fréquence, forme d’onde et harmoniques : écouter la première brique.</p>
             <a class="article-link" href="oscillateur.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8c5 0 5-7 10-7s5 14 10 14 5-8 10-8 5 4 12 4"/></svg>
             <span class="article-topic">08 / EFFETS</span>
-            <h3>Le son prend sa place</h3>
+            <h3><a class="article-title-link" href="effets-audio.html">Le son prend sa place</a></h3>
             <p class="summary">Chorus, délai et réverbération : épaissir, répéter, placer.</p>
             <a class="article-link" href="effets-audio.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
@@ -1566,49 +1569,49 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l4-7 6 14 6-18 6 16 6-9 5 5h9"/></svg>
             <span class="article-topic">01 / MIDI</span>
-            <h3>Le MIDI ne transporte pas le son</h3>
+            <h3><a class="article-title-link" href="midi-ne-transporte-pas-le-son.html">Le MIDI ne transporte pas le son</a></h3>
             <p class="summary">Distinguer les données de jeu du son produit par l’instrument.</p>
             <a class="article-link" href="midi-ne-transporte-pas-le-son.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13c6 0 6-8 12-8s6 16 12 16 6-16 12-16 6 8 14 8"/></svg>
             <span class="article-topic">02 / MIDI</span>
-            <h3>Une note est un événement</h3>
+            <h3><a class="article-title-link" href="midi-note-evenement.html">Une note est un événement</a></h3>
             <p class="summary">Note On, Note Off et durée : suivre le geste dans le temps.</p>
             <a class="article-link" href="midi-note-evenement.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l5-6 5 12 5-17 5 18 5-12 5 8h12"/></svg>
             <span class="article-topic">03 / MIDI</span>
-            <h3>Faire arriver le message au bon endroit</h3>
+            <h3><a class="article-title-link" href="midi-routage.html">Faire arriver le message au bon endroit</a></h3>
             <p class="summary">Canaux, pistes et destinataires : suivre le trajet d’une note.</p>
             <a class="article-link" href="midi-routage.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l5-8 5 16 6-20 5 17 6-10 5 5h10"/></svg>
             <span class="article-topic">04 / MIDI</span>
-            <h3>Un geste, une valeur</h3>
+            <h3><a class="article-title-link" href="midi-controleur.html">Un geste, une valeur</a></h3>
             <p class="summary">Comprendre les commandes MIDI et leur assignation à un paramètre.</p>
             <a class="article-link" href="midi-controleur.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l5-8 5 16 6-20 5 17 6-10 5 5h10"/></svg>
             <span class="article-topic">05 / MIDI</span>
-            <h3>Le geste peut se répéter</h3>
+            <h3><a class="article-title-link" href="midi-automation.html">Le geste peut se répéter</a></h3>
             <p class="summary">Enregistrer et rejouer les variations d’un contrôleur.</p>
             <a class="article-link" href="midi-automation.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l4-7 6 14 6-18 6 16 6-9 5 5h9"/></svg>
             <span class="article-topic">06 / MIDI</span>
-            <h3>Frapper, doser, exprimer</h3>
+            <h3><a class="article-title-link" href="midi-dynamique.html">Frapper, doser, exprimer</a></h3>
             <p class="summary">Distinguer la vélocité, le volume de canal et l’expression.</p>
             <a class="article-link" href="midi-dynamique.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
           <article class="article-row">
             <svg class="article-wave" viewBox="0 0 54 26" aria-hidden="true"><path d="M2 13h8l5-4 5 8 5-11 5 9 5-7 5 5 5-2h7"/></svg>
             <span class="article-topic">07 / EXPRESSION</span>
-            <h3>Le geste continue après l’attaque</h3>
+            <h3><a class="article-title-link" href="midi-gestes-expressifs.html">Le geste continue après l’attaque</a></h3>
             <p class="summary">Pitch Bend, sustain et pression : nuancer après le départ.</p>
             <a class="article-link" href="midi-gestes-expressifs.html">Lire la note<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M8 3l5 5-5 5"/></svg></a>
           </article>
