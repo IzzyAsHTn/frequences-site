@@ -1016,7 +1016,7 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
     <section class="article-section" id="automation"><p class="section-index">01 / LE GESTE DANS LE TEMPS</p><h2>Le contrôleur peut laisser une trace.</h2>
       <p>Quand tu tournes un potentiomètre, il envoie une suite de valeurs de contrôle. Si le logiciel les enregistre pendant la lecture ou l’enregistrement, il conserve le mouvement dans la séquence. Au prochain passage, les valeurs repartent au même moment et le paramètre suit la trajectoire sans que tu aies à refaire le geste.</p>
       <p>Dans cette démo, le mouvement est une suite de valeurs <strong>CC 74</strong>, associée au filtre passe-bas. L’enregistrement reste dans la page : il ne crée pas de fichier MIDI et ne commande aucun appareil externe.</p>
-      <aside class="takeaway"><strong>À retenir —</strong> l’automation n’est pas une valeur isolée. C’est une série de valeurs ordonnées dans le temps, que le logiciel rejoue.</aside>
+      <aside class="takeaway"><strong>À distinguer —</strong> ici, la page mémorise les valeurs du curseur ; elle n’enregistre pas le son.</aside>
     </section>
     <section class="article-section" id="atelier"><p class="section-index">02 / ENREGISTRE ET RÉÉCOUTE</p><h2>Fais un geste, puis laisse-le revenir.</h2>
       <p>Lance l’enregistrement, puis déplace le curseur pendant quelques secondes. Arrête la capture et appuie sur « Rejouer » : la séquence reprend tes valeurs et les renvoie au filtre. Tu peux aussi rejouer la courbe d’exemple avant de faire ton propre geste.</p>

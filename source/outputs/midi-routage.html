@@ -1016,7 +1016,7 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
     <section class="article-section" id="canal"><p class="section-index">01 / L’ADRESSE</p><h2>Le canal, c’est l’adresse du message.</h2>
       <p>En MIDI 1.0, les messages de voix de canal — comme Note On et Note Off — peuvent s’adresser à l’un des <strong>16 canaux</strong>. On peut imaginer des conversations séparées sur une même liaison : un instrument configuré pour écouter le canal 1 répond aux messages reçus sur ce canal ; il peut ignorer ceux qui arrivent sur le canal 2.</p>
       <p>Cette image aide à comprendre le routage, mais le comportement exact dépend de l’instrument. Certains écoutent un canal choisi ; d’autres sont multitimbraux et peuvent recevoir plusieurs canaux, avec un son différent sur chacun. Un canal ne désigne donc pas automatiquement un instrument précis : il faut que le récepteur et le chemin logiciel soient configurés pour lui.</p>
-      <aside class="takeaway"><strong>À retenir —</strong> le numéro de canal est une adresse portée par le message. Le destinataire doit être relié et réglé pour y répondre.</aside>
+      <aside class="takeaway"><strong>À vérifier —</strong> le canal ne suffit pas si la piste envoie le message vers la mauvaise sortie.</aside>
     </section>
     <section class="article-section" id="atelier"><p class="section-index">02 / À L’ÉCOUTE</p><h2>Choisis qui reçoit la note.</h2>
       <p>Dans cette maquette, trois instruments virtuels écoutent chacun un canal différent. Le canal 4 n’a aucun destinataire. Maintiens le bouton pour envoyer Note On, puis relâche-le pour Note Off ; observe le chemin qui s’allume. Le son de démonstration est produit localement par ton navigateur.</p>
