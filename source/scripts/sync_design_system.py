@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Intègre la source CSS commune dans les pages HTML autonomes de Fréquences."""
+"""Référence la feuille CSS commune depuis les pages HTML de Fréquences."""
 
 from pathlib import Path
 import re
@@ -7,7 +7,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
-VERSION = "2026-10-08.10"
+VERSION = "2026-10-08.11"
 PAGES = (
     "buffer-audio.html",
     "controleur-devient-instrument.html",
@@ -35,16 +35,16 @@ def main():
     css = (OUTPUTS / "frequences-design-system.css").read_text(encoding="utf-8").strip()
     if "</style" in css.lower():
         raise ValueError("La source CSS ne peut pas contenir une fermeture de balise style.")
-    style = (
-        f'<style id="frequences-design-system" data-version="{VERSION}">\n'
-        f"{css}\n</style>"
+    stylesheet = (
+        f'<link id="frequences-design-system" rel="stylesheet" '
+        f'href="frequences-design-system.css?v={VERSION}">'
     )
     prepared = []
     for name in PAGES:
         path = OUTPUTS / name
         source = path.read_text(encoding="utf-8")
         source = re.sub(
-            r'<link\b[^>]*\bhref=[\"\']frequences-design-system\.css[\"\'][^>]*>\s*',
+            r'<link\b[^>]*\bhref=[\"\']frequences-design-system\.css(?:\?[^\"\']*)?[\"\'][^>]*>\s*',
             "",
             source,
         )
@@ -54,7 +54,9 @@ def main():
             source,
             flags=re.DOTALL,
         )
-        source, head_count = re.subn(r"</head>", lambda _: style + "\n</head>", source)
+        source, head_count = re.subn(
+            r"</head>", lambda _: stylesheet + "\n</head>", source
+        )
         source, body_count = re.subn(
             r"<body\b([^>]*)>",
             lambda match: '<body data-design-system="red-industrial"'
@@ -70,7 +72,7 @@ def main():
     # Chaque page est préparée avant d'écrire, pour détecter les structures inattendues.
     for path, source in prepared:
         path.write_text(source, encoding="utf-8")
-    print(f"Styles intégrés dans {len(prepared)} pages, version {VERSION}.")
+    print(f"Styles communs référencés dans {len(prepared)} pages, version {VERSION}.")
 
 
 if __name__ == "__main__":
