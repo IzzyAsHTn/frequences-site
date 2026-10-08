@@ -22,7 +22,7 @@
         --violet-dark: #ff6254;
         --teal: #b8c66b;
         --sky-blue: #78c9ff;
-        --wave-flame: #e76524;
+        --wave-flame: #78c8d2;
         --panel: #172333;
         --yellow: #d9a83b;
         --display: "Space Grotesk", "Arial Nova", "Segoe UI", sans-serif;
@@ -49,7 +49,7 @@
       .wordmark-symbol { position: relative; width: 38px; height: 38px; display: grid; place-items: center; overflow: visible; color: var(--ink); transition: transform 220ms cubic-bezier(.16,1,.3,1); }
       .wordmark-symbol svg { position: relative; z-index: 1; width: 28px; height: 28px; overflow: visible; }
       .wordmark-symbol .logo-slider { transition: stroke-width 160ms ease, filter 160ms ease; }
-      .wordmark em { display: inline-block; margin-left: 1px; color: var(--yellow); font-size: 1.2em; font-style: normal; transition: transform 180ms cubic-bezier(.16,1,.3,1); }
+      .wordmark em { display: inline-block; margin-left: 1px; color: var(--red-soft); font-size: 1.2em; font-style: normal; transition: transform 180ms cubic-bezier(.16,1,.3,1); }
       .wordmark:focus-visible .wordmark-symbol { transform: translateY(-2px); }
       .wordmark:focus-visible .wordmark-symbol::after { opacity: 0; }
       .nav { display: flex; align-items: center; gap: clamp(17px, 3vw, 38px); }
@@ -60,7 +60,7 @@
       .cover { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(370px, .95fr); align-items: center; gap: clamp(34px, 6vw, 82px); padding: 66px 0 69px; border-bottom: 1px solid var(--rule); }
       .cover-copy { max-width: 650px; }
       h1, h2, h3, p { margin-top: 0; }
-      h1, h2, h3 { color: var(--yellow); }
+      h1, h2, h3 { color: var(--red-soft); }
       h1 { max-width: 680px; margin-bottom: 18px; font: 500 clamp(62px, 7.5vw, 100px)/.92 var(--display); letter-spacing: -.065em; }
       .cover-deck { max-width: 56ch; margin: 24px 0 27px; color: var(--muted); font-size: 18px; line-height: 1.55; }
       .cover-meta { display: flex; align-items: center; gap: 15px; color: var(--muted); font: 13px var(--mono); }
@@ -75,11 +75,9 @@
       .figure-scale, #frequency-value { color: var(--teal); }
       .waveform { position: relative; z-index: 1; width: 100%; height: auto; max-height: 220px; align-self: center; overflow: visible; }
       .waveform .axis { stroke: rgba(243,241,235,.18); stroke-width: 1; stroke-dasharray: 2 8; }
-      .waveform .spectrum-baseline { stroke: rgba(243,241,235,.2); stroke-width: 1; }
-      .waveform .spectrum-bar { fill: url(#spectrum-gradient); opacity: .7; transition: y 120ms ease, height 120ms ease, opacity 120ms ease; }
       .waveform .wave-legend { fill: rgba(243,241,235,.56); font: 9px var(--mono); letter-spacing: .1em; }
-      .waveform .halo { fill: none; stroke: rgba(231,101,36,.23); stroke-width: 18; stroke-linecap: round; filter: url(#wave-glow); }
-      .waveform .trace { fill: none; stroke: var(--wave-flame); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px rgba(231,101,36,.58)); transition: stroke-width 180ms ease, filter 180ms ease; }
+      .waveform .halo { fill: none; stroke: rgba(120,200,210,.23); stroke-width: 18; stroke-linecap: round; filter: url(#wave-glow); }
+      .waveform .trace { fill: none; stroke: var(--wave-flame); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px rgba(120,200,210,.58)); transition: stroke-width 180ms ease, filter 180ms ease; }
       .waveform .point { fill: var(--teal); stroke: var(--ink); stroke-width: 1.5; filter: drop-shadow(0 0 5px rgba(184,198,107,.55)); }
       .synth-controls { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 13px 17px; padding-top: 13px; border-top: 1px solid rgba(243,241,235,.2); }
       .control-field { min-width: 0; display: grid; gap: 6px; color: var(--ink); }
@@ -87,7 +85,8 @@
       .control-label { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font: 11px var(--mono); text-transform: uppercase; }
       .control-field.wave-choice .control-label { color: var(--ink); }
       .control-label output { color: var(--violet-dark); font: 12px var(--mono); text-transform: none; white-space: nowrap; }
-      #filter-value { color: var(--teal); }
+      #frequency-value { min-width: 6ch; text-align: right; }
+      #filter-value { min-width: 8ch; color: var(--teal); text-align: right; }
       .control-field select { width: 100%; min-height: 36px; padding: 5px 32px 5px 9px; appearance: none; color-scheme: dark; border: 1px solid rgba(243,241,235,.42); border-radius: 0; background-color: rgba(14,16,18,.72); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='m2 4 4 4 4-4' fill='none' stroke='%23f3f1eb' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; background-size: 12px; color: var(--ink); font: 14px var(--sans); }
       #waveform-choice[data-wave="sine"] { color: var(--teal); }
       #waveform-choice option[value="sine"] { color: var(--teal); }
@@ -133,7 +132,7 @@
       .signal-step:hover::before, .signal-step:focus-visible::before { opacity: 1; transform: scaleY(1); }
       .signal-step:hover::after, .signal-step:focus-visible::after { opacity: 1; transform: scaleX(1); }
       .signal-step:hover b, .signal-step:focus-visible b { border-color: var(--teal); background: var(--teal); color: var(--paper); transform: scale(1.08); }
-      .signal-step:hover .signal-step-arrow, .signal-step:focus-visible .signal-step-arrow { color: var(--yellow); transform: translateX(5px); }
+      .signal-step:hover .signal-step-arrow, .signal-step:focus-visible .signal-step-arrow { color: var(--red-soft); transform: translateX(5px); }
       .signal-step[aria-current="step"]::before { background: rgba(255,255,255,.075); opacity: 1; transform: scaleY(1); }
       .signal-step[aria-current="step"]::after { background: var(--yellow); opacity: 1; transform: scaleX(1); }
       .signal-step[aria-current="step"] b { border-color: var(--yellow); background: var(--yellow); color: var(--paper); }
@@ -151,14 +150,14 @@
       .filter-family, .envelope-targets { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .modulation-family { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .stage-fact, .filter-kind, .envelope-target, .modulation-kind { min-width: 0; padding: 9px 10px; border-top: 1px solid rgba(243,241,235,.22); background: rgba(255,255,255,.025); }
-      .stage-fact strong, .filter-kind strong, .envelope-target strong, .modulation-kind strong { display: block; margin-bottom: 4px; color: var(--yellow); font: 11px/1.4 var(--mono); }
+      .stage-fact strong, .filter-kind strong, .envelope-target strong, .modulation-kind strong { display: block; margin-bottom: 4px; color: var(--red-soft); font: 11px/1.4 var(--mono); }
       .stage-fact span, .filter-kind span, .envelope-target span, .modulation-kind span { display: block; color: var(--muted); font-size: 12px; line-height: 1.45; }
       .story-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(35px, 8vw, 110px); row-gap: 35px; margin-top: 39px; }
       .story-columns section { max-width: 62ch; }
       .story-number { width: fit-content; display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid rgba(255,98,84,.48); background: rgba(255,98,84,.11); color: var(--red-soft); font: 11px var(--mono); letter-spacing: .06em; }
       .story-number::before { width: 5px; height: 5px; flex: 0 0 auto; border-radius: 50%; background: var(--red-soft); box-shadow: 0 0 9px rgba(255,98,84,.55); content: ""; }
       .source-links span { color: var(--violet-dark); font: 12px var(--mono); letter-spacing: .035em; }
-      .story-columns h3 { margin: 10px 0 12px; color: var(--yellow); font: 500 clamp(26px, 2.8vw, 35px)/1.08 var(--display); letter-spacing: -.055em; }
+      .story-columns h3 { margin: 10px 0 12px; color: var(--red-soft); font: 500 clamp(26px, 2.8vw, 35px)/1.08 var(--display); letter-spacing: -.055em; }
       .story-columns p, .article-body p { margin: 0 0 13px; color: var(--muted); font-size: 16px; line-height: 1.7; }
       .story-takeaway { max-width: 850px; margin: 37px 0 18px; padding: 17px 21px; border-left: 3px solid var(--red-soft); background: var(--paper-shadow); color: var(--ink); font-size: 16px; line-height: 1.6; }
       .story-takeaway strong { color: var(--violet-dark); }
@@ -187,7 +186,7 @@
       .article-wave path { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: stroke-width 150ms ease; }
       .article-topic { width: fit-content; display: inline-flex; align-items: center; gap: 7px; padding: 6px 9px; border: 1px solid rgba(184,198,107,.38); background: rgba(184,198,107,.045); color: var(--teal); font: 11px var(--mono); letter-spacing: .045em; line-height: 1.2; transition: transform 180ms cubic-bezier(.16,1,.3,1), color 160ms ease, border-color 160ms ease, background-color 160ms ease; }
       .article-topic::before { width: 5px; height: 5px; flex: 0 0 auto; background: var(--teal); content: ""; transform: rotate(45deg); transition: background-color 160ms ease, transform 180ms cubic-bezier(.16,1,.3,1); }
-      .article-row h3 { margin: 0; color: var(--yellow); font: 500 clamp(24px, 2.8vw, 34px)/1.08 var(--display); letter-spacing: -.05em; }
+      .article-row h3 { margin: 0; color: var(--red-soft); font: 500 clamp(24px, 2.8vw, 34px)/1.08 var(--display); letter-spacing: -.05em; }
       .article-title-link { color: inherit; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 5px; }
       .article-title-link:hover, .article-title-link:focus-visible { color: var(--violet); text-decoration-color: var(--yellow); text-decoration-line: underline; }
       .article-title-link:focus-visible { border-radius: 2px; outline: 2px solid currentColor; outline-offset: 4px; }
@@ -205,7 +204,7 @@
         .listen:hover svg { transform: rotate(-9deg) scale(1.13); }
         .reference-reset:hover { border-color: var(--teal); background: rgba(184,198,107,.08); color: var(--ink); }
         .reference-reset:hover svg { transform: rotate(-45deg); }
-      .cover-figure:hover .trace { stroke-width: 4.5; filter: drop-shadow(0 2px 5px rgba(231,101,36,.58)); }
+      .cover-figure:hover .trace { stroke-width: 4.5; filter: drop-shadow(0 2px 5px rgba(120,200,210,.58)); }
         .article-row:hover { background: var(--paper-shadow); transform: translateX(4px); }
         .article-row:hover .article-wave { color: var(--violet-dark); transform: translateY(-2px) scaleX(1.12); }
         .article-row:hover .article-wave path { stroke-width: 2.6; }
@@ -300,9 +299,9 @@
         .cover-figure:hover .trace { filter: none; }
       }
     </style>
-  <style id="frequences-design-system" data-version="2026-10-08.3">
+  <style id="frequences-design-system" data-version="2026-10-08.9">
 /*
- * Fréquences — direction industrielle rouge, version 2026-10-08.3.
+ * Fréquences — direction industrielle rouge, version 2026-10-08.9.
  * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
  * Les couleurs des données des graphiques restent définies par chaque page.
  */
@@ -316,7 +315,9 @@
   --ds-line: #42494c;
   --ds-line-strong: #596165;
   --ds-red: #ff321f;
+  --ds-red-cta: #ff0033;
   --ds-red-soft: #ff6254;
+  --ds-wave-home: #78c8d2;
   --ds-headline: #f3f1eb;
 
   /* Typography, 4px spacing scale, and shape */
@@ -694,7 +695,7 @@ body[data-design-system] .cahier-actions a {
 
 body[data-design-system] .cahier-actions .cahier-begin {
   padding: 10px 14px;
-  background: var(--ds-red);
+  background: var(--ds-red-cta);
   color: var(--ds-bg);
   text-decoration: none;
 }
@@ -880,6 +881,12 @@ body[data-design-system] :is(.article-link, details summary) {
   text-decoration-color: var(--ds-red);
 }
 
+body[data-design-system] .article-link,
+body[data-design-system] .article-link:hover,
+body[data-design-system] .article-link:focus-visible {
+  color: var(--ds-text);
+}
+
 body[data-design-system] :is(.toc, .side-card) {
   padding: 16px;
   border: 1px solid var(--ds-line);
@@ -937,9 +944,9 @@ body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
 /* Red is reserved for the primary action and selected controls. */
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
   min-height: 44px;
-  border: 1px solid var(--ds-red);
+  border: 1px solid var(--ds-red-cta);
   border-radius: var(--ds-radius-control);
-  background: var(--ds-red);
+  background: var(--ds-red-cta);
   color: var(--ds-bg);
   font-family: var(--ds-mono);
   font-size: 11px;
@@ -955,11 +962,19 @@ body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):
     box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
 }
 
-body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
-  border-color: var(--ds-red-soft);
-  background: var(--ds-red-soft);
-  box-shadow: none;
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+    border-color: var(--ds-red-soft);
+    background: var(--ds-red-soft);
+    box-shadow: none;
+    transform: translateY(-1px);
+  }
+
+  body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+    border-color: var(--ds-red-soft);
+    color: var(--ds-red-soft);
+    box-shadow: none;
+  }
 }
 
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
@@ -967,7 +982,7 @@ body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):
 }
 
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
-  border-color: var(--ds-red);
+  border-color: var(--ds-red-cta);
   background: transparent;
   color: var(--ds-red-soft);
   box-shadow: inset 0 -2px var(--ds-red);
@@ -983,12 +998,6 @@ body[data-design-system] .action-button.secondary {
   border-radius: var(--ds-radius-control);
   background: transparent;
   color: var(--ds-text);
-}
-
-body[data-design-system] .action-button.secondary:hover:not(:disabled) {
-  border-color: var(--ds-red-soft);
-  color: var(--ds-red-soft);
-  box-shadow: none;
 }
 
 /* Instrument choices keep their own chart colors; only selection chrome is unified. */
@@ -1167,6 +1176,16 @@ body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
   display: none;
 }
 
+/* Le signal de référence de l’accueil prend un accent froid distinct du rouge. */
+body[data-design-system] .cover-figure .waveform .trace {
+  stroke: var(--ds-wave-home);
+}
+
+body[data-design-system] .cover-figure .waveform .halo {
+  display: block;
+  stroke: rgba(120, 200, 210, .23);
+}
+
 body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {
   stroke: var(--chart-selected);
   stroke-width: 1px;
@@ -1318,20 +1337,17 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
           </div>
           <svg class="waveform" viewBox="0 0 520 290" role="img" aria-labelledby="wave-title wave-desc">
             <title id="wave-title">Forme d’onde réglable</title>
-            <desc id="wave-desc">Visualisation animée de la forme d’onde et de ses harmoniques. Les commandes modifient le son et le spectre affiché.</desc>
+            <desc id="wave-desc">Visualisation animée de la forme d’onde. Les commandes modifient le son et sa représentation.</desc>
             <defs>
-              <linearGradient id="spectrum-gradient" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#ff321f"/><stop offset=".52" stop-color="#d9a83b"/><stop offset="1" stop-color="#b8c66b"/></linearGradient>
               <filter id="wave-glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5"/></filter>
             </defs>
             <path class="axis" d="M18 145H502M260 22V268M18 72H502M18 218H502M100 22V268M420 22V268"/>
-            <path class="spectrum-baseline" d="M24 250H496"/>
-            <g id="spectrum-bars" aria-hidden="true"></g>
             <path class="halo" id="wave-halo" d="M18 145 C65 145 65 54 112 54 S159 236 206 236 253 54 300 54 347 236 394 236 441 54 488 145"/>
             <path class="trace" id="wave-trace" d="M18 145 C65 145 65 54 112 54 S159 236 206 236 253 54 300 54 347 236 394 236 441 54 488 145"/>
             <circle class="point" id="wave-point" cx="300" cy="54" r="6"/>
-            <text class="wave-legend" x="24" y="276">ONDE</text><text class="wave-legend" x="496" y="276" text-anchor="end">HARMONIQUES</text>
+            <text class="wave-legend" x="24" y="276">ONDE</text>
           </svg>
-          <div class="waveform-caption"><span>ONDE · FENÊTRE DE 12 ms</span><span>HARMONIQUES · MODÈLE INDICATIF</span></div>
+          <div class="waveform-caption"><span>ONDE · FENÊTRE DE 12 ms</span></div>
           <div class="synth-controls" aria-label="Commandes de l’atelier sonore">
             <label class="control-field wave-choice" for="waveform-choice">
               <span class="control-label">Forme d’onde</span>
@@ -1640,7 +1656,6 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
       const waveTrace = document.querySelector("#wave-trace");
       const waveHalo = document.querySelector("#wave-halo");
       const wavePoint = document.querySelector("#wave-point");
-      const spectrumBars = document.querySelector("#spectrum-bars");
       const waveTitle = document.querySelector("#wave-title");
       const audioStatus = document.querySelector("#audio-status");
       const signalStatus = document.querySelector("#signal-status");
@@ -1664,7 +1679,9 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
       let analyser;
       let gain;
       let animationFrame;
+      let waveformRenderFrame = null;
       let timeSamples;
+      const compactWaveform = window.matchMedia("(max-width: 620px)");
 
       function selectedFrequency() { return Number(frequencyControl.value); }
       function selectedCutoff() { return Number(filterControl.value); }
@@ -1717,37 +1734,12 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
         return Math.sin(phase);
       }
 
-      function renderSpectrum() {
-        const partialCount = 16;
-        const fundamental = selectedFrequency();
-        const cutoff = selectedCutoff();
-        for (let index = 0; index < partialCount; index += 1) {
-          const harmonic = index + 1;
-          let sourceLevel;
-          if (waveformControl.value === "sine") sourceLevel = harmonic === 1 ? 1 : 0;
-          else if (waveformControl.value === "triangle") sourceLevel = harmonic % 2 ? 1 / (harmonic * harmonic) : 0;
-          else if (waveformControl.value === "square") sourceLevel = harmonic % 2 ? 1 / harmonic : 0;
-          else sourceLevel = 1 / harmonic;
-          const ratio = (fundamental * harmonic) / cutoff;
-          const filteredLevel = sourceLevel / Math.sqrt(1 + Math.pow(ratio, 4));
-          const height = 4 + filteredLevel * 59;
-          let bar = spectrumBars.children[index];
-          if (!bar) {
-            bar = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-            bar.setAttribute("class", "spectrum-bar");
-            bar.setAttribute("width", "8");
-            bar.setAttribute("rx", "4");
-            spectrumBars.appendChild(bar);
-          }
-          bar.setAttribute("x", String(35 + index * 28));
-          bar.setAttribute("y", String((250 - height).toFixed(1)));
-          bar.setAttribute("height", String(height.toFixed(1)));
-          bar.setAttribute("opacity", String((.07 + filteredLevel * .82).toFixed(2)));
-        }
-      }
-
       function renderWaveform() {
-        const samples = 480;
+        if (waveformRenderFrame !== null) {
+          window.cancelAnimationFrame(waveformRenderFrame);
+          waveformRenderFrame = null;
+        }
+        const samples = compactWaveform.matches ? 240 : 480;
         const duration = 0.012;
         const step = duration / samples;
         const cutoff = selectedCutoff();
@@ -1757,7 +1749,8 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
         const points = [];
 
         // Warm the simple low-pass model before drawing its 12 ms display window.
-        for (let index = -1200; index <= samples; index += 1) {
+        const warmupSamples = Math.round(samples * 2.5);
+        for (let index = -warmupSamples; index <= samples; index += 1) {
           const time = index * step;
           const input = sampleWave(type, Math.PI * 2 * selectedFrequency() * time);
           filtered += alpha * (input - filtered);
@@ -1775,8 +1768,15 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
         const path = points.join(" ");
         waveTrace.setAttribute("d", path);
         waveHalo.setAttribute("d", path);
-        renderSpectrum();
         waveTitle.textContent = `Forme d’onde ${waveNames[type]} à ${selectedFrequency()} hertz, après filtre passe-bas`;
+      }
+
+      function scheduleWaveformRender() {
+        if (waveformRenderFrame !== null) return;
+        waveformRenderFrame = window.requestAnimationFrame(() => {
+          waveformRenderFrame = null;
+          renderWaveform();
+        });
       }
 
       function drawLiveWaveform() {
@@ -1796,12 +1796,11 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
         const path = points.join(" ");
         waveTrace.setAttribute("d", path);
         waveHalo.setAttribute("d", path);
-        renderSpectrum();
         waveTitle.textContent = `Signal sonore en cours : onde ${waveNames[waveformControl.value]}, ${selectedFrequency()} hertz, filtrée à ${filterValue.textContent}`;
         animationFrame = window.requestAnimationFrame(drawLiveWaveform);
       }
 
-      function updateReadouts() {
+      function updateReadouts(scheduleWaveform = false) {
         const frequency = selectedFrequency();
         const cutoff = selectedCutoff();
         waveformControl.dataset.wave = waveformControl.value;
@@ -1817,7 +1816,8 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
           oscillator.frequency.setTargetAtTime(frequency, context.currentTime, 0.025);
           filter.frequency.setTargetAtTime(cutoff, context.currentTime, 0.025);
         }
-        renderWaveform();
+        if (scheduleWaveform) scheduleWaveformRender();
+        else renderWaveform();
       }
 
       function setPlaying(playing) {
@@ -1831,7 +1831,7 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
       }
 
       waveformControl.addEventListener("change", updateReadouts);
-      frequencyControl.addEventListener("input", updateReadouts);
+      frequencyControl.addEventListener("input", () => updateReadouts(true));
       filterControl.addEventListener("input", () => {
         if (filterSweepTimer) window.clearInterval(filterSweepTimer);
         filterSweepTimer = undefined;
@@ -1840,7 +1840,7 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
           filter.frequency.cancelScheduledValues(context.currentTime);
           filter.frequency.setTargetAtTime(selectedCutoff(), context.currentTime, 0.025);
         }
-        updateReadouts();
+        updateReadouts(true);
       });
       resetButton.addEventListener("click", () => {
         if (context) stopPlayback("Lecture arrêtée pour restaurer la référence sonore.");
@@ -1955,7 +1955,6 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
               filterControl.value = String(cutoff);
               filterValue.textContent = formatCutoff(cutoff);
               updateRangeFill(filterControl);
-              renderSpectrum();
               if (progress >= 1) {
                 window.clearInterval(filterSweepTimer);
                 filterSweepTimer = undefined;

@@ -1,5 +1,5 @@
 /*
- * Fréquences — direction industrielle rouge, version 2026-10-08.3.
+ * Fréquences — direction industrielle rouge, version 2026-10-08.9.
  * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
  * Les couleurs des données des graphiques restent définies par chaque page.
  */
@@ -13,7 +13,9 @@
   --ds-line: #42494c;
   --ds-line-strong: #596165;
   --ds-red: #ff321f;
+  --ds-red-cta: #ff0033;
   --ds-red-soft: #ff6254;
+  --ds-wave-home: #78c8d2;
   --ds-headline: #f3f1eb;
 
   /* Typography, 4px spacing scale, and shape */
@@ -391,7 +393,7 @@ body[data-design-system] .cahier-actions a {
 
 body[data-design-system] .cahier-actions .cahier-begin {
   padding: 10px 14px;
-  background: var(--ds-red);
+  background: var(--ds-red-cta);
   color: var(--ds-bg);
   text-decoration: none;
 }
@@ -577,6 +579,12 @@ body[data-design-system] :is(.article-link, details summary) {
   text-decoration-color: var(--ds-red);
 }
 
+body[data-design-system] .article-link,
+body[data-design-system] .article-link:hover,
+body[data-design-system] .article-link:focus-visible {
+  color: var(--ds-text);
+}
+
 body[data-design-system] :is(.toc, .side-card) {
   padding: 16px;
   border: 1px solid var(--ds-line);
@@ -634,9 +642,9 @@ body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
 /* Red is reserved for the primary action and selected controls. */
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
   min-height: 44px;
-  border: 1px solid var(--ds-red);
+  border: 1px solid var(--ds-red-cta);
   border-radius: var(--ds-radius-control);
-  background: var(--ds-red);
+  background: var(--ds-red-cta);
   color: var(--ds-bg);
   font-family: var(--ds-mono);
   font-size: 11px;
@@ -652,11 +660,19 @@ body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):
     box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
 }
 
-body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
-  border-color: var(--ds-red-soft);
-  background: var(--ds-red-soft);
-  box-shadow: none;
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+    border-color: var(--ds-red-soft);
+    background: var(--ds-red-soft);
+    box-shadow: none;
+    transform: translateY(-1px);
+  }
+
+  body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+    border-color: var(--ds-red-soft);
+    color: var(--ds-red-soft);
+    box-shadow: none;
+  }
 }
 
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
@@ -664,7 +680,7 @@ body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):
 }
 
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
-  border-color: var(--ds-red);
+  border-color: var(--ds-red-cta);
   background: transparent;
   color: var(--ds-red-soft);
   box-shadow: inset 0 -2px var(--ds-red);
@@ -680,12 +696,6 @@ body[data-design-system] .action-button.secondary {
   border-radius: var(--ds-radius-control);
   background: transparent;
   color: var(--ds-text);
-}
-
-body[data-design-system] .action-button.secondary:hover:not(:disabled) {
-  border-color: var(--ds-red-soft);
-  color: var(--ds-red-soft);
-  box-shadow: none;
 }
 
 /* Instrument choices keep their own chart colors; only selection chrome is unified. */
@@ -862,6 +872,16 @@ body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
 
 body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
   display: none;
+}
+
+/* Le signal de référence de l’accueil prend un accent froid distinct du rouge. */
+body[data-design-system] .cover-figure .waveform .trace {
+  stroke: var(--ds-wave-home);
+}
+
+body[data-design-system] .cover-figure .waveform .halo {
+  display: block;
+  stroke: rgba(120, 200, 210, .23);
 }
 
 body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {

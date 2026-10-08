@@ -25,7 +25,7 @@
     .wordmark { display:inline-flex; align-items:center; gap:10px; color:var(--ink); font:700 24px/1 var(--display); letter-spacing:-.065em; text-decoration:none; }
     .wordmark-symbol { width:36px; height:36px; display:grid; place-items:center; background:var(--red); }
     .wordmark-symbol svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; }
-    .wordmark em { color:var(--yellow); font-style:normal; }
+    .wordmark em { color: var(--red-soft); font-style:normal; }
     .nav { display:flex; align-items:center; gap:clamp(15px,3vw,34px); }
     .nav a { min-height:44px; display:inline-flex; align-items:center; color:var(--muted); font-size:14px; text-decoration:none; }
     .nav a:hover,.nav a[aria-current="page"] { color:var(--ink); }
@@ -36,7 +36,7 @@
     .eyebrow,.micro-label { color:var(--teal); font:10px var(--mono); letter-spacing:.08em; text-transform:uppercase; }
     .eyebrow { margin-bottom:19px; }
     h1,h2,h3,p { margin-top:0; }
-    h1 { max-width:780px; margin-bottom:21px; color:var(--yellow); font:500 clamp(55px,9.4vw,112px)/.9 var(--display); letter-spacing:-.078em; }
+    h1 { max-width:780px; margin-bottom:21px; color: var(--red-soft); font:500 clamp(55px,9.4vw,112px)/.9 var(--display); letter-spacing:-.078em; }
     .deck { max-width:650px; margin:0; color:var(--muted); font-size:clamp(17px,2vw,21px); line-height:1.55; }
     .hero-note { padding:15px 0 3px 17px; border-left:1px solid var(--teal); }
     .hero-note strong { display:block; margin:8px 0; color:var(--ink); font:500 22px var(--display); }
@@ -71,7 +71,7 @@
     .empty { display:none; padding:38px 0; color:var(--muted); text-align:center; }
     .empty strong { display:block; margin-bottom:6px; color:var(--ink); font:500 22px var(--display); }
     .closing { display:grid; grid-template-columns:1fr auto; align-items:end; gap:28px; margin-top:70px; padding:30px 0 0; border-top:1px solid var(--ink); }
-    .closing h2 { margin-bottom:10px; color:var(--yellow); font:500 clamp(30px,5vw,48px)/1 var(--display); letter-spacing:-.06em; }
+    .closing h2 { margin-bottom:10px; color: var(--red-soft); font:500 clamp(30px,5vw,48px)/1 var(--display); letter-spacing:-.06em; }
     .closing p { max-width:650px; margin:0; color:var(--muted); }
     .closing a { color:var(--teal); font:11px var(--mono); text-underline-offset:4px; }
     footer { border-top:1px solid var(--rule); }
@@ -82,9 +82,9 @@
     @media (max-width:600px) { .page { width:calc(100% - 36px); } .masthead-inner { min-height:68px; } .wordmark { gap:8px; font-size:20px; } .wordmark-symbol { width:32px; height:32px; } .wordmark-symbol svg { width:20px; height:20px; } .nav { gap:10px; } .nav a { font-size:11px; } .issue-tag { display:none; } .hero { padding:48px 0 34px; } h1 { font-size:clamp(51px,14vw,77px); } .hero-note { padding-left:13px; } .tool-top { align-items:flex-end; } .tool-top h2 { font-size:21px; } .filters { gap:6px; } .filter { min-height:38px; padding-inline:9px; font-size:9px; } .terms { grid-template-columns:1fr; } .term { padding:19px 0 22px; } .term h3 { font-size:25px; } .closing { grid-template-columns:1fr; gap:15px; margin-top:48px; } .footer-inner { min-height:66px; align-items:start; flex-direction:column; justify-content:center; padding:13px 0; } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition-duration:.01ms!important; } .filter:hover { transform:none; } }
   </style>
-  <style id="frequences-design-system" data-version="2026-10-08.3">
+  <style id="frequences-design-system" data-version="2026-10-08.9">
 /*
- * Fréquences — direction industrielle rouge, version 2026-10-08.3.
+ * Fréquences — direction industrielle rouge, version 2026-10-08.9.
  * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
  * Les couleurs des données des graphiques restent définies par chaque page.
  */
@@ -98,7 +98,9 @@
   --ds-line: #42494c;
   --ds-line-strong: #596165;
   --ds-red: #ff321f;
+  --ds-red-cta: #ff0033;
   --ds-red-soft: #ff6254;
+  --ds-wave-home: #78c8d2;
   --ds-headline: #f3f1eb;
 
   /* Typography, 4px spacing scale, and shape */
@@ -476,7 +478,7 @@ body[data-design-system] .cahier-actions a {
 
 body[data-design-system] .cahier-actions .cahier-begin {
   padding: 10px 14px;
-  background: var(--ds-red);
+  background: var(--ds-red-cta);
   color: var(--ds-bg);
   text-decoration: none;
 }
@@ -662,6 +664,12 @@ body[data-design-system] :is(.article-link, details summary) {
   text-decoration-color: var(--ds-red);
 }
 
+body[data-design-system] .article-link,
+body[data-design-system] .article-link:hover,
+body[data-design-system] .article-link:focus-visible {
+  color: var(--ds-text);
+}
+
 body[data-design-system] :is(.toc, .side-card) {
   padding: 16px;
   border: 1px solid var(--ds-line);
@@ -719,9 +727,9 @@ body[data-design-system] :is(.lab-head, .lab-heading, .lab-top) h3 {
 /* Red is reserved for the primary action and selected controls. */
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary) {
   min-height: 44px;
-  border: 1px solid var(--ds-red);
+  border: 1px solid var(--ds-red-cta);
   border-radius: var(--ds-radius-control);
-  background: var(--ds-red);
+  background: var(--ds-red-cta);
   color: var(--ds-bg);
   font-family: var(--ds-mono);
   font-size: 11px;
@@ -737,11 +745,19 @@ body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):
     box-shadow var(--ds-duration-fast) var(--ds-ease-standard);
 }
 
-body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
-  border-color: var(--ds-red-soft);
-  background: var(--ds-red-soft);
-  box-shadow: none;
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):hover:not(:disabled) {
+    border-color: var(--ds-red-soft);
+    background: var(--ds-red-soft);
+    box-shadow: none;
+    transform: translateY(-1px);
+  }
+
+  body[data-design-system] .action-button.secondary:hover:not(:disabled) {
+    border-color: var(--ds-red-soft);
+    color: var(--ds-red-soft);
+    box-shadow: none;
+  }
 }
 
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):not(.secondary):active:not(:disabled) {
@@ -749,7 +765,7 @@ body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen):
 }
 
 body[data-design-system] :is(.action-button, .sound-button, .osc-play, .listen)[aria-pressed="true"]:not(.secondary) {
-  border-color: var(--ds-red);
+  border-color: var(--ds-red-cta);
   background: transparent;
   color: var(--ds-red-soft);
   box-shadow: inset 0 -2px var(--ds-red);
@@ -765,12 +781,6 @@ body[data-design-system] .action-button.secondary {
   border-radius: var(--ds-radius-control);
   background: transparent;
   color: var(--ds-text);
-}
-
-body[data-design-system] .action-button.secondary:hover:not(:disabled) {
-  border-color: var(--ds-red-soft);
-  color: var(--ds-red-soft);
-  box-shadow: none;
 }
 
 /* Instrument choices keep their own chart colors; only selection chrome is unified. */
@@ -947,6 +957,16 @@ body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
 
 body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
   display: none;
+}
+
+/* Le signal de référence de l’accueil prend un accent froid distinct du rouge. */
+body[data-design-system] .cover-figure .waveform .trace {
+  stroke: var(--ds-wave-home);
+}
+
+body[data-design-system] .cover-figure .waveform .halo {
+  display: block;
+  stroke: rgba(120, 200, 210, .23);
 }
 
 body[data-design-system] :is(.cutoff-marker, .automation-head, .spectrum-cutoff) {

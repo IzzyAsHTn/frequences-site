@@ -40,7 +40,7 @@
       marker.attr("x1", x(safe)).attr("x2", x(safe))
         .attr("y1", geometry.top).attr("y2", geometry.bottom);
     }
-    function render() {
+    function render(duration = 0) {
       if (!state || destroyed) return;
       const width = Math.round(element.getBoundingClientRect().width || 600);
       const compact = width < 480;
@@ -66,8 +66,14 @@
         .attr("class", "chart-vertical").attr("x1", value => x(value)).attr("x2", value => x(value))
         .attr("y1", geometry.top).attr("y2", geometry.bottom);
       const path = d3.line().x(item => x(item.x)).y(item => y(item.y))(state.data);
-      curve.attr("d", path);
-      if (glow) glow.attr("d", path);
+      const animate = duration > 0 && !(motion && motion.matches);
+      if (animate) {
+        curve.interrupt().transition().duration(duration).attr("d", path);
+        if (glow) glow.interrupt().transition().duration(duration).attr("d", path);
+      } else {
+        curve.interrupt().attr("d", path);
+        if (glow) glow.interrupt().attr("d", path);
+      }
       if (points) points.selectAll("circle").data(state.data, item => item.x).join("circle")
         .attr("class", "automation-point").attr("cx", item => x(item.x)).attr("cy", item => y(item.y)).attr("r", 3.5);
       if (state.marker !== undefined) moveHead(state.marker);
@@ -90,11 +96,11 @@
       if (frame !== null) root.cancelAnimationFrame(frame);
     }
     return {
-      update(data, domain, markerValue, description) {
+      update(data, domain, markerValue, description, duration = 0) {
         if (!data.length || destroyed) return;
         state = { data, domain, marker: markerValue };
         if (description) svg.attr("aria-label", description);
-        render();
+        render(duration);
       },
       x: value => x ? x(value) : 0,
       moveDot, moveHead, destroy,
