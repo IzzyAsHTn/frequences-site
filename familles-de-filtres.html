@@ -1448,8 +1448,8 @@ body[data-design-system] :is(.filter-slider, .mod-slider, .cc-slider, .env-contr
         soundButton.innerHTML = "<span aria-hidden=\"true\">▶</span> Écouter";
         status.textContent = "Écoute inactive.";
       }
-      cutoffSlider.addEventListener("input", updateFilter);
-      resonanceSlider.addEventListener("input", updateFilter);
+      cutoffSlider.addEventListener("input", () => updateFilter());
+      resonanceSlider.addEventListener("input", () => updateFilter());
       typeButtons.forEach((button) => button.addEventListener("click", () => setType(button.dataset.type)));
       soundButton.addEventListener("click", () => soundButton.getAttribute("aria-pressed") === "true" ? stopSound() : startSound());
       window.addEventListener("pagehide", () => { if (audioContext) audioContext.close().catch(() => {}); });
