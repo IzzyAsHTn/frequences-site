@@ -82,11 +82,11 @@
     @media (max-width:600px) { .page { width:calc(100% - 36px); } .masthead-inner { min-height:68px; } .wordmark { gap:8px; font-size:20px; } .wordmark-symbol { width:32px; height:32px; } .wordmark-symbol svg { width:20px; height:20px; } .nav { gap:10px; } .nav a { font-size:11px; } .issue-tag { display:none; } .hero { padding:48px 0 34px; } h1 { font-size:clamp(51px,14vw,77px); } .hero-note { padding-left:13px; } .tool-top { align-items:flex-end; } .tool-top h2 { font-size:21px; } .filters { gap:6px; } .filter { min-height:38px; padding-inline:9px; font-size:9px; } .terms { grid-template-columns:1fr; } .term { padding:19px 0 22px; } .term h3 { font-size:25px; } .closing { grid-template-columns:1fr; gap:15px; margin-top:48px; } .footer-inner { min-height:66px; align-items:start; flex-direction:column; justify-content:center; padding:13px 0; } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition-duration:.01ms!important; } .filter:hover { transform:none; } }
   </style>
-  <style id="frequences-design-system" data-version="2026-10-08.9">
+  <style id="frequences-design-system" data-version="2026-10-08.10">
 /*
  * Fréquences — direction industrielle rouge, version 2026-10-08.9.
  * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
- * Les couleurs des données des graphiques restent définies par chaque page.
+ * Les couleurs des données analytiques restent définies par chaque page.
  */
 :root {
   /* Color roles */
@@ -953,6 +953,17 @@ body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
   filter: none;
+}
+
+/* Les tracés de signaux et de cycles reprennent l’accent turquoise de l’accueil. */
+body[data-design-system] :is(.lfo-line, .osc-wave-line, .sample-wave, .sample-step,
+  .waveform .trace) {
+  stroke: var(--ds-wave-home);
+}
+
+body[data-design-system] .article-wave,
+body[data-design-system] .article-row:hover .article-wave {
+  color: var(--ds-wave-home);
 }
 
 body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {

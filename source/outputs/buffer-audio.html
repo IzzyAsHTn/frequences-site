@@ -125,11 +125,11 @@
       @media (max-width: 370px) { .page { width: calc(100% - 28px); } .wordmark { font-size: 17px; } .nav { gap: 7px; } .nav a { font-size: 10px; } .route { padding: 18px; } .route-list span { font-size: 11px; } .buffer-options { grid-template-columns: repeat(2, minmax(0,1fr)); } }
       @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition-duration: .01ms !important; } .buffer-option:hover { transform: none; } }
     </style>
-  <style id="frequences-design-system" data-version="2026-10-08.9">
+  <style id="frequences-design-system" data-version="2026-10-08.10">
 /*
  * Fréquences — direction industrielle rouge, version 2026-10-08.9.
  * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
- * Les couleurs des données des graphiques restent définies par chaque page.
+ * Les couleurs des données analytiques restent définies par chaque page.
  */
 :root {
   /* Color roles */
@@ -996,6 +996,17 @@ body[data-design-system] :is(.response-curve, .envelope-line, .lfo-line,
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
   filter: none;
+}
+
+/* Les tracés de signaux et de cycles reprennent l’accent turquoise de l’accueil. */
+body[data-design-system] :is(.lfo-line, .osc-wave-line, .sample-wave, .sample-step,
+  .waveform .trace) {
+  stroke: var(--ds-wave-home);
+}
+
+body[data-design-system] .article-wave,
+body[data-design-system] .article-row:hover .article-wave {
+  color: var(--ds-wave-home);
 }
 
 body[data-design-system] :is(.response-glow, .envelope-glow, .waveform .halo) {
