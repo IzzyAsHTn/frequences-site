@@ -722,8 +722,18 @@ body[data-design-system] :is(.route-note, .control-explain, .routing-readout, .t
 
 /* Keep all range controls keyboard and touch friendly; retain each page's value encoding. */
 body[data-design-system] input[type="range"] {
+  height: 44px;
+  min-height: 44px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 9px;
   accent-color: var(--ds-red);
   touch-action: pan-y;
+}
+
+/* La cible tactile est haute, tandis que la piste personnalisée reste fine. */
+body[data-design-system] .filter-type {
+  min-height: 44px;
 }
 
 button:disabled,
