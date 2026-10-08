@@ -155,12 +155,12 @@
       .stage-fact span, .filter-kind span, .envelope-target span, .modulation-kind span { display: block; color: var(--muted); font-size: 12px; line-height: 1.45; }
       .story-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(35px, 8vw, 110px); row-gap: 35px; margin-top: 39px; }
       .story-columns section { max-width: 62ch; }
-      .story-number { width: fit-content; display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid rgba(231,101,36,.48); background: rgba(231,101,36,.11); color: var(--wave-flame); font: 11px var(--mono); letter-spacing: .06em; }
-      .story-number::before { width: 5px; height: 5px; flex: 0 0 auto; border-radius: 50%; background: var(--wave-flame); box-shadow: 0 0 9px rgba(231,101,36,.55); content: ""; }
+      .story-number { width: fit-content; display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border: 1px solid rgba(255,98,84,.48); background: rgba(255,98,84,.11); color: var(--red-soft); font: 11px var(--mono); letter-spacing: .06em; }
+      .story-number::before { width: 5px; height: 5px; flex: 0 0 auto; border-radius: 50%; background: var(--red-soft); box-shadow: 0 0 9px rgba(255,98,84,.55); content: ""; }
       .source-links span { color: var(--violet-dark); font: 12px var(--mono); letter-spacing: .035em; }
       .story-columns h3 { margin: 10px 0 12px; color: var(--yellow); font: 500 clamp(26px, 2.8vw, 35px)/1.08 var(--display); letter-spacing: -.055em; }
       .story-columns p, .article-body p { margin: 0 0 13px; color: var(--muted); font-size: 16px; line-height: 1.7; }
-      .story-takeaway { max-width: 850px; margin: 37px 0 18px; padding: 17px 21px; border-left: 3px solid var(--yellow); background: var(--paper-shadow); color: var(--ink); font-size: 16px; line-height: 1.6; }
+      .story-takeaway { max-width: 850px; margin: 37px 0 18px; padding: 17px 21px; border-left: 3px solid var(--red-soft); background: var(--paper-shadow); color: var(--ink); font-size: 16px; line-height: 1.6; }
       .story-takeaway strong { color: var(--violet-dark); }
       .source-links { margin: 14px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
       .source-links span { margin-right: 8px; }
@@ -300,9 +300,9 @@
         .cover-figure:hover .trace { filter: none; }
       }
     </style>
-  <style id="frequences-design-system" data-version="2026-10-06.13">
+  <style id="frequences-design-system" data-version="2026-10-08.1">
 /*
- * Fréquences — direction industrielle rouge, version 2026-10-06.3.
+ * Fréquences — direction industrielle rouge, version 2026-10-08.1.
  * Source commune intégrée dans les HTML par scripts/sync_design_system.py.
  * Les couleurs des données des graphiques restent définies par chaque page.
  */
@@ -317,7 +317,7 @@
   --ds-line-strong: #596165;
   --ds-red: #ff321f;
   --ds-red-soft: #ff6254;
-  --ds-headline: #f3f1eb;
+  --ds-headline: #ff6254;
 
   /* Typography, 4px spacing scale, and shape */
   --ds-display: Arial, Helvetica, sans-serif;
