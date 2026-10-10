@@ -7,7 +7,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
-VERSION = "2026-10-08.12"
+VERSION = "2026-10-10.13"
 PAGES = (
     "buffer-audio.html",
     "controleur-devient-instrument.html",
@@ -28,6 +28,10 @@ PAGES = (
     "modulations.html",
     "oscillateur.html",
     "reperes.html",
+    "sampling-instrumental.html",
+    "decouper-un-echantillon.html",
+    "transposer-un-echantillon.html",
+    "velocite-zones-echantillons.html",
 )
 
 

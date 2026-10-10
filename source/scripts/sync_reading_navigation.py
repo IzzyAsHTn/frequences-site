@@ -38,7 +38,7 @@ def main():
                 next_book = BOOKS[book_index+1]
                 following = link(next_book['notes'][0], f'Cahier suivant · {next_book["name"]} →', 'reading-path-next')
             else:
-                following = link({'file': 'index.html#cahiers', 'title': 'Retrouver les deux parcours'}, 'Fin du cahier', 'reading-path-next')
+                following = link({'file': 'index.html#cahiers', 'title': 'Retrouver les cahiers'}, 'Fin du cahier', 'reading-path-next')
             nav = (f'<nav class="reading-path" aria-label="Parcours de lecture : {book_label}">'
                    f'<p class="reading-path-position">{book_label} · Note {number:02d} sur {len(notes):02d}</p>'
                    f'<div class="reading-path-links">{previous}{following}'
@@ -52,7 +52,7 @@ def main():
                 lambda _: nav, source, flags=re.S)
             if count != 1: raise ValueError(f'Navigation de lecture inattendue : {path.name}')
             source, count = re.subn(
-                r'<a href="index.html#(?:lectures|cahier-02)">(?:La revue|Sommaire)</a>',
+                r'<a href="index.html#(?:lectures|cahier-02|cahier-03)">(?:La revue|Sommaire)</a>',
                 lambda _: f'<a href="{index_href}">Sommaire</a>', source)
             if count != 1: raise ValueError(f'Lien du sommaire inattendu : {path.name}')
             prepared.append((path, source))

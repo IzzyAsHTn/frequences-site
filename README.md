@@ -4,7 +4,7 @@ Magazine pédagogique francophone consacré à la musique, à l’informatique m
 
 ## Aperçu
 
-Les pages HTML prêtes à servir sont à la racine du dépôt, avec `index.html` comme page d’accueil. Les 19 pages distribuées comprennent les deux cahiers et leurs modules interactifs. La feuille commune `frequences-design-system.css`, également à la racine, est nécessaire au rendu graphique et peut être réutilisée en cache entre les pages.
+Les pages HTML prêtes à servir sont à la racine du dépôt, avec `index.html` comme page d’accueil. Les 23 pages distribuées comprennent trois cahiers et leurs modules interactifs. La feuille commune `frequences-design-system.css`, également à la racine, est nécessaire au rendu graphique et peut être réutilisée en cache entre les pages.
 
 ## Sources
 

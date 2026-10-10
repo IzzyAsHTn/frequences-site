@@ -76,5 +76,28 @@
         "title": "Le geste continue après l’attaque"
       }
     ]
+  },
+  {
+    "number": 3,
+    "name": "Sampling",
+    "anchor": "cahier-03",
+    "notes": [
+      {
+        "file": "sampling-instrumental.html",
+        "title": "Du son capté à l’instrument"
+      },
+      {
+        "file": "decouper-un-echantillon.html",
+        "title": "Découper sans cliquer"
+      },
+      {
+        "file": "transposer-un-echantillon.html",
+        "title": "Transposer sans perdre le fil"
+      },
+      {
+        "file": "velocite-zones-echantillons.html",
+        "title": "Un geste, plusieurs couches"
+      }
+    ]
   }
 ]

@@ -27,6 +27,10 @@ PUBLISHED_PAGES = (
     "modulations.html",
     "oscillateur.html",
     "reperes.html",
+    "sampling-instrumental.html",
+    "decouper-un-echantillon.html",
+    "transposer-un-echantillon.html",
+    "velocite-zones-echantillons.html",
 )
 SHARED_OUTPUT_FILES = ("UAD2.jpg", "frequences-design-system.css")
 
