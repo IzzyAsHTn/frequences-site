@@ -16,9 +16,11 @@
       if (!active) return;
       const voice = active;
       active = null;
-      voice.source.onended = null;
-      try { voice.source.stop(); } catch { /* Une source déjà terminée est silencieuse. */ }
-      disconnect(voice);
+      const now = context.currentTime;
+      voice.source.onended = () => disconnect(voice);
+      voice.gain.gain.cancelScheduledValues(now);
+      voice.gain.gain.setTargetAtTime(0, now, 0.002);
+      try { voice.source.stop(now + 0.012); } catch { disconnect(voice); }
     }
 
     function silence() {
@@ -45,6 +47,10 @@
           disconnect(voice);
           if (active === voice) active = null;
         };
+        const now = context.currentTime;
+        const targetGain = voice.gain.gain.value;
+        voice.gain.gain.setValueAtTime(0, now);
+        voice.gain.gain.linearRampToValueAtTime(targetGain, now + 0.008);
         voice.source.start(...(voice.start || []));
       } catch (error) {
         if (request === generation) silence();

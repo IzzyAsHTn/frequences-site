@@ -165,10 +165,11 @@
       oscillator.type='sine'; oscillator.frequency.value=mode==='bend'?pitchInfo().frequency:220;
       filterNode.type='lowpass'; filterNode.frequency.value=10000;
       if(mode==='pressure'&&pressureTarget.value==='filter')filterNode.frequency.value=250*Math.pow(36,Number(pressureValue.value)/127);
-      if(mode==='pressure'&&pressureTarget.value==='volume')gain.gain.value=.018+Number(pressureValue.value)/127*.075;
-      else gain.gain.value=.0001;
-      oscillator.connect(filterNode); filterNode.connect(gain); gain.connect(audioContext.destination); oscillator.start();
-      gain.gain.setTargetAtTime(.045,audioContext.currentTime,.025);
+      const now=audioContext.currentTime;
+      const initialLevel=mode==='pressure'&&pressureTarget.value==='volume'?.018+Number(pressureValue.value)/127*.075:.045;
+      gain.gain.setValueAtTime(0,now);
+      gain.gain.linearRampToValueAtTime(initialLevel,now+.008);
+      oscillator.connect(filterNode); filterNode.connect(gain); gain.connect(audioContext.destination); oscillator.start(now);
       if(mode==='bend'){bendPlay.setAttribute('aria-pressed','true');bendPlay.textContent='Arrêter la note';bendAudioStatus.textContent='Note de référence en cours ; déplace le curseur pour entendre le Pitch Bend.';}
       if(mode==='sustain'){sustainKeyDown=true;sustainStart.disabled=true;sustainRelease.disabled=false;sustainReset.disabled=false;sustainKeyState.textContent='Touche enfoncée · Note On en cours.';sustainAudioStatus.textContent='Note tenue. Appuie sur Note Off pour comparer la pédale levée ou enfoncée.';}
       if(mode==='pressure'){pressurePlay.setAttribute('aria-pressed','true');pressurePlay.textContent='Arrêter la note';pressureAudioStatus.textContent='Note de référence en cours ; change la pression pour entendre sa réponse.';updatePressure();}
