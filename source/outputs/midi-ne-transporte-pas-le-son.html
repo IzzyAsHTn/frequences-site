@@ -137,7 +137,7 @@
         oscillator.frequency.setValueAtTime(261.63, now);
         const velocityGain = 0.018 + (Number(velocity.value) / 127) * 0.09;
         gainNode.gain.setValueAtTime(0, now);
-        gainNode.gain.linearRampToValueAtTime(soundEnabled.checked ? velocityGain : 0, now + 0.018);
+        gainNode.gain.linearRampToValueAtTime(soundEnabled.checked ? velocityGain : 0, now + 0.025);
         oscillator.connect(gainNode).connect(audioContext.destination);
         oscillator.start(now);
         return true;

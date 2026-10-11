@@ -50,8 +50,8 @@
         const now = context.currentTime;
         const targetGain = voice.gain.gain.value;
         voice.gain.gain.setValueAtTime(0, now);
-        voice.gain.gain.linearRampToValueAtTime(targetGain, now + 0.008);
-        voice.source.start(...(voice.start || []));
+        voice.gain.gain.linearRampToValueAtTime(targetGain, now + 0.025);
+        voice.source.start(now, ...(voice.start ? voice.start.slice(1) : []));
       } catch (error) {
         if (request === generation) silence();
         console.error('Échec de lecture dans l’atelier Sampling.', error);

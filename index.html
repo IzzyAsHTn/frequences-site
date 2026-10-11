@@ -643,7 +643,7 @@
           analyser.fftSize = 512;
           analyser.smoothingTimeConstant = 0.42;
           timeSamples = new Uint8Array(analyser.fftSize);
-          gain.gain.setValueAtTime(0.0001, context.currentTime);
+          gain.gain.setValueAtTime(0, context.currentTime);
           if (currentStage === "envelope") {
             gain.gain.linearRampToValueAtTime(0.035, context.currentTime + 0.75);
             gain.gain.exponentialRampToValueAtTime(0.012, context.currentTime + 1.1);
