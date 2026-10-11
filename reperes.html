@@ -1,87 +1,14 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-style-groups="g6 g10 g12 g13 g14 g15 g26">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0e1012">
   <meta name="description" content="Un lexique vivant de la synthèse, des filtres, des enveloppes, de la modulation et de la MAO, expliqué simplement par Fréquences."><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="canonical" href="https://izzyashtn.github.io/frequences-site/reperes.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Fréquences"><meta property="og:locale" content="fr_FR"><meta property="og:title" content="Repères — Fréquences"><meta property="og:description" content="Un lexique vivant de la synthèse, des filtres, des enveloppes, de la modulation et de la MAO, expliqué simplement par Fréquences."><meta property="og:url" content="https://izzyashtn.github.io/frequences-site/reperes.html"><meta name="twitter:card" content="summary">
   <title>Repères — Fréquences</title>
-  <style>
-    :root { color-scheme:dark; --paper:#0e1012; --ink:#f3f1eb; --muted:#aab1b2; --rule:#343b3e; --red:#ff321f; --red-soft:#ff6254; --teal:#b8c66b; --yellow:#d9a83b; --panel:#172333; --display:"Space Grotesk","Arial Nova","Segoe UI",sans-serif; --sans:"DM Sans","Arial Nova","Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { position:relative; isolation:isolate; margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 var(--sans); }
-    body::before { position:fixed; z-index:-1; inset:0; background:linear-gradient(180deg,rgba(14,16,18,.9),rgba(14,16,18,.96)),url("UAD2.jpg") center 38%/cover no-repeat; content:""; pointer-events:none; }
-    a { color:inherit; }
-    button,input { font:inherit; }
-    :focus-visible { outline:3px solid var(--red-soft); outline-offset:4px; }
-    ::selection { background:var(--red); color:white; }
-    .page { width:min(1120px,calc(100% - 64px)); margin-inline:auto; }
-    .masthead { border-bottom:1px solid var(--rule); }
-    .masthead-inner { min-height:78px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .wordmark { display:inline-flex; align-items:center; gap:10px; color:var(--ink); font:700 24px/1 var(--display); letter-spacing:-.065em; text-decoration:none; }
-    .wordmark-symbol { width:36px; height:36px; display:grid; place-items:center; background:var(--red); }
-    .wordmark-symbol svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; }
-    .wordmark em { color: var(--red-soft); font-style:normal; }
-    .nav { display:flex; align-items:center; gap:clamp(15px,3vw,34px); }
-    .nav a { min-height:44px; display:inline-flex; align-items:center; color:var(--muted); font-size:14px; text-decoration:none; }
-    .nav a:hover,.nav a[aria-current="page"] { color:var(--ink); }
-    .nav a[aria-current="page"] { box-shadow:inset 0 -2px var(--red); }
-    .issue-tag { color:var(--muted); font:12px var(--mono); white-space:nowrap; }
-    main { padding-bottom:76px; }
-    .hero { display:grid; grid-template-columns:minmax(0,1fr) 245px; align-items:end; gap:44px; padding:clamp(54px,9vw,108px) 0 52px; border-bottom:1px solid var(--rule); }
-    .eyebrow,.micro-label { color:var(--teal); font:10px var(--mono); letter-spacing:.08em; text-transform:uppercase; }
-    .eyebrow { margin-bottom:19px; }
-    h1,h2,h3,p { margin-top:0; }
-    h1 { max-width:780px; margin-bottom:21px; color: var(--red-soft); font:500 clamp(55px,9.4vw,112px)/.9 var(--display); letter-spacing:-.078em; }
-    .deck { max-width:650px; margin:0; color:var(--muted); font-size:clamp(17px,2vw,21px); line-height:1.55; }
-    .hero-note { padding:15px 0 3px 17px; border-left:1px solid var(--teal); }
-    .hero-note strong { display:block; margin:8px 0; color:var(--ink); font:500 22px var(--display); }
-    .hero-note p { margin:0; color:var(--muted); font-size:13px; }
-    .index-tools { padding:29px 0 22px; }
-    .tool-top { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:19px; }
-    .tool-top h2 { margin:0; color:var(--ink); font:500 24px var(--display); letter-spacing:-.04em; }
-    .result-count { color:var(--teal); font:11px var(--mono); }
-    .search-wrap { position:relative; display:block; margin-bottom:17px; }
-    .search-wrap > span:first-child { position:absolute; top:50%; left:14px; color:var(--teal); font:14px var(--mono); transform:translateY(-50%); pointer-events:none; }
-    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-    .search { width:100%; min-height:50px; padding:0 16px 0 42px; border:1px solid rgba(243,241,235,.22); border-radius:0; background:rgba(255,255,255,.035); color:var(--ink); }
-    .search::placeholder { color:#879092; }
-    .search:focus { border-color:var(--teal); outline:0; box-shadow:0 0 0 3px rgba(184,198,107,.12); }
-    .filters { display:flex; flex-wrap:wrap; gap:8px; }
-    .filter { min-height:39px; padding:0 12px; border:1px solid rgba(243,241,235,.18); background:rgba(255,255,255,.025); color:var(--muted); font:10px var(--mono); cursor:pointer; transition:color 150ms ease,border-color 150ms ease,background 150ms ease,transform 150ms ease; }
-    .filter:hover { color:var(--ink); border-color:var(--yellow); transform:translateY(-1px); }
-    .filter[aria-pressed="true"] { border-color:var(--teal); background:rgba(184,198,107,.12); color:var(--ink); box-shadow:inset 0 -2px var(--teal); }
-    .terms { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:clamp(24px,5vw,64px); border-top:1px solid var(--rule); }
-    .term { min-width:0; padding:24px 0 27px; border-bottom:1px solid var(--rule); animation:enter 350ms both; }
-    @keyframes enter { from { opacity:0; transform:translateY(5px); } to { opacity:1; transform:translateY(0); } }
-    .term-top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:9px; }
-    .term-index { color:var(--red-soft); font:10px var(--mono); }
-    .term-category { color:var(--teal); font:9px var(--mono); letter-spacing:.04em; text-transform:uppercase; text-align:right; }
-    .term h3 { margin:0 0 8px; color:var(--ink); font:500 clamp(21px,2.7vw,28px)/1.12 var(--display); letter-spacing:-.045em; }
-    .term p { max-width:58ch; margin:0; color:var(--muted); font-size:14px; line-height:1.65; }
-    .term strong { color:var(--ink); font-weight:600; }
-    .term[hidden] { display:none; }
-    .term-foot a { color:var(--teal); text-decoration-thickness:1px; text-underline-offset:3px; }
-    .term-foot { display:flex; gap:8px; margin-top:13px; color:#899193; font:9px var(--mono); }
-    .term-foot span { padding:4px 7px; border:1px solid rgba(243,241,235,.12); }
-    .empty { display:none; padding:38px 0; color:var(--muted); text-align:center; }
-    .empty strong { display:block; margin-bottom:6px; color:var(--ink); font:500 22px var(--display); }
-    .closing { display:grid; grid-template-columns:1fr auto; align-items:end; gap:28px; margin-top:70px; padding:30px 0 0; border-top:1px solid var(--ink); }
-    .closing h2 { margin-bottom:10px; color: var(--red-soft); font:500 clamp(30px,5vw,48px)/1 var(--display); letter-spacing:-.06em; }
-    .closing p { max-width:650px; margin:0; color:var(--muted); }
-    .closing a { color:var(--teal); font:11px var(--mono); text-underline-offset:4px; }
-    footer { border-top:1px solid var(--rule); }
-    .footer-inner { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:20px; color:var(--muted); font-size:12px; }
-    .footer-inner p { margin:0; }
-    .footer-inner a { text-decoration:none; }
-    @media (max-width:760px) { .hero { grid-template-columns:1fr; gap:28px; } .hero-note { max-width:420px; } }
-    @media (max-width:600px) { .page { width:calc(100% - 36px); } .masthead-inner { min-height:68px; } .wordmark { gap:8px; font-size:20px; } .wordmark-symbol { width:32px; height:32px; } .wordmark-symbol svg { width:20px; height:20px; } .nav { gap:10px; } .nav a { font-size:11px; } .issue-tag { display:none; } .hero { padding:48px 0 34px; } h1 { font-size:clamp(51px,14vw,77px); } .hero-note { padding-left:13px; } .tool-top { align-items:flex-end; } .tool-top h2 { font-size:21px; } .filters { gap:6px; } .filter { min-height:38px; padding-inline:9px; font-size:9px; } .terms { grid-template-columns:1fr; } .term { padding:19px 0 22px; } .term h3 { font-size:25px; } .closing { grid-template-columns:1fr; gap:15px; margin-top:48px; } .footer-inner { min-height:66px; align-items:start; flex-direction:column; justify-content:center; padding:13px 0; } }
-    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition-duration:.01ms!important; } .filter:hover { transform:none; } }
-  </style>
-  <link id="frequences-design-system" rel="stylesheet" href="frequences-design-system.css?v=704bc45c1685">
+  <link id="frequences-design-system" rel="stylesheet" href="frequences-design-system.css?v=4b45905921e2">
 </head>
-<body data-design-system="red-industrial">
+<body data-design-system="red-industrial"><a class="skip-link" href="#contenu">Aller au contenu</a>
   <header class="masthead">
     <div class="page masthead-inner">
       <a class="wordmark" href="index.html#accueil" aria-label="Fréquences, accueil"><span class="wordmark-symbol"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path class="logo-rail" d="M6 4v16M12 4v16M18 4v16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="logo-slider" d="M3 8h6M9 16h6M15 11h6" fill="none" stroke="var(--ds-red)" stroke-width="3.2" stroke-linecap="round"/></svg></span><span>fréquences <em>.</em></span></a>
@@ -89,7 +16,7 @@
       <span class="issue-tag">cahier 01 / 2026</span>
     </div>
   </header>
-  <main class="page">
+  <main class="page" id="contenu" tabindex="-1">
     <section class="hero" aria-labelledby="page-title">
       <div><p class="eyebrow">LE LEXIQUE DE STUDIO · 12 NOTIONS</p><h1 id="page-title">Des mots pour entendre.</h1><p class="deck">Un petit dictionnaire de la synthèse et de la création sonore. Des explications courtes pour relier les réglages à ce qu’on entend.</p></div>
       <aside class="hero-note"><span class="micro-label">MODE D’EMPLOI</span><strong>Lis, cherche, écoute.</strong><p>Filtre par famille ou cherche un mot. Chaque définition part d’un geste ou d’un son concret.</p></aside>

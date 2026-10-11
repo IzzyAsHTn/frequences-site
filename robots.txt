@@ -1,0 +1,5 @@
+# Les robots consultent ce fichier uniquement à la racine du domaine.
+# Sur GitHub Pages /frequences-site/, soumettre le sitemap directement.
+User-agent: *
+Allow: /
+Sitemap: https://izzyashtn.github.io/frequences-site/sitemap.xml
