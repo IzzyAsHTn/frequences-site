@@ -4,11 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0e1012">
-  <meta name="description" content="Première note du cahier MIDI : comprendre pourquoi le MIDI décrit une performance sans transporter le son.">
+  <meta name="description" content="Première note du cahier MIDI : comprendre pourquoi le MIDI décrit une performance sans transporter le son."><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="canonical" href="https://izzyashtn.github.io/frequences-site/midi-ne-transporte-pas-le-son.html"><meta property="og:type" content="website"><meta property="og:site_name" content="Fréquences"><meta property="og:locale" content="fr_FR"><meta property="og:title" content="Le MIDI ne transporte pas le son — Fréquences"><meta property="og:description" content="Première note du cahier MIDI : comprendre pourquoi le MIDI décrit une performance sans transporter le son."><meta property="og:url" content="https://izzyashtn.github.io/frequences-site/midi-ne-transporte-pas-le-son.html"><meta name="twitter:card" content="summary">
   <title>Le MIDI ne transporte pas le son — Fréquences</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{color-scheme:dark;--paper:#0e1012;--paper-shadow:#191e21;--ink:#f3f1eb;--muted:#aab1b2;--rule:#343b3e;--red:#ff321f;--red-soft:#ff6254;--teal:#b8c66b;--flame:#e76524;--panel:#172333;--yellow:#d9a83b;--display:"Space Grotesk","Arial Nova","Segoe UI",sans-serif;--sans:"DM Sans","Arial Nova","Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{position:relative;isolation:isolate;margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans)}body::before{position:fixed;z-index:-1;inset:0;background:linear-gradient(180deg,rgba(14,16,18,.92),rgba(14,16,18,.97)),url("UAD2.jpg") center 38%/cover no-repeat;content:"";pointer-events:none}a{color:inherit}button,input{font:inherit}:focus-visible{outline:3px solid var(--red-soft);outline-offset:4px}::selection{background:var(--red);color:white}.page{width:min(1120px,calc(100% - 64px));margin-inline:auto}
@@ -22,7 +19,7 @@
     @media(max-width:370px){.page{width:calc(100% - 28px)}.wordmark{font-size:17px}.nav{gap:7px}.nav a{font-size:10px}.route{padding:18px}.route-list span{font-size:11px}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition-duration:.01ms!important}.action-button:hover{transform:none}}
   </style>
-  <link id="frequences-design-system" rel="stylesheet" href="frequences-design-system.css?v=2026-10-10.13">
+  <link id="frequences-design-system" rel="stylesheet" href="frequences-design-system.css?v=704bc45c1685">
 </head>
 <body data-design-system="red-industrial">
   <header class="masthead"><div class="page masthead-inner">
@@ -115,7 +112,7 @@
         velocityValue.value = `${value} / 127`;
         velocity.setAttribute('aria-valuetext', `${value} sur 127, vélocité MIDI simulée`);
         velocity.style.setProperty('--progress', `${((value - 1) / 126) * 100}%`);
-        
+
       };
       const updateEvent = (on) => {
         eventCard.dataset.active = String(on);

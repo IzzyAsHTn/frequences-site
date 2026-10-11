@@ -3,6 +3,38 @@
  * Feuille commune chargée par les pages HTML via scripts/sync_design_system.py.
  * Les couleurs des données analytiques restent définies par chaque page.
  */
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/dm-sans-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("assets/fonts/space-grotesk-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-regular-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-medium-latin.woff2") format("woff2");
+}
+
 :root {
   /* Color roles */
   --ds-bg: #0e1012;
@@ -773,8 +805,18 @@ select:disabled {
   }
 
   body[data-design-system] .nav a {
-    font-size: 10px;
+    font-size: 12px;
     min-height: 44px;
+  }
+
+  body[data-design-system] .crumb,
+  body[data-design-system] .route-list b,
+  body[data-design-system] .route-head span,
+  body[data-design-system] .kicker,
+  body[data-design-system] .section-index,
+  body[data-design-system] .lab-mark,
+  body[data-design-system] .toc-label {
+    font-size: 12px;
   }
 
   body[data-design-system] .cover {

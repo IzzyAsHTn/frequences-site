@@ -2,12 +2,12 @@
 """Référence la feuille CSS commune depuis les pages HTML de Fréquences."""
 
 from pathlib import Path
+import hashlib
 import re
 
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS = ROOT / "outputs"
-VERSION = "2026-10-10.13"
 PAGES = (
     "buffer-audio.html",
     "controleur-devient-instrument.html",
@@ -37,11 +37,12 @@ PAGES = (
 
 def main():
     css = (OUTPUTS / "frequences-design-system.css").read_text(encoding="utf-8").strip()
+    version = hashlib.sha256(css.encode("utf-8")).hexdigest()[:12]
     if "</style" in css.lower():
         raise ValueError("La source CSS ne peut pas contenir une fermeture de balise style.")
     stylesheet = (
         f'<link id="frequences-design-system" rel="stylesheet" '
-        f'href="frequences-design-system.css?v={VERSION}">'
+        f'href="frequences-design-system.css?v={version}">'
     )
     prepared = []
     for name in PAGES:
@@ -76,7 +77,7 @@ def main():
     # Chaque page est préparée avant d'écrire, pour détecter les structures inattendues.
     for path, source in prepared:
         path.write_text(source, encoding="utf-8")
-    print(f"Styles communs référencés dans {len(prepared)} pages, version {VERSION}.")
+    print(f"Styles communs référencés dans {len(prepared)} pages, empreinte {version}.")
 
 
 if __name__ == "__main__":
